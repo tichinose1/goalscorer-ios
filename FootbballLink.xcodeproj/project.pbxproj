@@ -14,6 +14,7 @@
 		772ABC9B217D024700A9D589 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 772ABC99217D024700A9D589 /* LaunchScreen.storyboard */; };
 		772ABCA5217D030300A9D589 /* Top.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 772ABCA4217D030300A9D589 /* Top.storyboard */; };
 		772ABCA7217D03C900A9D589 /* GoalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772ABCA6217D03C900A9D589 /* GoalTableViewController.swift */; };
+		7754E3C7217D0EDC005AA750 /* Goal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7754E3C6217D0EDC005AA750 /* Goal.storyboard */; };
 		77603842217D05BA005DABC3 /* TopScorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77603841217D05BA005DABC3 /* TopScorer.swift */; };
 		77603846217D07B6005DABC3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77603845217D07B6005DABC3 /* Extensions.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		772ABC9C217D024700A9D589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		772ABCA4217D030300A9D589 /* Top.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Top.storyboard; sourceTree = "<group>"; };
 		772ABCA6217D03C900A9D589 /* GoalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableViewController.swift; sourceTree = "<group>"; };
+		7754E3C6217D0EDC005AA750 /* Goal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Goal.storyboard; sourceTree = "<group>"; };
 		77603841217D05BA005DABC3 /* TopScorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScorer.swift; sourceTree = "<group>"; };
 		77603845217D07B6005DABC3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				772ABCA4217D030300A9D589 /* Top.storyboard */,
+				7754E3C6217D0EDC005AA750 /* Goal.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			files = (
 				772ABCA5217D030300A9D589 /* Top.storyboard in Resources */,
 				772ABC9B217D024700A9D589 /* LaunchScreen.storyboard in Resources */,
+				7754E3C7217D0EDC005AA750 /* Goal.storyboard in Resources */,
 				772ABC98217D024700A9D589 /* Assets.xcassets in Resources */,
 				772ABC96217D024600A9D589 /* Main.storyboard in Resources */,
 			);
