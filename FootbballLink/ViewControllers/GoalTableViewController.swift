@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FlagKit
 
 class GoalTableViewController: UITableViewController {
 
