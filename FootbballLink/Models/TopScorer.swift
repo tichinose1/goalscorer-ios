@@ -10,5 +10,6 @@ import Foundation
 
 struct TopScorer {
     let title: String
+    let regionCode: String
     let url: String
 }
