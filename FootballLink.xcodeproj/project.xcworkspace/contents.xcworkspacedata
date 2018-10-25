@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:FootbballLink.xcodeproj">
+      location = "self:/Users/tichinose1/dev/git/FootbballLink/FootballLink.xcodeproj">
    </FileRef>
 </Workspace>

@@ -21,7 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		772ABC8D217D024600A9D589 /* FootbballLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootbballLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		772ABC8D217D024600A9D589 /* FootballLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootballLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		772ABC90217D024600A9D589 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		772ABC92217D024600A9D589 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		772ABC95217D024600A9D589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 		772ABC84217D024600A9D589 = {
 			isa = PBXGroup;
 			children = (
-				772ABC8F217D024600A9D589 /* FootbballLink */,
+				772ABC8F217D024600A9D589 /* FootballLink */,
 				772ABC8E217D024600A9D589 /* Products */,
 				77F868B3217D16EF002B1132 /* Frameworks */,
 			);
@@ -60,12 +60,12 @@
 		772ABC8E217D024600A9D589 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				772ABC8D217D024600A9D589 /* FootbballLink.app */,
+				772ABC8D217D024600A9D589 /* FootballLink.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		772ABC8F217D024600A9D589 /* FootbballLink */ = {
+		772ABC8F217D024600A9D589 /* FootballLink */ = {
 			isa = PBXGroup;
 			children = (
 				77603840217D0583005DABC3 /* Models */,
@@ -78,7 +78,7 @@
 				772ABC99217D024700A9D589 /* LaunchScreen.storyboard */,
 				772ABC9C217D024700A9D589 /* Info.plist */,
 			);
-			path = FootbballLink;
+			path = FootballLink;
 			sourceTree = "<group>";
 		};
 		772ABCA2217D02E800A9D589 /* Views */ = {
@@ -118,9 +118,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		772ABC8C217D024600A9D589 /* FootbballLink */ = {
+		772ABC8C217D024600A9D589 /* FootballLink */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 772ABC9F217D024700A9D589 /* Build configuration list for PBXNativeTarget "FootbballLink" */;
+			buildConfigurationList = 772ABC9F217D024700A9D589 /* Build configuration list for PBXNativeTarget "FootballLink" */;
 			buildPhases = (
 				772ABC89217D024600A9D589 /* Sources */,
 				772ABC8A217D024600A9D589 /* Frameworks */,
@@ -131,9 +131,9 @@
 			);
 			dependencies = (
 			);
-			name = FootbballLink;
+			name = FootballLink;
 			productName = FootbballLink;
-			productReference = 772ABC8D217D024600A9D589 /* FootbballLink.app */;
+			productReference = 772ABC8D217D024600A9D589 /* FootballLink.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -151,7 +151,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 772ABC88217D024600A9D589 /* Build configuration list for PBXProject "FootbballLink" */;
+			buildConfigurationList = 772ABC88217D024600A9D589 /* Build configuration list for PBXProject "FootballLink" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -164,7 +164,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				772ABC8C217D024600A9D589 /* FootbballLink */,
+				772ABC8C217D024600A9D589 /* FootballLink */,
 			);
 		};
 /* End PBXProject section */
@@ -367,7 +367,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = FootbballLink/Info.plist;
+				INFOPLIST_FILE = FootballLink/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -389,7 +389,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = FootbballLink/Info.plist;
+				INFOPLIST_FILE = FootballLink/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -404,7 +404,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		772ABC88217D024600A9D589 /* Build configuration list for PBXProject "FootbballLink" */ = {
+		772ABC88217D024600A9D589 /* Build configuration list for PBXProject "FootballLink" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				772ABC9D217D024700A9D589 /* Debug */,
@@ -413,7 +413,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		772ABC9F217D024700A9D589 /* Build configuration list for PBXNativeTarget "FootbballLink" */ = {
+		772ABC9F217D024700A9D589 /* Build configuration list for PBXNativeTarget "FootballLink" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				772ABCA0217D024700A9D589 /* Debug */,
