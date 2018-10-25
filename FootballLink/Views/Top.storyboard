@@ -19,11 +19,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="wcq-O4-KCW" kind="relationship" relationship="viewControllers" id="y20-A8-1my"/>
+                        <segue destination="HN9-D3-WNK" kind="relationship" relationship="viewControllers" id="PW7-3W-grf"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yv5-er-Mxu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2457" y="184"/>
+            <point key="canvasLocation" x="-2313" y="-95"/>
         </scene>
         <!--Goal-->
         <scene sceneID="9DZ-Xs-S8h">
@@ -33,7 +34,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqj-HE-PaO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1730" y="-41"/>
+            <point key="canvasLocation" x="-1741" y="-165"/>
+        </scene>
+        <!--Player-->
+        <scene sceneID="9Jn-go-zZA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Player" id="HN9-D3-WNK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Player" id="Bzc-8F-wOn"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h9F-8r-cau" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1733" y="-36"/>
         </scene>
     </scenes>
 </document>

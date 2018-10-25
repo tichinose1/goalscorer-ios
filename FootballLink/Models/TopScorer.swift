@@ -6,8 +6,6 @@
 //  Copyright © 2018 example.com. All rights reserved.
 //
 
-import Foundation
-
 struct TopScorer {
     let title: String
     let regionCode: String
