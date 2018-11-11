@@ -53,21 +53,7 @@ extension ByCompetitionTableViewController {
 
         let vc = UIStoryboard(name: "Goal", bundle: nil).instantiateViewController(withIdentifier: "goalViewController") as! GoalTableViewController
 
-        let seasons = [
-            "2018–19",
-            "2017–18",
-            "2016–17",
-            "2015–16",
-            "2014–15",
-            "2013–14",
-            "2012–13",
-            "2011–12",
-            "2010–11",
-            "2009–10"
-        ]
-        vc.items = seasons.map {
-            TopScorer(season: $0, competition: item, header: "Top goalscorers")
-        }
+        vc.items = TopScorer.all.filter { $0.competition == item }
 
         navigationController?.pushViewController(vc, animated: true)
     }

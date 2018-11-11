@@ -6,9 +6,13 @@
 //  Copyright © 2018 example.com. All rights reserved.
 //
 
-struct Competition {
+struct Competition: Comparable {
     let name: String
     let regionCode: String
+
+    static func < (lhs: Competition, rhs: Competition) -> Bool {
+        return lhs.name == rhs.name
+    }
 }
 
 extension Competition {
