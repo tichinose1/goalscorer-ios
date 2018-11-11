@@ -18,6 +18,7 @@
 		7754E3C7217D0EDC005AA750 /* Goal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7754E3C6217D0EDC005AA750 /* Goal.storyboard */; };
 		77603842217D05BA005DABC3 /* TopScorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77603841217D05BA005DABC3 /* TopScorer.swift */; };
 		77603846217D07B6005DABC3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77603845217D07B6005DABC3 /* Extensions.swift */; };
+		77F158FB21984EAF001575FC /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F158FA21984EAF001575FC /* Competition.swift */; };
 		77F868B5217D16EF002B1132 /* FlagKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F868B4217D16EF002B1132 /* FlagKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		7754E3C6217D0EDC005AA750 /* Goal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Goal.storyboard; sourceTree = "<group>"; };
 		77603841217D05BA005DABC3 /* TopScorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScorer.swift; sourceTree = "<group>"; };
 		77603845217D07B6005DABC3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		77F158FA21984EAF001575FC /* Competition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Competition.swift; sourceTree = "<group>"; };
 		77F868B4217D16EF002B1132 /* FlagKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlagKit.framework; path = Carthage/Build/iOS/FlagKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +108,7 @@
 				77603841217D05BA005DABC3 /* TopScorer.swift */,
 				77603845217D07B6005DABC3 /* Extensions.swift */,
 				77229AB22181DFDD002840A1 /* Player.swift */,
+				77F158FA21984EAF001575FC /* Competition.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				77229AB52181E02B002840A1 /* PlayerTableViewController.swift in Sources */,
 				772ABC91217D024600A9D589 /* AppDelegate.swift in Sources */,
 				77229AB32181DFDD002840A1 /* Player.swift in Sources */,
+				77F158FB21984EAF001575FC /* Competition.swift in Sources */,
 				77603842217D05BA005DABC3 /* TopScorer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
