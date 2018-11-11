@@ -25,7 +25,7 @@ class ByCompetitionTableViewController: UITableViewController {
     }
 }
 
-// MARK: - UITableViewSource
+// MARK: - UITableViewDataSource
 
 extension ByCompetitionTableViewController {
 
@@ -41,5 +41,34 @@ extension ByCompetitionTableViewController {
         cell.imageView?.image = originalImage
         cell.textLabel?.text = item.name
         return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension ByCompetitionTableViewController {
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = items[indexPath.row]
+
+        let vc = UIStoryboard(name: "Goal", bundle: nil).instantiateViewController(withIdentifier: "goalViewController") as! GoalTableViewController
+
+        let seasons = [
+            "2018–19",
+            "2017–18",
+            "2016–17",
+            "2015–16",
+            "2014–15",
+            "2013–14",
+            "2012–13",
+            "2011–12",
+            "2010–11",
+            "2009–10"
+        ]
+        vc.items = seasons.map {
+            TopScorer(season: $0, competition: item, header: "Top goalscorers")
+        }
+
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

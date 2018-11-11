@@ -11,7 +11,7 @@ import FlagKit
 
 class GoalTableViewController: UITableViewController {
 
-    let items = TopScorer.all
+    var items = TopScorer.all
 
     override func viewDidLoad() {
         super.viewDidLoad()
