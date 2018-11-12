@@ -51,8 +51,8 @@
             <objects>
                 <navigationController id="ZF7-SS-3oc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Player" image="baseline_people_black_36pt" id="qAK-QX-t3i"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dWx-ev-53C">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="dWx-ev-53C">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
