@@ -18,9 +18,9 @@
 		7754E3C7217D0EDC005AA750 /* Goal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7754E3C6217D0EDC005AA750 /* Goal.storyboard */; };
 		77603842217D05BA005DABC3 /* TopScorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77603841217D05BA005DABC3 /* TopScorer.swift */; };
 		77603846217D07B6005DABC3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77603845217D07B6005DABC3 /* Extensions.swift */; };
+		7794E4662199EFE8006CB5BE /* AllTime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7794E4652199EFE8006CB5BE /* AllTime.storyboard */; };
+		7794E4682199F138006CB5BE /* AllTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */; };
 		77F158FB21984EAF001575FC /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F158FA21984EAF001575FC /* Competition.swift */; };
-		77F158FD2198862E001575FC /* ByCompetition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77F158FC2198862E001575FC /* ByCompetition.storyboard */; };
-		77F158FF21988719001575FC /* ByCompetitionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F158FE21988719001575FC /* ByCompetitionTableViewController.swift */; };
 		77F868B5217D16EF002B1132 /* FlagKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F868B4217D16EF002B1132 /* FlagKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,9 +38,9 @@
 		7754E3C6217D0EDC005AA750 /* Goal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Goal.storyboard; sourceTree = "<group>"; };
 		77603841217D05BA005DABC3 /* TopScorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScorer.swift; sourceTree = "<group>"; };
 		77603845217D07B6005DABC3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7794E4652199EFE8006CB5BE /* AllTime.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AllTime.storyboard; sourceTree = "<group>"; };
+		7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTimeTableViewController.swift; sourceTree = "<group>"; };
 		77F158FA21984EAF001575FC /* Competition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Competition.swift; sourceTree = "<group>"; };
-		77F158FC2198862E001575FC /* ByCompetition.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ByCompetition.storyboard; sourceTree = "<group>"; };
-		77F158FE21988719001575FC /* ByCompetitionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByCompetitionTableViewController.swift; sourceTree = "<group>"; };
 		77F868B4217D16EF002B1132 /* FlagKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlagKit.framework; path = Carthage/Build/iOS/FlagKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,9 +91,9 @@
 			isa = PBXGroup;
 			children = (
 				772ABCA4217D030300A9D589 /* Top.storyboard */,
-				77F158FC2198862E001575FC /* ByCompetition.storyboard */,
-				77229AB62181E065002840A1 /* Player.storyboard */,
 				7754E3C6217D0EDC005AA750 /* Goal.storyboard */,
+				7794E4652199EFE8006CB5BE /* AllTime.storyboard */,
+				77229AB62181E065002840A1 /* Player.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -102,8 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				772ABCA6217D03C900A9D589 /* GoalTableViewController.swift */,
+				7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */,
 				77229AB42181E02B002840A1 /* PlayerTableViewController.swift */,
-				77F158FE21988719001575FC /* ByCompetitionTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -188,8 +188,8 @@
 			files = (
 				772ABCA5217D030300A9D589 /* Top.storyboard in Resources */,
 				772ABC9B217D024700A9D589 /* LaunchScreen.storyboard in Resources */,
+				7794E4662199EFE8006CB5BE /* AllTime.storyboard in Resources */,
 				77229AB72181E065002840A1 /* Player.storyboard in Resources */,
-				77F158FD2198862E001575FC /* ByCompetition.storyboard in Resources */,
 				7754E3C7217D0EDC005AA750 /* Goal.storyboard in Resources */,
 				772ABC98217D024700A9D589 /* Assets.xcassets in Resources */,
 			);
@@ -226,11 +226,11 @@
 			files = (
 				77603846217D07B6005DABC3 /* Extensions.swift in Sources */,
 				772ABCA7217D03C900A9D589 /* GoalTableViewController.swift in Sources */,
+				7794E4682199F138006CB5BE /* AllTimeTableViewController.swift in Sources */,
 				77229AB52181E02B002840A1 /* PlayerTableViewController.swift in Sources */,
 				772ABC91217D024600A9D589 /* AppDelegate.swift in Sources */,
 				77229AB32181DFDD002840A1 /* Player.swift in Sources */,
 				77F158FB21984EAF001575FC /* Competition.swift in Sources */,
-				77F158FF21988719001575FC /* ByCompetitionTableViewController.swift in Sources */,
 				77603842217D05BA005DABC3 /* TopScorer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

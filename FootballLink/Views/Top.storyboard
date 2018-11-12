@@ -19,8 +19,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="wcq-O4-KCW" kind="relationship" relationship="viewControllers" id="y20-A8-1my"/>
+                        <segue destination="yNh-5s-RME" kind="relationship" relationship="viewControllers" id="nBf-1K-leK"/>
                         <segue destination="HN9-D3-WNK" kind="relationship" relationship="viewControllers" id="PW7-3W-grf"/>
-                        <segue destination="6LA-oD-5IX" kind="relationship" relationship="viewControllers" id="M7O-6b-2AW"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yv5-er-Mxu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -31,31 +31,31 @@
         <scene sceneID="9DZ-Xs-S8h">
             <objects>
                 <viewControllerPlaceholder storyboardName="Goal" id="wcq-O4-KCW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Top Scorer" id="cZM-Vh-DPy"/>
+                    <tabBarItem key="tabBarItem" title="Top scorers" id="cZM-Vh-DPy"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqj-HE-PaO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1741" y="-165"/>
+            <point key="canvasLocation" x="-1654" y="-178"/>
         </scene>
         <!--Player-->
         <scene sceneID="9Jn-go-zZA">
             <objects>
                 <viewControllerPlaceholder storyboardName="Player" id="HN9-D3-WNK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Player" id="Bzc-8F-wOn"/>
+                    <tabBarItem key="tabBarItem" title="Players" id="Bzc-8F-wOn"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h9F-8r-cau" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1733" y="-36"/>
+            <point key="canvasLocation" x="-1646" y="-10"/>
         </scene>
-        <!--ByCompetition-->
-        <scene sceneID="sRB-VM-OWZ">
+        <!--AllTime-->
+        <scene sceneID="fH8-yg-2R1">
             <objects>
-                <viewControllerPlaceholder storyboardName="ByCompetition" id="6LA-oD-5IX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="GUX-oE-BEa"/>
+                <viewControllerPlaceholder storyboardName="AllTime" id="yNh-5s-RME" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="All time" id="sJM-pB-YU2"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2VM-Lj-sgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q5i-uZ-OdO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1693" y="41"/>
+            <point key="canvasLocation" x="-1640" y="-95"/>
         </scene>
     </scenes>
 </document>

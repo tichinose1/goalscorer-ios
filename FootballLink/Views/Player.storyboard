@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Player-->
+        <!--Players-->
         <scene sceneID="Lqk-Kg-7vI">
             <objects>
                 <tableViewController id="yQC-ds-8qZ" customClass="PlayerTableViewController" customModule="FootballLink" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,17 +40,17 @@
                             <outlet property="delegate" destination="yQC-ds-8qZ" id="oj7-o2-fab"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Player" id="b8N-J4-WqU"/>
+                    <navigationItem key="navigationItem" title="Players" id="b8N-J4-WqU"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqY-hA-jSC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1642" y="444"/>
         </scene>
-        <!--Player-->
+        <!--Players-->
         <scene sceneID="ymh-oo-3Kw">
             <objects>
                 <navigationController id="ZF7-SS-3oc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Player" image="baseline_people_black_36pt" id="qAK-QX-t3i"/>
+                    <tabBarItem key="tabBarItem" title="Players" image="baseline_people_black_36pt" id="qAK-QX-t3i"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="dWx-ev-53C">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
