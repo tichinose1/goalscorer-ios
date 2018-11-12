@@ -49,12 +49,5 @@ extension ByCompetitionTableViewController {
 extension ByCompetitionTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = items[indexPath.row]
-
-        let vc = UIStoryboard(name: "Goal", bundle: nil).instantiateViewController(withIdentifier: "goalViewController") as! GoalTableViewController
-
-        vc.items = TopScorer.all.filter { $0.competition == item }
-
-        navigationController?.pushViewController(vc, animated: true)
     }
 }
