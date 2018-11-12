@@ -18,6 +18,7 @@ struct Competition: Comparable {
 extension Competition {
 
     static let fifaWorldCup =               Competition(name: "FIFA World Cup",                 regionCode: "LGBT")
+    static let copaAmerica =                Competition(name: "Copa América",                   regionCode: "LGBT")
     static let uefaEuro =                   Competition(name: "UEFA Euro",                      regionCode: "LGBT")
     static let uefaChampionsLeague =        Competition(name: "UEFA Champions League",          regionCode: "LGBT")
     static let uefaEuropaLeague =           Competition(name: "UEFA Europa League",             regionCode: "LGBT")

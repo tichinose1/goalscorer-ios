@@ -14,12 +14,14 @@ struct TopScorer {
     let header: String
 
     var title: String {
-        // TODO: Euro だけ特別扱いをやめる
+        // TODO: 特別扱いをやめたい
         if competition == .uefaEuro {
             return "\(competition.name) \(season)"
-        } else {
-            return "\(season) \(competition.name)"
+        } else if competition == .copaAmerica && season == "2016" {
+            return "Copa América Centenario"
         }
+
+        return "\(season) \(competition.name)"
     }
 
     var url: String {
@@ -77,12 +79,14 @@ extension TopScorer {
         TopScorer(season: "2016–17",    competition: .serieA,                       header: "Top goalscorers"),
         TopScorer(season: "2016–17",    competition: .bundesliga,                   header: "Top scorers"),
         TopScorer(season: "2016",       competition: .uefaEuro,                     header: "Goalscorers"),
+        TopScorer(season: "2016",       competition: .copaAmerica,                  header: "Goalscorers"),
         TopScorer(season: "2015–16",    competition: .uefaChampionsLeague,          header: "Top goalscorers"),
         TopScorer(season: "2015–16",    competition: .uefaEuropaLeague,             header: "Top goalscorers"),
         TopScorer(season: "2015–16",    competition: .laLiga,                       header: "Top goalscorers"),
         TopScorer(season: "2015–16",    competition: .premierLeague,                header: "Top scorers"),
         TopScorer(season: "2015–16",    competition: .serieA,                       header: "Top goalscorers"),
         TopScorer(season: "2015–16",    competition: .bundesliga,                   header: "Top goalscorers"),
+        TopScorer(season: "2015",       competition: .copaAmerica,                  header: "Goalscorers"),
         TopScorer(season: "2014–15",    competition: .uefaChampionsLeague,          header: "Top goalscorers"),
         TopScorer(season: "2014–15",    competition: .uefaEuropaLeague,             header: "Top goalscorers"),
         TopScorer(season: "2014–15",    competition: .laLiga,                       header: "Top goalscorers"),
@@ -109,6 +113,7 @@ extension TopScorer {
         TopScorer(season: "2011–12",    competition: .premierLeague,                header: "Top scorers"),
         TopScorer(season: "2011–12",    competition: .serieA,                       header: "Top goalscorers"),
         TopScorer(season: "2011–12",    competition: .bundesliga,                   header: "Top scorers"),
+        TopScorer(season: "2011",       competition: .copaAmerica,                  header: "Goalscorers"),
         TopScorer(season: "2010–11",    competition: .uefaChampionsLeague,          header: "Top goalscorers"),
         TopScorer(season: "2010–11",    competition: .uefaEuropaLeague,             header: "Top goalscorers"),
         TopScorer(season: "2010–11",    competition: .laLiga,                       header: "Top goalscorers"),
@@ -135,22 +140,35 @@ extension TopScorer {
         TopScorer(season: "2007–08",    competition: .premierLeague,                header: "Top scorers"),
         TopScorer(season: "2007–08",    competition: .serieA,                       header: "Top goalscorers"),
         TopScorer(season: "2007–08",    competition: .bundesliga,                   header: "Top goalscorers"),
+        TopScorer(season: "2007",       competition: .copaAmerica,                  header: "Goalscorers"),
         TopScorer(season: "2006",       competition: .fifaWorldCup,                 header: "Goalscorers"),
         TopScorer(season: "2004",       competition: .uefaEuro,                     header: "Goalscorers"),
+        TopScorer(season: "2004",       competition: .copaAmerica,                  header: "Goal scorers"),
         TopScorer(season: "2002",       competition: .fifaWorldCup,                 header: "Goalscorers"),
+        TopScorer(season: "2001",       competition: .copaAmerica,                  header: "Goal scorers"),
         TopScorer(season: "2000",       competition: .uefaEuro,                     header: "Goalscorers"),
+        TopScorer(season: "1999",       competition: .copaAmerica,                  header: "Goal scorers"),
         TopScorer(season: "1998",       competition: .fifaWorldCup,                 header: "Goalscorers"),
+        TopScorer(season: "1997",       competition: .copaAmerica,                  header: "Goalscorers"),
         TopScorer(season: "1996",       competition: .uefaEuro,                     header: "Goalscorers"),
+        TopScorer(season: "1995",       competition: .copaAmerica,                  header: "Goal scorers"),
         TopScorer(season: "1994",       competition: .fifaWorldCup,                 header: "Goalscorers"),
+        TopScorer(season: "1993",       competition: .copaAmerica,                  header: "Goal scorers"),
         TopScorer(season: "1992",       competition: .uefaEuro,                     header: "Goalscorers"),
+        TopScorer(season: "1991",       competition: .copaAmerica,                  header: "Goal scorers"),
         TopScorer(season: "1990",       competition: .fifaWorldCup,                 header: "Goalscorers"),
+        TopScorer(season: "1989",       competition: .copaAmerica,                  header: "Goal scorers"),
         TopScorer(season: "1988",       competition: .uefaEuro,                     header: "Goalscorers"),
+        TopScorer(season: "1987",       competition: .copaAmerica,                  header: "Goal scorers"),
         TopScorer(season: "1986",       competition: .fifaWorldCup,                 header: "Goalscorers"),
         TopScorer(season: "1984",       competition: .uefaEuro,                     header: "Goalscorers"),
+        TopScorer(season: "1983",       competition: .copaAmerica,                  header: "Goal scorers"),
         TopScorer(season: "1982",       competition: .fifaWorldCup,                 header: "Goalscorers"),
         TopScorer(season: "1980",       competition: .uefaEuro,                     header: "Goalscorers"),
+        TopScorer(season: "1979",       competition: .copaAmerica,                  header: "Goal scorers"),
         TopScorer(season: "1978",       competition: .fifaWorldCup,                 header: "Goalscorers"),
         TopScorer(season: "1976",       competition: .uefaEuro,                     header: "Goalscorers"),
+        TopScorer(season: "1975",       competition: .copaAmerica,                  header: "Goal scorers"),
         TopScorer(season: "1974",       competition: .fifaWorldCup,                 header: "Goalscorers"),
         TopScorer(season: "1972",       competition: .uefaEuro,                     header: "Goalscorers"),
         TopScorer(season: "1970",       competition: .fifaWorldCup,                 header: "Goalscorers"),

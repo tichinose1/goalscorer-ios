@@ -20,6 +20,7 @@
 		77603846217D07B6005DABC3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77603845217D07B6005DABC3 /* Extensions.swift */; };
 		7794E4662199EFE8006CB5BE /* AllTime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7794E4652199EFE8006CB5BE /* AllTime.storyboard */; };
 		7794E4682199F138006CB5BE /* AllTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */; };
+		7794E46A2199F388006CB5BE /* AllTimeTopScorers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4692199F388006CB5BE /* AllTimeTopScorers.swift */; };
 		77F158FB21984EAF001575FC /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F158FA21984EAF001575FC /* Competition.swift */; };
 		77F868B5217D16EF002B1132 /* FlagKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F868B4217D16EF002B1132 /* FlagKit.framework */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		77603845217D07B6005DABC3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7794E4652199EFE8006CB5BE /* AllTime.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AllTime.storyboard; sourceTree = "<group>"; };
 		7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTimeTableViewController.swift; sourceTree = "<group>"; };
+		7794E4692199F388006CB5BE /* AllTimeTopScorers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTimeTopScorers.swift; sourceTree = "<group>"; };
 		77F158FA21984EAF001575FC /* Competition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Competition.swift; sourceTree = "<group>"; };
 		77F868B4217D16EF002B1132 /* FlagKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlagKit.framework; path = Carthage/Build/iOS/FlagKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,6 +117,7 @@
 				77603845217D07B6005DABC3 /* Extensions.swift */,
 				77229AB22181DFDD002840A1 /* Player.swift */,
 				77F158FA21984EAF001575FC /* Competition.swift */,
+				7794E4692199F388006CB5BE /* AllTimeTopScorers.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				7794E4682199F138006CB5BE /* AllTimeTableViewController.swift in Sources */,
 				77229AB52181E02B002840A1 /* PlayerTableViewController.swift in Sources */,
 				772ABC91217D024600A9D589 /* AppDelegate.swift in Sources */,
+				7794E46A2199F388006CB5BE /* AllTimeTopScorers.swift in Sources */,
 				77229AB32181DFDD002840A1 /* Player.swift in Sources */,
 				77F158FB21984EAF001575FC /* Competition.swift in Sources */,
 				77603842217D05BA005DABC3 /* TopScorer.swift in Sources */,
