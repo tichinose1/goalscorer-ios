@@ -17,10 +17,10 @@ struct Competition: Comparable {
 
 extension Competition {
 
-    static let fifaWorldCup =               Competition(name: "FIFA World Cup",                 regionCode: "")
-    static let uefaEuro =                   Competition(name: "UEFA Euro",                      regionCode: "EU")
-    static let uefaChampionsLeague =        Competition(name: "UEFA Champions League",          regionCode: "EU")
-    static let uefaEuropaLeague =           Competition(name: "UEFA Europa League",             regionCode: "EU")
+    static let fifaWorldCup =               Competition(name: "FIFA World Cup",                 regionCode: "LGBT")
+    static let uefaEuro =                   Competition(name: "UEFA Euro",                      regionCode: "LGBT")
+    static let uefaChampionsLeague =        Competition(name: "UEFA Champions League",          regionCode: "LGBT")
+    static let uefaEuropaLeague =           Competition(name: "UEFA Europa League",             regionCode: "LGBT")
     static let laLiga =                     Competition(name: "La Liga",                        regionCode: "ES")
     static let premierLeague =              Competition(name: "Premier League",                 regionCode: "GB-ENG")
     static let serieA =                     Competition(name: "Serie A",                        regionCode: "IT")
@@ -30,7 +30,7 @@ extension Competition {
     static let eredivisie =                 Competition(name: "Eredivisie",                     regionCode: "NL")
     static let belgianFirstDivisionA =      Competition(name: "Belgian First Division A",       regionCode: "BE")
     static let austrianFootballBundesliga = Competition(name: "Austrian Football Bundesliga",   regionCode: "AT")
-    static let copaLibertadores =           Competition(name: "Copa Libertadores",              regionCode: "")
+    static let copaLibertadores =           Competition(name: "Copa Libertadores",              regionCode: "LGBT")
     static let campeonatoBrasileiroSerieA = Competition(name: "Campeonato Brasileiro Série A",  regionCode: "BR")
     static let argentinePrimeraDivision =   Competition(name: "Argentine Primera División",     regionCode: "AR")
     static let majorLeagueSoccer =          Competition(name: "Major League Soccer season",     regionCode: "US")
