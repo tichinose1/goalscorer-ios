@@ -48,6 +48,9 @@
                                 <segment title="Season"/>
                                 <segment title="Competition"/>
                             </segments>
+                            <connections>
+                                <action selector="didSelectSegmentedControl:" destination="tmX-xV-u5u" eventType="valueChanged" id="uWB-w9-nrp"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
                 </tableViewController>

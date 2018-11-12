@@ -10,7 +10,7 @@ import UIKit
 import FlagKit
 
 private struct Section {
-    let value: String
+    let title: String
     let rows: [TopScorer]
 }
 
@@ -21,10 +21,13 @@ class GoalTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        sections = Dictionary(grouping: TopScorer.all) { $0.season }
-            .map { Section(value: $0.key, rows: $0.value)}
-            // グループ化のキーをソートする
-            .sorted { $0.value > $1.value }
+        updateDataSource(segmentIndex: 0)
+    }
+
+    @IBAction func didSelectSegmentedControl(_ sender: UISegmentedControl) {
+        updateDataSource(segmentIndex: sender.selectedSegmentIndex)
+
+        tableView.reloadData()
     }
 }
 
@@ -41,7 +44,7 @@ extension GoalTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections[section].value
+        return sections[section].title
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,5 +63,26 @@ extension GoalTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = sections[indexPath.section].rows[indexPath.row]
         presentSafariViewController(url: item.url)
+    }
+}
+
+// MARK: - Private functions
+
+private extension GoalTableViewController {
+
+    func updateDataSource(segmentIndex: Int) {
+        switch segmentIndex {
+        case 0:
+            sections = Dictionary(grouping: TopScorer.all) { $0.season }
+                .map { Section(title: $0.key, rows: $0.value)}
+                // グループ化のキーをソートする
+                .sorted { $0.title > $1.title }
+        case 1:
+            // TODO: Competitionのソート
+            sections = Dictionary(grouping: TopScorer.all) { $0.competition.name }
+                .map { Section(title: $0.key, rows: $0.value )}
+        default:
+            fatalError()
+        }
     }
 }
