@@ -14,7 +14,12 @@ struct TopScorer {
     let header: String
 
     var title: String {
-        return "\(season) \(competition.name)"
+        // TODO: Euro だけ特別扱いをやめる
+        if competition == .uefaEuro {
+            return "\(competition.name) \(season)"
+        } else {
+            return "\(season) \(competition.name)"
+        }
     }
 
     var url: String {
@@ -50,6 +55,7 @@ extension TopScorer {
         TopScorer(season: "2018–19",    competition: .eredivisie,                   header: "Top scorers"),
         TopScorer(season: "2018–19",    competition: .belgianFirstDivisionA,        header: "Top scorers"),
         TopScorer(season: "2018–19",    competition: .austrianFootballBundesliga,   header: "Top scorers"),
+        TopScorer(season: "2018",       competition: .copaLibertadores,             header: "Top scorers"),
         TopScorer(season: "2018",       competition: .campeonatoBrasileiroSerieA,   header: "Top scorers"),
         TopScorer(season: "2018–19",    competition: .argentinePrimeraDivision,     header: "Top goalscorers"),
         TopScorer(season: "2018",       competition: .majorLeagueSoccer,            header: "Goals"),
@@ -57,6 +63,7 @@ extension TopScorer {
         TopScorer(season: "2018",       competition: .chineseSuperLeague,           header: "Top scorers"),
         TopScorer(season: "2018",       competition: .kLeague1,                     header: "Top scorers"),
         TopScorer(season: "2018",       competition: .j1League,                     header: "Top scorers"),
+        TopScorer(season: "2018",       competition: .fifaWorldCup,                 header: "Goalscorers"),
         TopScorer(season: "2017–18",    competition: .uefaChampionsLeague,          header: "Top goalscorers"),
         TopScorer(season: "2017–18",    competition: .uefaEuropaLeague,             header: "Top goalscorers"),
         TopScorer(season: "2017–18",    competition: .laLiga,                       header: "Top goalscorers"),
@@ -69,6 +76,7 @@ extension TopScorer {
         TopScorer(season: "2016–17",    competition: .premierLeague,                header: "Top scorers"),
         TopScorer(season: "2016–17",    competition: .serieA,                       header: "Top goalscorers"),
         TopScorer(season: "2016–17",    competition: .bundesliga,                   header: "Top scorers"),
+        TopScorer(season: "2016",       competition: .uefaEuro,                     header: "Goalscorers"),
         TopScorer(season: "2015–16",    competition: .uefaChampionsLeague,          header: "Top goalscorers"),
         TopScorer(season: "2015–16",    competition: .uefaEuropaLeague,             header: "Top goalscorers"),
         TopScorer(season: "2015–16",    competition: .laLiga,                       header: "Top goalscorers"),
@@ -81,6 +89,7 @@ extension TopScorer {
         TopScorer(season: "2014–15",    competition: .premierLeague,                header: "Top scorers"),
         TopScorer(season: "2014–15",    competition: .serieA,                       header: "Top goalscorers"),
         TopScorer(season: "2014–15",    competition: .bundesliga,                   header: "Top goalscorers"),
+        TopScorer(season: "2014",       competition: .fifaWorldCup,                 header: "Goalscorers"),
         TopScorer(season: "2013–14",    competition: .uefaChampionsLeague,          header: "Top goalscorers"),
         TopScorer(season: "2013–14",    competition: .uefaEuropaLeague,             header: "Top goalscorers"),
         TopScorer(season: "2013–14",    competition: .laLiga,                       header: "Top goalscorers"),
@@ -93,6 +102,7 @@ extension TopScorer {
         TopScorer(season: "2012–13",    competition: .premierLeague,                header: "Top scorers"),
         TopScorer(season: "2012–13",    competition: .serieA,                       header: "Top scorers"),
         TopScorer(season: "2012–13",    competition: .bundesliga,                   header: "Top scorers"),
+        TopScorer(season: "2012",       competition: .uefaEuro,                     header: "Goalscorers"),
         TopScorer(season: "2011–12",    competition: .uefaChampionsLeague,          header: "Top goalscorers"),
         TopScorer(season: "2011–12",    competition: .uefaEuropaLeague,             header: "Top goalscorers"),
         TopScorer(season: "2011–12",    competition: .laLiga,                       header: "Top goalscorers"),
@@ -105,6 +115,8 @@ extension TopScorer {
         TopScorer(season: "2010–11",    competition: .premierLeague,                header: "Top scorers"),
         TopScorer(season: "2010–11",    competition: .serieA,                       header: "Top goalscorers"),
         TopScorer(season: "2010–11",    competition: .bundesliga,                   header: "Top scorers"),
+        // TODO: リンクが想定外のパターン
+        TopScorer(season: "2010",       competition: .fifaWorldCup,                 header: "Goalscorers"),
         TopScorer(season: "2009–10",    competition: .uefaChampionsLeague,          header: "Top goalscorers"),
         TopScorer(season: "2009–10",    competition: .uefaEuropaLeague,             header: "Top goalscorers"),
         TopScorer(season: "2009–10",    competition: .laLiga,                       header: "Pichichi Trophy"),
@@ -117,10 +129,41 @@ extension TopScorer {
         TopScorer(season: "2008–09",    competition: .premierLeague,                header: "Top scorers"),
         TopScorer(season: "2008–09",    competition: .serieA,                       header: "Top goalscorers"),
         TopScorer(season: "2008–09",    competition: .bundesliga,                   header: "Top goalscorers"),
+        TopScorer(season: "2008",       competition: .uefaEuro,                     header: "Goalscorers"),
         TopScorer(season: "2007–08",    competition: .uefaChampionsLeague,          header: "Top goalscorers"),
         TopScorer(season: "2007–08",    competition: .laLiga,                       header: "Pichichi Trophy"),
         TopScorer(season: "2007–08",    competition: .premierLeague,                header: "Top scorers"),
         TopScorer(season: "2007–08",    competition: .serieA,                       header: "Top goalscorers"),
         TopScorer(season: "2007–08",    competition: .bundesliga,                   header: "Top goalscorers"),
+        TopScorer(season: "2006",       competition: .fifaWorldCup,                 header: "Goalscorers"),
+        TopScorer(season: "2004",       competition: .uefaEuro,                     header: "Goalscorers"),
+        TopScorer(season: "2002",       competition: .fifaWorldCup,                 header: "Goalscorers"),
+        TopScorer(season: "2000",       competition: .uefaEuro,                     header: "Goalscorers"),
+        TopScorer(season: "1998",       competition: .fifaWorldCup,                 header: "Goalscorers"),
+        TopScorer(season: "1996",       competition: .uefaEuro,                     header: "Goalscorers"),
+        TopScorer(season: "1994",       competition: .fifaWorldCup,                 header: "Goalscorers"),
+        TopScorer(season: "1992",       competition: .uefaEuro,                     header: "Goalscorers"),
+        TopScorer(season: "1990",       competition: .fifaWorldCup,                 header: "Goalscorers"),
+        TopScorer(season: "1988",       competition: .uefaEuro,                     header: "Goalscorers"),
+        TopScorer(season: "1986",       competition: .fifaWorldCup,                 header: "Goalscorers"),
+        TopScorer(season: "1984",       competition: .uefaEuro,                     header: "Goalscorers"),
+        TopScorer(season: "1982",       competition: .fifaWorldCup,                 header: "Goalscorers"),
+        TopScorer(season: "1980",       competition: .uefaEuro,                     header: "Goalscorers"),
+        TopScorer(season: "1978",       competition: .fifaWorldCup,                 header: "Goalscorers"),
+        TopScorer(season: "1976",       competition: .uefaEuro,                     header: "Goalscorers"),
+        TopScorer(season: "1974",       competition: .fifaWorldCup,                 header: "Goalscorers"),
+        TopScorer(season: "1972",       competition: .uefaEuro,                     header: "Goalscorers"),
+        TopScorer(season: "1970",       competition: .fifaWorldCup,                 header: "Goalscorers"),
+        TopScorer(season: "1968",       competition: .uefaEuro,                     header: "Goalscorers"),
+        TopScorer(season: "1966",       competition: .fifaWorldCup,                 header: "Goalscorers"),
+        TopScorer(season: "1964",       competition: .uefaEuro,                     header: "Goalscorers"),
+        TopScorer(season: "1962",       competition: .fifaWorldCup,                 header: "Goalscorers"),
+        TopScorer(season: "1960",       competition: .uefaEuro,                     header: "Goalscorers"),
+        TopScorer(season: "1958",       competition: .fifaWorldCup,                 header: "Goalscorers"),
+        TopScorer(season: "1954",       competition: .fifaWorldCup,                 header: "Goalscorers"),
+        TopScorer(season: "1950",       competition: .fifaWorldCup,                 header: "Goalscorers"),
+        TopScorer(season: "1938",       competition: .fifaWorldCup,                 header: "Goalscorers"),
+        TopScorer(season: "1934",       competition: .fifaWorldCup,                 header: "Goalscorers"),
+        TopScorer(season: "1930",       competition: .fifaWorldCup,                 header: "Goalscorers"),
     ]
 }

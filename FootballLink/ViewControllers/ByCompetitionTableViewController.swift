@@ -12,6 +12,8 @@ import FlagKit
 class ByCompetitionTableViewController: UITableViewController {
 
     var items: [Competition] = [
+        .fifaWorldCup,
+        .uefaEuro,
         .uefaChampionsLeague,
         .uefaEuropaLeague,
         .laLiga,
@@ -36,9 +38,7 @@ extension ByCompetitionTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "byCompetitionCell", for: indexPath)
-        let flag = Flag(countryCode: item.regionCode)!
-        let originalImage = flag.originalImage
-        cell.imageView?.image = originalImage
+        cell.imageView?.image = Flag(countryCode: item.regionCode)?.originalImage
         cell.textLabel?.text = item.name
         return cell
     }

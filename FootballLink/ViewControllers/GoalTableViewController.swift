@@ -32,9 +32,7 @@ extension GoalTableViewController {
         let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "goalCell", for: indexPath)
         cell.textLabel?.text = item.title
-        let flag = Flag(countryCode: item.competition.regionCode)!
-        let originalImage = flag.originalImage
-        cell.imageView?.image = originalImage
+        cell.imageView?.image = Flag(countryCode: item.competition.regionCode)?.originalImage
         return cell
     }
 }
