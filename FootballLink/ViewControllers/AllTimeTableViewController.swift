@@ -1,26 +1,26 @@
 //
-//  PlayerTableViewController.swift
+//  AllTimeTableViewController.swift
 //  FootballLink
 //
-//  Created by tichinose1 on 2018/10/25.
+//  Created by tichinose1 on 2018/11/13.
 //  Copyright © 2018 example.com. All rights reserved.
 //
 
 import UIKit
 import FlagKit
 
-class PlayerTableViewController: UITableViewController {
+class AllTimeTableViewController: UITableViewController {
 
-    let items = Player.all
+    var items = AllTimeTopScorers.all
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 }
 
-// MARK: - Table view data source
+// MARK: - UITableViewDataSource
 
-extension PlayerTableViewController {
+extension AllTimeTableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
@@ -28,18 +28,16 @@ extension PlayerTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = items[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath)
-        cell.textLabel?.text = item.name
-        let flag = Flag(countryCode: item.regionCode)!
-        let originalImage = flag.originalImage
-        cell.imageView?.image = originalImage
+        let cell = tableView.dequeueReusableCell(withIdentifier: "allTimeCell", for: indexPath)
+        cell.textLabel?.text = item.competition.name
+        cell.imageView?.image = Flag(countryCode: item.competition.regionCode)?.originalImage
         return cell
     }
 }
 
 // MARK: - UITableViewDelegate
 
-extension PlayerTableViewController {
+extension AllTimeTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.row]

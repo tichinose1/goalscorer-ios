@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bdm-J1-6P3">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -8,12 +8,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Top Scorer-->
+        <!--Top scorers-->
         <scene sceneID="THc-5g-Esn">
             <objects>
-                <tableViewController id="tmX-xV-u5u" customClass="GoalTableViewController" customModule="FootballLink" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="goalViewController" id="tmX-xV-u5u" customClass="GoalTableViewController" customModule="FootballLink" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zMs-Ll-9O0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -21,11 +21,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z2U-Ii-Hop" id="vim-Du-aTM">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g6z-J2-4mf">
-                                            <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="324" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -40,19 +40,31 @@
                             <outlet property="delegate" destination="tmX-xV-u5u" id="t7s-I0-YoI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Top Scorer" id="2ah-3A-dsX"/>
+                    <navigationItem key="navigationItem" title="Top scorers" id="2ah-3A-dsX">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="ec3-Pw-4Gw">
+                            <rect key="frame" x="99" y="7.6666666666666679" width="177" height="29.000000000000004"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Season"/>
+                                <segment title="Competition"/>
+                            </segments>
+                            <connections>
+                                <action selector="didSelectSegmentedControl:" destination="tmX-xV-u5u" eventType="valueChanged" id="uWB-w9-nrp"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JJG-JC-tZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-777" y="-41"/>
         </scene>
-        <!--Top Scorer-->
+        <!--Top scorers-->
         <scene sceneID="BHQ-lZ-IaK">
             <objects>
                 <navigationController id="Bdm-J1-6P3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Top Scorer" image="baseline_list_black_36pt" id="54X-jI-aS7"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zJ1-bs-QAT">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <tabBarItem key="tabBarItem" title="Top scorers" image="baseline_list_black_36pt" id="54X-jI-aS7"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="zJ1-bs-QAT">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -65,6 +77,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="baseline_list_black_36pt" width="72" height="72"/>
+        <image name="baseline_list_black_36pt" width="108" height="108"/>
     </resources>
 </document>

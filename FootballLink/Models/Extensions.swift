@@ -12,6 +12,8 @@ import SafariServices
 extension UIViewController {
 
     func presentSafariViewController(url: String) {
+        print("url: \(url)")
+
         guard let url = URL(string: url) else { fatalError() }
         let vc = SFSafariViewController(url: url)
         present(vc, animated: true) {
