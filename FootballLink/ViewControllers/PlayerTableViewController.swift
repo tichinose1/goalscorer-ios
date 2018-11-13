@@ -15,6 +15,11 @@ class PlayerTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let searchController = UISearchController(searchResultsController: nil)
+        // 検索フィールドを常に表示する
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchController
     }
 }
 
