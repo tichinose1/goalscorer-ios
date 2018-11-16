@@ -11,15 +11,22 @@ import FlagKit
 
 class PlayerTableViewController: UITableViewController {
 
-    let items = Player.all
+    var items: [Player] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
         // 検索フィールドを常に表示する
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
+
+        definesPresentationContext = true
+
+        items = Player.all
     }
 }
 
@@ -49,5 +56,23 @@ extension PlayerTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.row]
         presentSafariViewController(url: item.url)
+    }
+}
+
+// MARK: - UISearchResultsUpdating
+
+extension PlayerTableViewController: UISearchResultsUpdating {
+
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else { fatalError() }
+
+        // TODO: I wanna remove "if"
+        if searchText == "" {
+            items = Player.all
+        } else {
+            items = Player.all.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+        }
+
+        tableView.reloadData()
     }
 }
