@@ -13,6 +13,7 @@ struct AllTimeTopScorers {
 
 extension AllTimeTopScorers {
 
+    // swiftlint:disable all
     static let all = [
         AllTimeTopScorers(competition: .fifaWorldCup, url: "https://en.wikipedia.org/wiki/FIFA_World_Cup_top_goalscorers#Overall_top_goalscorers"),
         AllTimeTopScorers(competition: .copaAmerica, url: "https://en.wikipedia.org/wiki/Copa_Am%C3%A9rica_records_and_statistics#Goalscoring"),

@@ -17,6 +17,7 @@ struct Competition: Comparable {
 
 extension Competition {
 
+    // swiftlint:disable all
     static let fifaWorldCup =               Competition(name: "FIFA World Cup",                 regionCode: "LGBT")
     static let copaAmerica =                Competition(name: "Copa América",                   regionCode: "LGBT")
     static let uefaEuro =                   Competition(name: "UEFA Euro",                      regionCode: "LGBT")

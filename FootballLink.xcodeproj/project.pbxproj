@@ -23,9 +23,11 @@
 		7794E46A2199F388006CB5BE /* AllTimeTopScorers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4692199F388006CB5BE /* AllTimeTopScorers.swift */; };
 		77F158FB21984EAF001575FC /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F158FA21984EAF001575FC /* Competition.swift */; };
 		77F868B5217D16EF002B1132 /* FlagKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F868B4217D16EF002B1132 /* FlagKit.framework */; };
+		849933A3EFDA5D2EAF7AD682 /* Pods_FootballLink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3352955E917CB9158E08C0F5 /* Pods_FootballLink.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3352955E917CB9158E08C0F5 /* Pods_FootballLink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FootballLink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77229AB22181DFDD002840A1 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		77229AB42181E02B002840A1 /* PlayerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewController.swift; sourceTree = "<group>"; };
 		77229AB62181E065002840A1 /* Player.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Player.storyboard; sourceTree = "<group>"; };
@@ -44,6 +46,8 @@
 		7794E4692199F388006CB5BE /* AllTimeTopScorers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTimeTopScorers.swift; sourceTree = "<group>"; };
 		77F158FA21984EAF001575FC /* Competition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Competition.swift; sourceTree = "<group>"; };
 		77F868B4217D16EF002B1132 /* FlagKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlagKit.framework; path = Carthage/Build/iOS/FlagKit.framework; sourceTree = "<group>"; };
+		7D0F5177BDE98D53BCC6D987 /* Pods-FootballLink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FootballLink.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FootballLink/Pods-FootballLink.debug.xcconfig"; sourceTree = "<group>"; };
+		B742C7815D4C4D85AED8B435 /* Pods-FootballLink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FootballLink.release.xcconfig"; path = "Pods/Target Support Files/Pods-FootballLink/Pods-FootballLink.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77F868B5217D16EF002B1132 /* FlagKit.framework in Frameworks */,
+				849933A3EFDA5D2EAF7AD682 /* Pods_FootballLink.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +69,7 @@
 				772ABC8F217D024600A9D589 /* FootballLink */,
 				772ABC8E217D024600A9D589 /* Products */,
 				77F868B3217D16EF002B1132 /* Frameworks */,
+				F9A19FAE97372477A0790756 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,8 +132,18 @@
 			isa = PBXGroup;
 			children = (
 				77F868B4217D16EF002B1132 /* FlagKit.framework */,
+				3352955E917CB9158E08C0F5 /* Pods_FootballLink.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F9A19FAE97372477A0790756 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7D0F5177BDE98D53BCC6D987 /* Pods-FootballLink.debug.xcconfig */,
+				B742C7815D4C4D85AED8B435 /* Pods-FootballLink.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +153,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 772ABC9F217D024700A9D589 /* Build configuration list for PBXNativeTarget "FootballLink" */;
 			buildPhases = (
+				D90FC11F2662BE6D9A0F1362 /* [CP] Check Pods Manifest.lock */,
 				772ABC89217D024600A9D589 /* Sources */,
 				772ABC8A217D024600A9D589 /* Frameworks */,
 				772ABC8B217D024600A9D589 /* Resources */,
@@ -219,6 +236,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		D90FC11F2662BE6D9A0F1362 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FootballLink-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -371,6 +410,7 @@
 		};
 		772ABCA0217D024700A9D589 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D0F5177BDE98D53BCC6D987 /* Pods-FootballLink.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -393,6 +433,7 @@
 		};
 		772ABCA1217D024700A9D589 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B742C7815D4C4D85AED8B435 /* Pods-FootballLink.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

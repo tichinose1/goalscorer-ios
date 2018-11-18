@@ -45,6 +45,7 @@ private extension TopScorer {
 
 extension TopScorer {
 
+    // swiftlint:disable all
     static let all = [
         TopScorer(season: "2018–19",    competition: .uefaChampionsLeague,          header: "Top goalscorers"),
         TopScorer(season: "2018–19",    competition: .uefaEuropaLeague,             header: "Top goalscorers"),
