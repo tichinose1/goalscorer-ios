@@ -29,6 +29,7 @@ private extension Player {
 
 extension Player {
 
+    // swiftlint:disable all
     static let all = [
         Player(regionCode: "AR",        name: "Lionel Messi"),
         Player(regionCode: "PT",        name: "Cristiano Ronaldo"),
