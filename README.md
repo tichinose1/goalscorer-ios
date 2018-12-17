@@ -1,4 +1,4 @@
-# FootballLink
+# Goalscorers
 
 Simple viewer for footbball records and statistics
 
