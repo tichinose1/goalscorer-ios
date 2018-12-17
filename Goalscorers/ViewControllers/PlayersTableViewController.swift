@@ -1,5 +1,5 @@
 //
-//  PlayerTableViewController.swift
+//  PlayersTableViewController.swift
 //  Goalscorers
 //
 //  Created by tichinose1 on 2018/10/25.
@@ -9,7 +9,7 @@
 import UIKit
 import FlagKit
 
-class PlayerTableViewController: UITableViewController {
+class PlayersTableViewController: UITableViewController {
 
     var items: [Player] = []
 
@@ -32,7 +32,7 @@ class PlayerTableViewController: UITableViewController {
 
 // MARK: - Table view data source
 
-extension PlayerTableViewController {
+extension PlayersTableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
@@ -51,7 +51,7 @@ extension PlayerTableViewController {
 
 // MARK: - UITableViewDelegate
 
-extension PlayerTableViewController {
+extension PlayersTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.row]
@@ -61,7 +61,7 @@ extension PlayerTableViewController {
 
 // MARK: - UISearchResultsUpdating
 
-extension PlayerTableViewController: UISearchResultsUpdating {
+extension PlayersTableViewController: UISearchResultsUpdating {
 
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { fatalError() }

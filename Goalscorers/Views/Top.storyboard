@@ -27,35 +27,40 @@
             </objects>
             <point key="canvasLocation" x="-2313" y="-95"/>
         </scene>
-        <!--Goal-->
+        <!--TopScorers-->
         <scene sceneID="9DZ-Xs-S8h">
             <objects>
-                <viewControllerPlaceholder storyboardName="Goal" id="wcq-O4-KCW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Top scorers" id="cZM-Vh-DPy"/>
+                <viewControllerPlaceholder storyboardName="TopScorers" id="wcq-O4-KCW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Top scorers" image="baseline_list_black_24pt" id="cZM-Vh-DPy"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqj-HE-PaO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1654" y="-178"/>
+            <point key="canvasLocation" x="-1622" y="-386"/>
         </scene>
-        <!--Player-->
+        <!--Players-->
         <scene sceneID="9Jn-go-zZA">
             <objects>
-                <viewControllerPlaceholder storyboardName="Player" id="HN9-D3-WNK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Players" id="Bzc-8F-wOn"/>
+                <viewControllerPlaceholder storyboardName="Players" id="HN9-D3-WNK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Players" image="baseline_people_black_24pt" id="Bzc-8F-wOn"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h9F-8r-cau" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1646" y="-10"/>
+            <point key="canvasLocation" x="-1641" y="195"/>
         </scene>
         <!--AllTime-->
         <scene sceneID="fH8-yg-2R1">
             <objects>
                 <viewControllerPlaceholder storyboardName="AllTime" id="yNh-5s-RME" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All time" id="sJM-pB-YU2"/>
+                    <tabBarItem key="tabBarItem" title="All time" image="baseline_timeline_black_24pt" id="sJM-pB-YU2"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q5i-uZ-OdO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1640" y="-95"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="baseline_list_black_24pt" width="72" height="72"/>
+        <image name="baseline_people_black_24pt" width="72" height="72"/>
+        <image name="baseline_timeline_black_24pt" width="72" height="72"/>
+    </resources>
 </document>

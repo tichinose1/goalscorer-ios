@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		77229AB32181DFDD002840A1 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77229AB22181DFDD002840A1 /* Player.swift */; };
-		77229AB52181E02B002840A1 /* PlayerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77229AB42181E02B002840A1 /* PlayerTableViewController.swift */; };
-		77229AB72181E065002840A1 /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77229AB62181E065002840A1 /* Player.storyboard */; };
+		77229AB52181E02B002840A1 /* PlayersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77229AB42181E02B002840A1 /* PlayersTableViewController.swift */; };
+		77229AB72181E065002840A1 /* Players.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77229AB62181E065002840A1 /* Players.storyboard */; };
 		772ABC91217D024600A9D589 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772ABC90217D024600A9D589 /* AppDelegate.swift */; };
 		772ABC98217D024700A9D589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 772ABC97217D024700A9D589 /* Assets.xcassets */; };
 		772ABC9B217D024700A9D589 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 772ABC99217D024700A9D589 /* LaunchScreen.storyboard */; };
 		772ABCA5217D030300A9D589 /* Top.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 772ABCA4217D030300A9D589 /* Top.storyboard */; };
-		772ABCA7217D03C900A9D589 /* GoalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772ABCA6217D03C900A9D589 /* GoalTableViewController.swift */; };
-		7754E3C7217D0EDC005AA750 /* Goal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7754E3C6217D0EDC005AA750 /* Goal.storyboard */; };
+		772ABCA7217D03C900A9D589 /* TopScorersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772ABCA6217D03C900A9D589 /* TopScorersTableViewController.swift */; };
+		7754E3C7217D0EDC005AA750 /* TopScorers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7754E3C6217D0EDC005AA750 /* TopScorers.storyboard */; };
 		77603842217D05BA005DABC3 /* TopScorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77603841217D05BA005DABC3 /* TopScorer.swift */; };
 		77603846217D07B6005DABC3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77603845217D07B6005DABC3 /* Extensions.swift */; };
 		7794E4662199EFE8006CB5BE /* AllTime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7794E4652199EFE8006CB5BE /* AllTime.storyboard */; };
@@ -30,16 +30,16 @@
 		28AF3A455E9CB3B82533EC54 /* Pods-Goalscorers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Goalscorers.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Goalscorers/Pods-Goalscorers.debug.xcconfig"; sourceTree = "<group>"; };
 		3421C278C8801DC616287115 /* Pods-Goalscorers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Goalscorers.release.xcconfig"; path = "Pods/Target Support Files/Pods-Goalscorers/Pods-Goalscorers.release.xcconfig"; sourceTree = "<group>"; };
 		77229AB22181DFDD002840A1 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		77229AB42181E02B002840A1 /* PlayerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewController.swift; sourceTree = "<group>"; };
-		77229AB62181E065002840A1 /* Player.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Player.storyboard; sourceTree = "<group>"; };
+		77229AB42181E02B002840A1 /* PlayersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTableViewController.swift; sourceTree = "<group>"; };
+		77229AB62181E065002840A1 /* Players.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Players.storyboard; sourceTree = "<group>"; };
 		772ABC8D217D024600A9D589 /* Goalscorers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goalscorers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		772ABC90217D024600A9D589 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		772ABC97217D024700A9D589 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		772ABC9A217D024700A9D589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		772ABC9C217D024700A9D589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		772ABCA4217D030300A9D589 /* Top.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Top.storyboard; sourceTree = "<group>"; };
-		772ABCA6217D03C900A9D589 /* GoalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableViewController.swift; sourceTree = "<group>"; };
-		7754E3C6217D0EDC005AA750 /* Goal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Goal.storyboard; sourceTree = "<group>"; };
+		772ABCA6217D03C900A9D589 /* TopScorersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScorersTableViewController.swift; sourceTree = "<group>"; };
+		7754E3C6217D0EDC005AA750 /* TopScorers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TopScorers.storyboard; sourceTree = "<group>"; };
 		77603841217D05BA005DABC3 /* TopScorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScorer.swift; sourceTree = "<group>"; };
 		77603845217D07B6005DABC3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7794E4652199EFE8006CB5BE /* AllTime.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AllTime.storyboard; sourceTree = "<group>"; };
@@ -99,9 +99,9 @@
 			isa = PBXGroup;
 			children = (
 				772ABCA4217D030300A9D589 /* Top.storyboard */,
-				7754E3C6217D0EDC005AA750 /* Goal.storyboard */,
+				7754E3C6217D0EDC005AA750 /* TopScorers.storyboard */,
 				7794E4652199EFE8006CB5BE /* AllTime.storyboard */,
-				77229AB62181E065002840A1 /* Player.storyboard */,
+				77229AB62181E065002840A1 /* Players.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -109,9 +109,9 @@
 		772ABCA3217D02F100A9D589 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				772ABCA6217D03C900A9D589 /* GoalTableViewController.swift */,
+				772ABCA6217D03C900A9D589 /* TopScorersTableViewController.swift */,
 				7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */,
-				77229AB42181E02B002840A1 /* PlayerTableViewController.swift */,
+				77229AB42181E02B002840A1 /* PlayersTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -209,8 +209,8 @@
 				772ABCA5217D030300A9D589 /* Top.storyboard in Resources */,
 				772ABC9B217D024700A9D589 /* LaunchScreen.storyboard in Resources */,
 				7794E4662199EFE8006CB5BE /* AllTime.storyboard in Resources */,
-				77229AB72181E065002840A1 /* Player.storyboard in Resources */,
-				7754E3C7217D0EDC005AA750 /* Goal.storyboard in Resources */,
+				77229AB72181E065002840A1 /* Players.storyboard in Resources */,
+				7754E3C7217D0EDC005AA750 /* TopScorers.storyboard in Resources */,
 				772ABC98217D024700A9D589 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,9 +267,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				77603846217D07B6005DABC3 /* Extensions.swift in Sources */,
-				772ABCA7217D03C900A9D589 /* GoalTableViewController.swift in Sources */,
+				772ABCA7217D03C900A9D589 /* TopScorersTableViewController.swift in Sources */,
 				7794E4682199F138006CB5BE /* AllTimeTableViewController.swift in Sources */,
-				77229AB52181E02B002840A1 /* PlayerTableViewController.swift in Sources */,
+				77229AB52181E02B002840A1 /* PlayersTableViewController.swift in Sources */,
 				772ABC91217D024600A9D589 /* AppDelegate.swift in Sources */,
 				7794E46A2199F388006CB5BE /* AllTimeTopScorers.swift in Sources */,
 				77229AB32181DFDD002840A1 /* Player.swift in Sources */,

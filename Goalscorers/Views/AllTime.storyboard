@@ -11,7 +11,7 @@
         <!--All time top scorers-->
         <scene sceneID="cci-QK-4Xb">
             <objects>
-                <tableViewController id="cTE-hT-H3M" customClass="AllTimeTableViewController" customModule="FootballLink" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="cTE-hT-H3M" customClass="AllTimeTableViewController" customModule="Goalscorers" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="24b-BY-Af3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,7 +50,8 @@
         <scene sceneID="qO0-KD-bdW">
             <objects>
                 <navigationController id="PfB-QB-RRz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All time" image="outline_timeline_black_36pt" id="ZMy-8y-mqA"/>
+                    <tabBarItem key="tabBarItem" title="All time" image="baseline_timeline_black_24pt" id="Xtj-hU-8FY"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="6IL-2X-sHm">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -65,6 +66,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="outline_timeline_black_36pt" width="108" height="108"/>
+        <image name="baseline_timeline_black_24pt" width="72" height="72"/>
     </resources>
 </document>

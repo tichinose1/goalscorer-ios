@@ -11,7 +11,7 @@
         <!--Players-->
         <scene sceneID="Lqk-Kg-7vI">
             <objects>
-                <tableViewController id="yQC-ds-8qZ" customClass="PlayerTableViewController" customModule="FootballLink" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="yQC-ds-8qZ" customClass="PlayersTableViewController" customModule="Goalscorers" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="HTb-rN-Zos">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,7 +50,8 @@
         <scene sceneID="ymh-oo-3Kw">
             <objects>
                 <navigationController id="ZF7-SS-3oc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Players" image="baseline_people_black_36pt" id="qAK-QX-t3i"/>
+                    <tabBarItem key="tabBarItem" title="Players" image="baseline_people_black_24pt" id="bVf-m3-5Fo"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="dWx-ev-53C">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -65,6 +66,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="baseline_people_black_36pt" width="108" height="108"/>
+        <image name="baseline_people_black_24pt" width="72" height="72"/>
     </resources>
 </document>

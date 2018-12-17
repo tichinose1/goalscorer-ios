@@ -11,7 +11,7 @@
         <!--Top scorers-->
         <scene sceneID="THc-5g-Esn">
             <objects>
-                <tableViewController storyboardIdentifier="goalViewController" id="tmX-xV-u5u" customClass="GoalTableViewController" customModule="FootballLink" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="goalViewController" id="tmX-xV-u5u" customClass="TopScorersTableViewController" customModule="Goalscorers" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zMs-Ll-9O0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,7 +62,8 @@
         <scene sceneID="BHQ-lZ-IaK">
             <objects>
                 <navigationController id="Bdm-J1-6P3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Top scorers" image="baseline_list_black_36pt" id="54X-jI-aS7"/>
+                    <tabBarItem key="tabBarItem" title="Top scorers" image="baseline_list_black_24pt" id="ZVq-j5-LHY"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="zJ1-bs-QAT">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -77,6 +78,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="baseline_list_black_36pt" width="108" height="108"/>
+        <image name="baseline_list_black_24pt" width="72" height="72"/>
     </resources>
 </document>

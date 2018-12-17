@@ -1,5 +1,5 @@
 //
-//  GoalTableViewController.swift
+//  TopScorersTableViewController.swift
 //  Goalscorers
 //
 //  Created by tichinose1 on 2018/10/22.
@@ -14,7 +14,7 @@ private struct Section {
     let rows: [TopScorer]
 }
 
-class GoalTableViewController: UITableViewController {
+class TopScorersTableViewController: UITableViewController {
 
     private var sections: [Section] = []
 
@@ -33,7 +33,7 @@ class GoalTableViewController: UITableViewController {
 
 // MARK: - UITableViewDataSource
 
-extension GoalTableViewController {
+extension TopScorersTableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
@@ -58,7 +58,7 @@ extension GoalTableViewController {
 
 // MARK: - UITableViewDelegate
 
-extension GoalTableViewController {
+extension TopScorersTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = sections[indexPath.section].rows[indexPath.row]
@@ -68,7 +68,7 @@ extension GoalTableViewController {
 
 // MARK: - Private functions
 
-private extension GoalTableViewController {
+private extension TopScorersTableViewController {
 
     func updateDataSource(segmentIndex: Int) {
         switch segmentIndex {
