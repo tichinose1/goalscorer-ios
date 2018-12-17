@@ -1,11 +1,21 @@
 # FootballLink
 
-Football goal record and statistics.
+Simple viewer for footbball records and statistics
 
-## Setup
+## Requirement
+
+- Xcode 10.1
+
+- Swift
+
+- Ruby
+  - bundler
+- Carthage
+
+## Installation
 
 ```bash
 bundle
-bundle exec pod update
-carthage bootstrap --platform iOS --configuration Debug --cache-builds
+bundle exec pod install
+carthage bootstrap --platform iOS
 ```
