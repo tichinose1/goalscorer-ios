@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1000"
+   LastUpgradeVersion = "1010"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "772ABC8C217D024600A9D589"
-               BuildableName = "FootballLink.app"
-               BlueprintName = "FootballLink"
-               ReferencedContainer = "container:FootballLink.xcodeproj">
+               BuildableName = "Goalscorers.app"
+               BlueprintName = "Goalscorers"
+               ReferencedContainer = "container:Goalscorers.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "772ABC8C217D024600A9D589"
-            BuildableName = "FootballLink.app"
-            BlueprintName = "FootballLink"
-            ReferencedContainer = "container:FootballLink.xcodeproj">
+            BuildableName = "Goalscorers.app"
+            BlueprintName = "Goalscorers"
+            ReferencedContainer = "container:Goalscorers.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "772ABC8C217D024600A9D589"
-            BuildableName = "FootballLink.app"
-            BlueprintName = "FootballLink"
-            ReferencedContainer = "container:FootballLink.xcodeproj">
+            BuildableName = "Goalscorers.app"
+            BlueprintName = "Goalscorers"
+            ReferencedContainer = "container:Goalscorers.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "772ABC8C217D024600A9D589"
-            BuildableName = "FootballLink.app"
-            BlueprintName = "FootballLink"
-            ReferencedContainer = "container:FootballLink.xcodeproj">
+            BuildableName = "Goalscorers.app"
+            BlueprintName = "Goalscorers"
+            ReferencedContainer = "container:Goalscorers.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
