@@ -66,7 +66,7 @@
 		772ABC84217D024600A9D589 = {
 			isa = PBXGroup;
 			children = (
-				772ABC8F217D024600A9D589 /* FootballLink */,
+				772ABC8F217D024600A9D589 /* Goalscorers */,
 				772ABC8E217D024600A9D589 /* Products */,
 				77F868B3217D16EF002B1132 /* Frameworks */,
 				F9A19FAE97372477A0790756 /* Pods */,
@@ -81,7 +81,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		772ABC8F217D024600A9D589 /* FootballLink */ = {
+		772ABC8F217D024600A9D589 /* Goalscorers */ = {
 			isa = PBXGroup;
 			children = (
 				77603840217D0583005DABC3 /* Models */,
@@ -92,7 +92,7 @@
 				772ABC99217D024700A9D589 /* LaunchScreen.storyboard */,
 				772ABC9C217D024700A9D589 /* Info.plist */,
 			);
-			path = FootballLink;
+			path = Goalscorers;
 			sourceTree = "<group>";
 		};
 		772ABCA2217D02E800A9D589 /* Views */ = {
@@ -419,7 +419,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = FootballLink/Info.plist;
+				INFOPLIST_FILE = Goalscorers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -444,7 +444,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = FootballLink/Info.plist;
+				INFOPLIST_FILE = Goalscorers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
