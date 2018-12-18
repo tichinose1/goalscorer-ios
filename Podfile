@@ -4,4 +4,5 @@ target 'Goalscorers' do
   use_frameworks!
 
   pod 'SwiftLint'
+  pod 'LicensePlist'
 end
