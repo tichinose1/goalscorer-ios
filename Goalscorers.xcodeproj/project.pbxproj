@@ -18,6 +18,7 @@
 		7754E3C7217D0EDC005AA750 /* TopScorers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7754E3C6217D0EDC005AA750 /* TopScorers.storyboard */; };
 		77603842217D05BA005DABC3 /* TopScorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77603841217D05BA005DABC3 /* TopScorer.swift */; };
 		77603846217D07B6005DABC3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77603845217D07B6005DABC3 /* Extensions.swift */; };
+		7778558A21C89FA0006AF1AB /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7778558921C89F9F006AF1AB /* Settings.bundle */; };
 		7794E4662199EFE8006CB5BE /* AllTime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7794E4652199EFE8006CB5BE /* AllTime.storyboard */; };
 		7794E4682199F138006CB5BE /* AllTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */; };
 		7794E46A2199F388006CB5BE /* AllTimeTopScorers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4692199F388006CB5BE /* AllTimeTopScorers.swift */; };
@@ -42,6 +43,7 @@
 		7754E3C6217D0EDC005AA750 /* TopScorers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TopScorers.storyboard; sourceTree = "<group>"; };
 		77603841217D05BA005DABC3 /* TopScorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScorer.swift; sourceTree = "<group>"; };
 		77603845217D07B6005DABC3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7778558921C89F9F006AF1AB /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		7794E4652199EFE8006CB5BE /* AllTime.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AllTime.storyboard; sourceTree = "<group>"; };
 		7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTimeTableViewController.swift; sourceTree = "<group>"; };
 		7794E4692199F388006CB5BE /* AllTimeTopScorers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTimeTopScorers.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				772ABC97217D024700A9D589 /* Assets.xcassets */,
 				772ABC99217D024700A9D589 /* LaunchScreen.storyboard */,
 				772ABC9C217D024700A9D589 /* Info.plist */,
+				7778558921C89F9F006AF1AB /* Settings.bundle */,
 			);
 			path = Goalscorers;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				77229AB72181E065002840A1 /* Players.storyboard in Resources */,
 				7754E3C7217D0EDC005AA750 /* TopScorers.storyboard in Resources */,
 				772ABC98217D024700A9D589 /* Assets.xcassets in Resources */,
+				7778558A21C89FA0006AF1AB /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
