@@ -1,6 +1,6 @@
 platform :ios, '12.0'
 
-target 'Goalscorers' do
+target 'Goalscorer' do
   use_frameworks!
 
   pod 'SwiftLint'

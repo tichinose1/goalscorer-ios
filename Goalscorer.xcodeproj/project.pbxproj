@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		071A5B2A813C9F160218D677 /* Pods_Goalscorer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99A7E1DA6C48C68446204B9 /* Pods_Goalscorer.framework */; };
 		77229AB32181DFDD002840A1 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77229AB22181DFDD002840A1 /* Player.swift */; };
 		77229AB52181E02B002840A1 /* PlayersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77229AB42181E02B002840A1 /* PlayersTableViewController.swift */; };
 		77229AB72181E065002840A1 /* Players.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77229AB62181E065002840A1 /* Players.storyboard */; };
@@ -24,16 +25,14 @@
 		7794E46A2199F388006CB5BE /* AllTimeTopScorers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4692199F388006CB5BE /* AllTimeTopScorers.swift */; };
 		77F158FB21984EAF001575FC /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F158FA21984EAF001575FC /* Competition.swift */; };
 		77F868B5217D16EF002B1132 /* FlagKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F868B4217D16EF002B1132 /* FlagKit.framework */; };
-		D02C7F5790D0F25667CE2675 /* Pods_Goalscorers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A307541C63AFA25E67CB4C63 /* Pods_Goalscorers.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		28AF3A455E9CB3B82533EC54 /* Pods-Goalscorers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Goalscorers.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Goalscorers/Pods-Goalscorers.debug.xcconfig"; sourceTree = "<group>"; };
-		3421C278C8801DC616287115 /* Pods-Goalscorers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Goalscorers.release.xcconfig"; path = "Pods/Target Support Files/Pods-Goalscorers/Pods-Goalscorers.release.xcconfig"; sourceTree = "<group>"; };
+		0FC9773539757ACA07EDF8CB /* Pods-Goalscorer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Goalscorer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Goalscorer/Pods-Goalscorer.release.xcconfig"; sourceTree = "<group>"; };
 		77229AB22181DFDD002840A1 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		77229AB42181E02B002840A1 /* PlayersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTableViewController.swift; sourceTree = "<group>"; };
 		77229AB62181E065002840A1 /* Players.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Players.storyboard; sourceTree = "<group>"; };
-		772ABC8D217D024600A9D589 /* Goalscorers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goalscorers.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		772ABC8D217D024600A9D589 /* Goalscorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goalscorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		772ABC90217D024600A9D589 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		772ABC97217D024700A9D589 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		772ABC9A217D024700A9D589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,7 +48,8 @@
 		7794E4692199F388006CB5BE /* AllTimeTopScorers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTimeTopScorers.swift; sourceTree = "<group>"; };
 		77F158FA21984EAF001575FC /* Competition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Competition.swift; sourceTree = "<group>"; };
 		77F868B4217D16EF002B1132 /* FlagKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlagKit.framework; path = Carthage/Build/iOS/FlagKit.framework; sourceTree = "<group>"; };
-		A307541C63AFA25E67CB4C63 /* Pods_Goalscorers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Goalscorers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C99A7E1DA6C48C68446204B9 /* Pods_Goalscorer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Goalscorer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4536764CDE13A4DEF9D35A7 /* Pods-Goalscorer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Goalscorer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Goalscorer/Pods-Goalscorer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77F868B5217D16EF002B1132 /* FlagKit.framework in Frameworks */,
-				D02C7F5790D0F25667CE2675 /* Pods_Goalscorers.framework in Frameworks */,
+				071A5B2A813C9F160218D677 /* Pods_Goalscorer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,7 +68,7 @@
 		772ABC84217D024600A9D589 = {
 			isa = PBXGroup;
 			children = (
-				772ABC8F217D024600A9D589 /* Goalscorers */,
+				772ABC8F217D024600A9D589 /* Goalscorer */,
 				772ABC8E217D024600A9D589 /* Products */,
 				77F868B3217D16EF002B1132 /* Frameworks */,
 				F9A19FAE97372477A0790756 /* Pods */,
@@ -78,12 +78,12 @@
 		772ABC8E217D024600A9D589 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				772ABC8D217D024600A9D589 /* Goalscorers.app */,
+				772ABC8D217D024600A9D589 /* Goalscorer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		772ABC8F217D024600A9D589 /* Goalscorers */ = {
+		772ABC8F217D024600A9D589 /* Goalscorer */ = {
 			isa = PBXGroup;
 			children = (
 				77603840217D0583005DABC3 /* Models */,
@@ -95,7 +95,7 @@
 				772ABC9C217D024700A9D589 /* Info.plist */,
 				7778558921C89F9F006AF1AB /* Settings.bundle */,
 			);
-			path = Goalscorers;
+			path = Goalscorer;
 			sourceTree = "<group>";
 		};
 		772ABCA2217D02E800A9D589 /* Views */ = {
@@ -135,7 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				77F868B4217D16EF002B1132 /* FlagKit.framework */,
-				A307541C63AFA25E67CB4C63 /* Pods_Goalscorers.framework */,
+				C99A7E1DA6C48C68446204B9 /* Pods_Goalscorer.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -143,8 +143,8 @@
 		F9A19FAE97372477A0790756 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				28AF3A455E9CB3B82533EC54 /* Pods-Goalscorers.debug.xcconfig */,
-				3421C278C8801DC616287115 /* Pods-Goalscorers.release.xcconfig */,
+				E4536764CDE13A4DEF9D35A7 /* Pods-Goalscorer.debug.xcconfig */,
+				0FC9773539757ACA07EDF8CB /* Pods-Goalscorer.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -152,9 +152,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		772ABC8C217D024600A9D589 /* Goalscorers */ = {
+		772ABC8C217D024600A9D589 /* Goalscorer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 772ABC9F217D024700A9D589 /* Build configuration list for PBXNativeTarget "Goalscorers" */;
+			buildConfigurationList = 772ABC9F217D024700A9D589 /* Build configuration list for PBXNativeTarget "Goalscorer" */;
 			buildPhases = (
 				D90FC11F2662BE6D9A0F1362 /* [CP] Check Pods Manifest.lock */,
 				772ABC89217D024600A9D589 /* Sources */,
@@ -166,9 +166,9 @@
 			);
 			dependencies = (
 			);
-			name = Goalscorers;
+			name = Goalscorer;
 			productName = FootbballLink;
-			productReference = 772ABC8D217D024600A9D589 /* Goalscorers.app */;
+			productReference = 772ABC8D217D024600A9D589 /* Goalscorer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -186,7 +186,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 772ABC88217D024600A9D589 /* Build configuration list for PBXProject "Goalscorers" */;
+			buildConfigurationList = 772ABC88217D024600A9D589 /* Build configuration list for PBXProject "Goalscorer" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -199,7 +199,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				772ABC8C217D024600A9D589 /* Goalscorers */,
+				772ABC8C217D024600A9D589 /* Goalscorer */,
 			);
 		};
 /* End PBXProject section */
@@ -256,7 +256,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Goalscorers-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Goalscorer-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -414,7 +414,7 @@
 		};
 		772ABCA0217D024700A9D589 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28AF3A455E9CB3B82533EC54 /* Pods-Goalscorers.debug.xcconfig */;
+			baseConfigurationReference = E4536764CDE13A4DEF9D35A7 /* Pods-Goalscorer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -423,12 +423,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Goalscorers/Info.plist;
+				INFOPLIST_FILE = Goalscorer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Goalscorers;
+				PRODUCT_BUNDLE_IDENTIFIER = com.t000y.Goalscorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = wildcard_com_dev;
 				SWIFT_VERSION = 4.2;
@@ -438,7 +438,7 @@
 		};
 		772ABCA1217D024700A9D589 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3421C278C8801DC616287115 /* Pods-Goalscorers.release.xcconfig */;
+			baseConfigurationReference = 0FC9773539757ACA07EDF8CB /* Pods-Goalscorer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -448,12 +448,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Goalscorers/Info.plist;
+				INFOPLIST_FILE = Goalscorer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Goalscorers;
+				PRODUCT_BUNDLE_IDENTIFIER = com.t000y.Goalscorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = wildcard_com_dist;
 				SWIFT_VERSION = 4.2;
@@ -464,7 +464,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		772ABC88217D024600A9D589 /* Build configuration list for PBXProject "Goalscorers" */ = {
+		772ABC88217D024600A9D589 /* Build configuration list for PBXProject "Goalscorer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				772ABC9D217D024700A9D589 /* Debug */,
@@ -473,7 +473,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		772ABC9F217D024700A9D589 /* Build configuration list for PBXNativeTarget "Goalscorers" */ = {
+		772ABC9F217D024700A9D589 /* Build configuration list for PBXNativeTarget "Goalscorer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				772ABCA0217D024700A9D589 /* Debug */,
