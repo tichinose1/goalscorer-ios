@@ -1,13 +1,10 @@
-# Goalscorers
+# Goalscorer
 
 Simple viewer for footbball records and statistics
 
 ## Requirement
 
 - Xcode 10.1
-
-- Swift
-
 - Ruby
   - bundler
 - Carthage

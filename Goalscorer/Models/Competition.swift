@@ -1,6 +1,6 @@
 //
 //  Competition.swift
-//  Goalscorers
+//  Goalscorer
 //
 //  Created by tichinose1 on 2018/11/11.
 //  Copyright © 2018 example.com. All rights reserved.
