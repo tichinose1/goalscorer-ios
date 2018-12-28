@@ -1,4 +1,4 @@
-platform :ios, '12.0'
+platform :ios, '11.0'
 
 target 'Goalscorer' do
   use_frameworks!
@@ -6,3 +6,4 @@ target 'Goalscorer' do
   pod 'SwiftLint'
   pod 'LicensePlist'
 end
+

@@ -11,7 +11,7 @@ import FlagKit
 
 class PlayersTableViewController: UITableViewController {
 
-    private var items: [Player] = []
+    private var items: [Player] = Player.all
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +25,6 @@ class PlayersTableViewController: UITableViewController {
         navigationItem.searchController = searchController
 
         definesPresentationContext = true
-
-        items = Player.all
     }
 }
 
