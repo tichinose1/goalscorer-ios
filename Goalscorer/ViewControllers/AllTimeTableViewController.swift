@@ -11,7 +11,7 @@ import FlagKit
 
 class AllTimeTableViewController: UITableViewController {
 
-    var items = AllTimeTopScorers.all
+    private var items = AllTimeTopScorer.all
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -11,7 +11,7 @@ import FlagKit
 
 class PlayersTableViewController: UITableViewController {
 
-    var items: [Player] = []
+    private var items: [Player] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
