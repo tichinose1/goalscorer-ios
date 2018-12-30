@@ -28,7 +28,7 @@
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Goalscorer0120.jpg",
+      "filename" : "app_icon_0120.jpg",
       "scale" : "3x"
     },
     {
@@ -39,7 +39,7 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Goalscorer0180.jpg",
+      "filename" : "app_icon_0180.jpg",
       "scale" : "3x"
     },
     {
@@ -80,19 +80,19 @@
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "Goalscorer0152.jpg",
+      "filename" : "app_icon_0152.jpg",
       "scale" : "2x"
     },
     {
       "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "Goalscorer0167.jpg",
+      "filename" : "app_icon_0167.jpg",
       "scale" : "2x"
     },
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "Goalscorer1024.jpg",
+      "filename" : "app_icon_1024.jpg",
       "scale" : "1x"
     }
   ],
