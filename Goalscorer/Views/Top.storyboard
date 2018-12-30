@@ -20,6 +20,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="GBn-1E-xLZ" kind="relationship" relationship="viewControllers" id="uIm-da-uFK"/>
+                        <segue destination="9bK-uE-s3g" kind="relationship" relationship="viewControllers" id="bfL-fH-2bK"/>
                         <segue destination="wcq-O4-KCW" kind="relationship" relationship="viewControllers" id="y20-A8-1my"/>
                         <segue destination="yNh-5s-RME" kind="relationship" relationship="viewControllers" id="nBf-1K-leK"/>
                         <segue destination="HN9-D3-WNK" kind="relationship" relationship="viewControllers" id="PW7-3W-grf"/>
@@ -37,7 +38,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dYf-J7-ddp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1639" y="-386"/>
+            <point key="canvasLocation" x="-1641" y="-386"/>
         </scene>
         <!--TopScorers-->
         <scene sceneID="9DZ-Xs-S8h">
@@ -47,7 +48,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqj-HE-PaO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1623" y="-262"/>
+            <point key="canvasLocation" x="-1623" y="-95"/>
+        </scene>
+        <!--Competitions-->
+        <scene sceneID="8rZ-8p-eTZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Competitions" id="9bK-uE-s3g" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Competitions" image="baseline_map_black_24pt" id="IMh-lU-dic"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="63q-kB-xNY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1614" y="-240"/>
         </scene>
         <!--Players-->
         <scene sceneID="9Jn-go-zZA">
@@ -67,12 +78,13 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q5i-uZ-OdO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1640" y="-95"/>
+            <point key="canvasLocation" x="-1642" y="50"/>
         </scene>
     </scenes>
     <resources>
         <image name="baseline_home_black_24pt" width="72" height="72"/>
         <image name="baseline_list_black_24pt" width="72" height="72"/>
+        <image name="baseline_map_black_24pt" width="72" height="72"/>
         <image name="baseline_people_black_24pt" width="72" height="72"/>
         <image name="baseline_timeline_black_24pt" width="72" height="72"/>
     </resources>
