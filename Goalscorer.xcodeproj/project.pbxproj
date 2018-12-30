@@ -24,6 +24,8 @@
 		7794E4682199F138006CB5BE /* AllTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */; };
 		7794E46A2199F388006CB5BE /* AllTimeTopScorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4692199F388006CB5BE /* AllTimeTopScorer.swift */; };
 		77AB25E021D8E0EA005FBCF5 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB25DF21D8E0EA005FBCF5 /* Functions.swift */; };
+		77AB25E421D8E6FF005FBCF5 /* Current.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AB25E321D8E6FF005FBCF5 /* Current.storyboard */; };
+		77AB25E621D8E7E8005FBCF5 /* CurrentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB25E521D8E7E8005FBCF5 /* CurrentTableViewController.swift */; };
 		77F158FB21984EAF001575FC /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F158FA21984EAF001575FC /* Competition.swift */; };
 		77F868B5217D16EF002B1132 /* FlagKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F868B4217D16EF002B1132 /* FlagKit.framework */; };
 /* End PBXBuildFile section */
@@ -48,6 +50,8 @@
 		7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTimeTableViewController.swift; sourceTree = "<group>"; };
 		7794E4692199F388006CB5BE /* AllTimeTopScorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTimeTopScorer.swift; sourceTree = "<group>"; };
 		77AB25DF21D8E0EA005FBCF5 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		77AB25E321D8E6FF005FBCF5 /* Current.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Current.storyboard; sourceTree = "<group>"; };
+		77AB25E521D8E7E8005FBCF5 /* CurrentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTableViewController.swift; sourceTree = "<group>"; };
 		77F158FA21984EAF001575FC /* Competition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Competition.swift; sourceTree = "<group>"; };
 		77F868B4217D16EF002B1132 /* FlagKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlagKit.framework; path = Carthage/Build/iOS/FlagKit.framework; sourceTree = "<group>"; };
 		C99A7E1DA6C48C68446204B9 /* Pods_Goalscorer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Goalscorer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				772ABCA4217D030300A9D589 /* Top.storyboard */,
+				77AB25E321D8E6FF005FBCF5 /* Current.storyboard */,
 				7754E3C6217D0EDC005AA750 /* TopScorers.storyboard */,
 				7794E4652199EFE8006CB5BE /* AllTime.storyboard */,
 				77229AB62181E065002840A1 /* Players.storyboard */,
@@ -114,6 +119,7 @@
 		772ABCA3217D02F100A9D589 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				77AB25E521D8E7E8005FBCF5 /* CurrentTableViewController.swift */,
 				772ABCA6217D03C900A9D589 /* TopScorersTableViewController.swift */,
 				7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */,
 				77229AB42181E02B002840A1 /* PlayersTableViewController.swift */,
@@ -216,6 +222,7 @@
 				772ABC9B217D024700A9D589 /* LaunchScreen.storyboard in Resources */,
 				7794E4662199EFE8006CB5BE /* AllTime.storyboard in Resources */,
 				77229AB72181E065002840A1 /* Players.storyboard in Resources */,
+				77AB25E421D8E6FF005FBCF5 /* Current.storyboard in Resources */,
 				7754E3C7217D0EDC005AA750 /* TopScorers.storyboard in Resources */,
 				772ABC98217D024700A9D589 /* Assets.xcassets in Resources */,
 				7778558A21C89FA0006AF1AB /* Settings.bundle in Resources */,
@@ -283,6 +290,7 @@
 				77229AB32181DFDD002840A1 /* Player.swift in Sources */,
 				77F158FB21984EAF001575FC /* Competition.swift in Sources */,
 				77603842217D05BA005DABC3 /* TopScorer.swift in Sources */,
+				77AB25E621D8E7E8005FBCF5 /* CurrentTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
