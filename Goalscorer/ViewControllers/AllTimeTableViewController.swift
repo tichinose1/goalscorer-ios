@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FlagKit
 
 class AllTimeTableViewController: UITableViewController {
 
@@ -30,7 +29,7 @@ extension AllTimeTableViewController {
         let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "allTimeCell", for: indexPath)
         cell.textLabel?.text = item.competition.name
-        cell.imageView?.image = Flag(countryCode: item.competition.regionCode)?.originalImage
+        cell.imageView?.image = createImage(code: item.competition.regionCode)
         return cell
     }
 }

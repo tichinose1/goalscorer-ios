@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FlagKit
 
 private struct Section {
     let title: String
@@ -51,7 +50,7 @@ extension TopScorersTableViewController {
         let item = sections[indexPath.section].rows[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "goalCell", for: indexPath)
         cell.textLabel?.text = item.title
-        cell.imageView?.image = Flag(countryCode: item.competition.regionCode)?.originalImage
+        cell.imageView?.image = createImage(code: item.competition.regionCode)
         return cell
     }
 }
