@@ -50,6 +50,8 @@ extension MapsViewController: MKMapViewDelegate {
 private extension MapsViewController {
 
     @objc func didTapRightCalloutAccessoryView() {
-        presentSafariViewController(url: TopScorer.all.first!.url)
+        let vc = RegionTableViewController.instantiate()
+
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
