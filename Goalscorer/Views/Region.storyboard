@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Region-->
+        <!--Competitions-->
         <scene sceneID="qHy-PU-uZI">
             <objects>
                 <tableViewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="TEV-AJ-CXP" customClass="RegionTableViewController" customModule="Goalscorer" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,7 +45,7 @@
                             <outlet property="delegate" destination="TEV-AJ-CXP" id="XiR-rp-7fa"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Region" id="T6g-PU-IMt"/>
+                    <navigationItem key="navigationItem" title="Competitions" id="T6g-PU-IMt"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ma7-6Z-sX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -55,8 +55,8 @@
         <scene sceneID="YNJ-81-Zdh">
             <objects>
                 <navigationController useStoryboardIdentifierAsRestorationIdentifier="YES" id="E1N-aA-b3X" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ncL-J7-IhJ">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ncL-J7-IhJ">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

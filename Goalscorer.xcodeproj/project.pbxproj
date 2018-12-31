@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		071A5B2A813C9F160218D677 /* Pods_Goalscorer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99A7E1DA6C48C68446204B9 /* Pods_Goalscorer.framework */; };
+		771539BB21DA0559005C0A4C /* Association.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771539BA21DA0559005C0A4C /* Association.swift */; };
+		771539BD21DA073D005C0A4C /* AssociationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771539BC21DA073D005C0A4C /* AssociationAnnotation.swift */; };
 		77229AB32181DFDD002840A1 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77229AB22181DFDD002840A1 /* Player.swift */; };
 		77229AB52181E02B002840A1 /* PlayersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77229AB42181E02B002840A1 /* PlayersTableViewController.swift */; };
 		77229AB72181E065002840A1 /* Players.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77229AB62181E065002840A1 /* Players.storyboard */; };
@@ -36,6 +38,8 @@
 
 /* Begin PBXFileReference section */
 		0FC9773539757ACA07EDF8CB /* Pods-Goalscorer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Goalscorer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Goalscorer/Pods-Goalscorer.release.xcconfig"; sourceTree = "<group>"; };
+		771539BA21DA0559005C0A4C /* Association.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Association.swift; sourceTree = "<group>"; };
+		771539BC21DA073D005C0A4C /* AssociationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociationAnnotation.swift; sourceTree = "<group>"; };
 		77229AB22181DFDD002840A1 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		77229AB42181E02B002840A1 /* PlayersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTableViewController.swift; sourceTree = "<group>"; };
 		77229AB62181E065002840A1 /* Players.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Players.storyboard; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 				77F158FA21984EAF001575FC /* Competition.swift */,
 				7794E4692199F388006CB5BE /* AllTimeTopScorer.swift */,
 				77AB25DF21D8E0EA005FBCF5 /* Functions.swift */,
+				771539BA21DA0559005C0A4C /* Association.swift */,
+				771539BC21DA073D005C0A4C /* AssociationAnnotation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -294,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				771539BD21DA073D005C0A4C /* AssociationAnnotation.swift in Sources */,
 				77603846217D07B6005DABC3 /* Extensions.swift in Sources */,
 				772ABCA7217D03C900A9D589 /* TopScorersTableViewController.swift in Sources */,
 				77AB25F021D91334005FBCF5 /* RegionTableViewController.swift in Sources */,
@@ -301,6 +308,7 @@
 				77AB25EC21D8ED5F005FBCF5 /* MapsViewController.swift in Sources */,
 				77AB25E021D8E0EA005FBCF5 /* Functions.swift in Sources */,
 				77229AB52181E02B002840A1 /* PlayersTableViewController.swift in Sources */,
+				771539BB21DA0559005C0A4C /* Association.swift in Sources */,
 				772ABC91217D024600A9D589 /* AppDelegate.swift in Sources */,
 				7794E46A2199F388006CB5BE /* AllTimeTopScorer.swift in Sources */,
 				77229AB32181DFDD002840A1 /* Player.swift in Sources */,

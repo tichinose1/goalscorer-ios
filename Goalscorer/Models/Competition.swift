@@ -37,6 +37,7 @@ extension Competition {
     static let argentinePrimeraDivision =   Competition(name: "Argentine Primera División",     regionCode: "AR")
     static let majorLeagueSoccer =          Competition(name: "Major League Soccer season",     regionCode: "US")
     static let ligaMX =                     Competition(name: "Liga MX season",                 regionCode: "MX")
+    static let aLeague =                    Competition(name: "A-League",                       regionCode: "AU")
     static let chineseSuperLeague =         Competition(name: "Chinese Super League",           regionCode: "CN")
     static let kLeague1 =                   Competition(name: "K League 1",                     regionCode: "KR")
     static let j1League =                   Competition(name: "J1 League",                      regionCode: "JP")

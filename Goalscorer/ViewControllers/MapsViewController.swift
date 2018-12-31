@@ -21,14 +21,7 @@ class MapsViewController: UIViewController {
         mapView.delegate = self
         mapView.centerCoordinate = zurich
 
-        let competitions: [Competition] = [.fifaWorldCup]
-        let annotations: [MKPointAnnotation] = competitions.map { c in
-            let a = MKPointAnnotation.init()
-            a.title = c.name
-            a.coordinate = zurich
-            return a
-        }
-
+        let annotations = Association.all.map(AssociationAnnotation.init)
         mapView.addAnnotations(annotations)
     }
 }
@@ -36,22 +29,23 @@ class MapsViewController: UIViewController {
 extension MapsViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard let annotation = annotation as? AssociationAnnotation else { fatalError() }
         guard let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) else { fatalError() }
 
         annotationView.canShowCallout = true
-        annotationView.leftCalloutAccessoryView = UIImageView(image: UIImage(named: "fifa")!)
+        let regionCode = annotation.association.competitions.first!.regionCode
+        let image = createImage(code: regionCode)!
+        annotationView.leftCalloutAccessoryView = UIImageView(image: image)
         let button = UIButton(type: .detailDisclosure)
-        button.addTarget(self, action: #selector(didTapRightCalloutAccessoryView), for: .touchUpInside)
         annotationView.rightCalloutAccessoryView = button
         return annotationView
     }
-}
 
-private extension MapsViewController {
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard let annotation = view.annotation as? AssociationAnnotation else { fatalError() }
 
-    @objc func didTapRightCalloutAccessoryView() {
         let vc = RegionTableViewController.instantiate()
-
+        vc.association = annotation.association
         navigationController?.pushViewController(vc, animated: true)
     }
 }

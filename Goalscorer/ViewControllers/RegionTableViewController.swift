@@ -14,10 +14,13 @@ class RegionTableViewController: UITableViewController {
         return UIStoryboard(name: "Region", bundle: nil).instantiateInitialViewController() as! RegionTableViewController
     }
 
-    private var items: [TopScorer] = TopScorer.all
+    var association: Association!
+    private var items: [TopScorer] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        items = TopScorer.all.filter { association.competitions.contains($0.competition) }
     }
 }
 
