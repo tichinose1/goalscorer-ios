@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FlagKit
 
 class PlayersTableViewController: UITableViewController {
 
@@ -40,9 +39,7 @@ extension PlayersTableViewController {
         let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath)
         cell.textLabel?.text = item.name
-        let flag = Flag(countryCode: item.regionCode)!
-        let originalImage = flag.originalImage
-        cell.imageView?.image = originalImage
+        cell.imageView?.image = createImage(code: item.regionCode)
         return cell
     }
 }

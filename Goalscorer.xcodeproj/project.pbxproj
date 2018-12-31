@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		071A5B2A813C9F160218D677 /* Pods_Goalscorer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99A7E1DA6C48C68446204B9 /* Pods_Goalscorer.framework */; };
+		771539BB21DA0559005C0A4C /* Association.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771539BA21DA0559005C0A4C /* Association.swift */; };
+		771539BD21DA073D005C0A4C /* AssociationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771539BC21DA073D005C0A4C /* AssociationAnnotation.swift */; };
 		77229AB32181DFDD002840A1 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77229AB22181DFDD002840A1 /* Player.swift */; };
 		77229AB52181E02B002840A1 /* PlayersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77229AB42181E02B002840A1 /* PlayersTableViewController.swift */; };
 		77229AB72181E065002840A1 /* Players.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77229AB62181E065002840A1 /* Players.storyboard */; };
@@ -23,12 +25,21 @@
 		7794E4662199EFE8006CB5BE /* AllTime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7794E4652199EFE8006CB5BE /* AllTime.storyboard */; };
 		7794E4682199F138006CB5BE /* AllTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */; };
 		7794E46A2199F388006CB5BE /* AllTimeTopScorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4692199F388006CB5BE /* AllTimeTopScorer.swift */; };
+		77AB25E021D8E0EA005FBCF5 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB25DF21D8E0EA005FBCF5 /* Functions.swift */; };
+		77AB25E421D8E6FF005FBCF5 /* Current.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AB25E321D8E6FF005FBCF5 /* Current.storyboard */; };
+		77AB25E621D8E7E8005FBCF5 /* CurrentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB25E521D8E7E8005FBCF5 /* CurrentTableViewController.swift */; };
+		77AB25E821D8EB85005FBCF5 /* Maps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AB25E721D8EB85005FBCF5 /* Maps.storyboard */; };
+		77AB25EC21D8ED5F005FBCF5 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB25EB21D8ED5F005FBCF5 /* MapsViewController.swift */; };
+		77AB25EE21D912B0005FBCF5 /* Association.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AB25ED21D912B0005FBCF5 /* Association.storyboard */; };
+		77AB25F021D91334005FBCF5 /* AssociationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB25EF21D91334005FBCF5 /* AssociationTableViewController.swift */; };
 		77F158FB21984EAF001575FC /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F158FA21984EAF001575FC /* Competition.swift */; };
 		77F868B5217D16EF002B1132 /* FlagKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F868B4217D16EF002B1132 /* FlagKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0FC9773539757ACA07EDF8CB /* Pods-Goalscorer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Goalscorer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Goalscorer/Pods-Goalscorer.release.xcconfig"; sourceTree = "<group>"; };
+		771539BA21DA0559005C0A4C /* Association.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Association.swift; sourceTree = "<group>"; };
+		771539BC21DA073D005C0A4C /* AssociationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociationAnnotation.swift; sourceTree = "<group>"; };
 		77229AB22181DFDD002840A1 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		77229AB42181E02B002840A1 /* PlayersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTableViewController.swift; sourceTree = "<group>"; };
 		77229AB62181E065002840A1 /* Players.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Players.storyboard; sourceTree = "<group>"; };
@@ -46,6 +57,13 @@
 		7794E4652199EFE8006CB5BE /* AllTime.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AllTime.storyboard; sourceTree = "<group>"; };
 		7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTimeTableViewController.swift; sourceTree = "<group>"; };
 		7794E4692199F388006CB5BE /* AllTimeTopScorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTimeTopScorer.swift; sourceTree = "<group>"; };
+		77AB25DF21D8E0EA005FBCF5 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		77AB25E321D8E6FF005FBCF5 /* Current.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Current.storyboard; sourceTree = "<group>"; };
+		77AB25E521D8E7E8005FBCF5 /* CurrentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTableViewController.swift; sourceTree = "<group>"; };
+		77AB25E721D8EB85005FBCF5 /* Maps.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Maps.storyboard; sourceTree = "<group>"; };
+		77AB25EB21D8ED5F005FBCF5 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
+		77AB25ED21D912B0005FBCF5 /* Association.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Association.storyboard; sourceTree = "<group>"; };
+		77AB25EF21D91334005FBCF5 /* AssociationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociationTableViewController.swift; sourceTree = "<group>"; };
 		77F158FA21984EAF001575FC /* Competition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Competition.swift; sourceTree = "<group>"; };
 		77F868B4217D16EF002B1132 /* FlagKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlagKit.framework; path = Carthage/Build/iOS/FlagKit.framework; sourceTree = "<group>"; };
 		C99A7E1DA6C48C68446204B9 /* Pods_Goalscorer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Goalscorer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +120,9 @@
 			isa = PBXGroup;
 			children = (
 				772ABCA4217D030300A9D589 /* Top.storyboard */,
+				77AB25E321D8E6FF005FBCF5 /* Current.storyboard */,
+				77AB25E721D8EB85005FBCF5 /* Maps.storyboard */,
+				77AB25ED21D912B0005FBCF5 /* Association.storyboard */,
 				7754E3C6217D0EDC005AA750 /* TopScorers.storyboard */,
 				7794E4652199EFE8006CB5BE /* AllTime.storyboard */,
 				77229AB62181E065002840A1 /* Players.storyboard */,
@@ -112,6 +133,9 @@
 		772ABCA3217D02F100A9D589 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				77AB25E521D8E7E8005FBCF5 /* CurrentTableViewController.swift */,
+				77AB25EB21D8ED5F005FBCF5 /* MapsViewController.swift */,
+				77AB25EF21D91334005FBCF5 /* AssociationTableViewController.swift */,
 				772ABCA6217D03C900A9D589 /* TopScorersTableViewController.swift */,
 				7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */,
 				77229AB42181E02B002840A1 /* PlayersTableViewController.swift */,
@@ -127,6 +151,9 @@
 				77229AB22181DFDD002840A1 /* Player.swift */,
 				77F158FA21984EAF001575FC /* Competition.swift */,
 				7794E4692199F388006CB5BE /* AllTimeTopScorer.swift */,
+				77AB25DF21D8E0EA005FBCF5 /* Functions.swift */,
+				771539BA21DA0559005C0A4C /* Association.swift */,
+				771539BC21DA073D005C0A4C /* AssociationAnnotation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -209,10 +236,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77AB25E821D8EB85005FBCF5 /* Maps.storyboard in Resources */,
 				772ABCA5217D030300A9D589 /* Top.storyboard in Resources */,
 				772ABC9B217D024700A9D589 /* LaunchScreen.storyboard in Resources */,
 				7794E4662199EFE8006CB5BE /* AllTime.storyboard in Resources */,
 				77229AB72181E065002840A1 /* Players.storyboard in Resources */,
+				77AB25E421D8E6FF005FBCF5 /* Current.storyboard in Resources */,
+				77AB25EE21D912B0005FBCF5 /* Association.storyboard in Resources */,
 				7754E3C7217D0EDC005AA750 /* TopScorers.storyboard in Resources */,
 				772ABC98217D024700A9D589 /* Assets.xcassets in Resources */,
 				7778558A21C89FA0006AF1AB /* Settings.bundle in Resources */,
@@ -270,15 +300,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				771539BD21DA073D005C0A4C /* AssociationAnnotation.swift in Sources */,
 				77603846217D07B6005DABC3 /* Extensions.swift in Sources */,
 				772ABCA7217D03C900A9D589 /* TopScorersTableViewController.swift in Sources */,
+				77AB25F021D91334005FBCF5 /* AssociationTableViewController.swift in Sources */,
 				7794E4682199F138006CB5BE /* AllTimeTableViewController.swift in Sources */,
+				77AB25EC21D8ED5F005FBCF5 /* MapsViewController.swift in Sources */,
+				77AB25E021D8E0EA005FBCF5 /* Functions.swift in Sources */,
 				77229AB52181E02B002840A1 /* PlayersTableViewController.swift in Sources */,
+				771539BB21DA0559005C0A4C /* Association.swift in Sources */,
 				772ABC91217D024600A9D589 /* AppDelegate.swift in Sources */,
 				7794E46A2199F388006CB5BE /* AllTimeTopScorer.swift in Sources */,
 				77229AB32181DFDD002840A1 /* Player.swift in Sources */,
 				77F158FB21984EAF001575FC /* Competition.swift in Sources */,
 				77603842217D05BA005DABC3 /* TopScorer.swift in Sources */,
+				77AB25E621D8E7E8005FBCF5 /* CurrentTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

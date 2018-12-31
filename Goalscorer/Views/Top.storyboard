@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +19,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="wcq-O4-KCW" kind="relationship" relationship="viewControllers" id="y20-A8-1my"/>
+                        <segue destination="GBn-1E-xLZ" kind="relationship" relationship="viewControllers" id="uIm-da-uFK"/>
+                        <segue destination="9bK-uE-s3g" kind="relationship" relationship="viewControllers" id="bfL-fH-2bK"/>
                         <segue destination="yNh-5s-RME" kind="relationship" relationship="viewControllers" id="nBf-1K-leK"/>
                         <segue destination="HN9-D3-WNK" kind="relationship" relationship="viewControllers" id="PW7-3W-grf"/>
                     </connections>
@@ -27,15 +29,25 @@
             </objects>
             <point key="canvasLocation" x="-2313" y="-95"/>
         </scene>
-        <!--TopScorers-->
-        <scene sceneID="9DZ-Xs-S8h">
+        <!--Current-->
+        <scene sceneID="CQy-1e-jNY">
             <objects>
-                <viewControllerPlaceholder storyboardName="TopScorers" id="wcq-O4-KCW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Top scorers" image="baseline_list_black_24pt" id="cZM-Vh-DPy"/>
+                <viewControllerPlaceholder storyboardName="Current" id="GBn-1E-xLZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Current season" image="baseline_home_black_24pt" id="KFy-bH-Gie"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eqj-HE-PaO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dYf-J7-ddp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1622" y="-386"/>
+            <point key="canvasLocation" x="-1641" y="-386"/>
+        </scene>
+        <!--Maps-->
+        <scene sceneID="8rZ-8p-eTZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Maps" id="9bK-uE-s3g" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Maps" image="baseline_map_black_24pt" id="IMh-lU-dic"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="63q-kB-xNY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1654" y="-239"/>
         </scene>
         <!--Players-->
         <scene sceneID="9Jn-go-zZA">
@@ -55,11 +67,12 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q5i-uZ-OdO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1640" y="-95"/>
+            <point key="canvasLocation" x="-1642" y="50"/>
         </scene>
     </scenes>
     <resources>
-        <image name="baseline_list_black_24pt" width="72" height="72"/>
+        <image name="baseline_home_black_24pt" width="72" height="72"/>
+        <image name="baseline_map_black_24pt" width="72" height="72"/>
         <image name="baseline_people_black_24pt" width="72" height="72"/>
         <image name="baseline_timeline_black_24pt" width="72" height="72"/>
     </resources>

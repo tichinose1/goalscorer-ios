@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,13 +12,13 @@
         <!--All time top scorers-->
         <scene sceneID="cci-QK-4Xb">
             <objects>
-                <tableViewController id="cTE-hT-H3M" customClass="AllTimeTableViewController" customModule="Goalscorers" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="cTE-hT-H3M" customClass="AllTimeTableViewController" customModule="Goalscorer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="24b-BY-Af3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="allTimeCell" textLabel="M2U-SR-OQC" style="IBUITableViewCellStyleDefault" id="a0o-di-sK4">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="allTimeCell" textLabel="M2U-SR-OQC" imageView="hvV-Uq-91C" style="IBUITableViewCellStyleDefault" id="a0o-di-sK4">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a0o-di-sK4" id="nIV-xn-kxa">
@@ -25,12 +26,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M2U-SR-OQC">
-                                            <rect key="frame" x="16" y="0.0" width="324" height="43.666666666666664"/>
+                                            <rect key="frame" x="52" y="0.0" width="288" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="fifa" id="hvV-Uq-91C">
+                                            <rect key="frame" x="16" y="18" width="21" height="7"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -67,5 +72,6 @@
     </scenes>
     <resources>
         <image name="baseline_timeline_black_24pt" width="72" height="72"/>
+        <image name="fifa" width="21" height="7"/>
     </resources>
 </document>

@@ -1,16 +1,18 @@
 //
-//  AllTimeTableViewController.swift
+//  CurrentTableViewController.swift
 //  Goalscorer
 //
-//  Created by tichinose1 on 2018/11/13.
+//  Created by tichinose1 on 2018/12/30.
 //  Copyright © 2018 example.com. All rights reserved.
 //
 
 import UIKit
 
-class AllTimeTableViewController: UITableViewController {
+class CurrentTableViewController: UITableViewController {
 
-    private var items = AllTimeTopScorer.all
+    var items: [TopScorer] = {
+        return TopScorer.all.filter { ["2018–19", "2018"].contains($0.season) }
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +21,7 @@ class AllTimeTableViewController: UITableViewController {
 
 // MARK: - UITableViewDataSource
 
-extension AllTimeTableViewController {
+extension CurrentTableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
@@ -27,8 +29,8 @@ extension AllTimeTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = items[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "allTimeCell", for: indexPath)
-        cell.textLabel?.text = item.competition.name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "currentCell", for: indexPath)
+        cell.textLabel?.text = item.title
         cell.imageView?.image = createImage(code: item.competition.regionCode)
         return cell
     }
@@ -36,7 +38,7 @@ extension AllTimeTableViewController {
 
 // MARK: - UITableViewDelegate
 
-extension AllTimeTableViewController {
+extension CurrentTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.row]

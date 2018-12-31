@@ -63,6 +63,7 @@ extension TopScorer {
         TopScorer(season: "2018–19",    competition: .argentinePrimeraDivision,     header: "Top goalscorers"),
         TopScorer(season: "2018",       competition: .majorLeagueSoccer,            header: "Goals"),
         TopScorer(season: "2018–19",    competition: .ligaMX,                       header: "Top goalscorers"),
+        TopScorer(season: "2018–19",    competition: .aLeague,                      header: "Top scorers"),
         TopScorer(season: "2018",       competition: .chineseSuperLeague,           header: "Top scorers"),
         TopScorer(season: "2018",       competition: .kLeague1,                     header: "Top scorers"),
         TopScorer(season: "2018",       competition: .j1League,                     header: "Top scorers"),
