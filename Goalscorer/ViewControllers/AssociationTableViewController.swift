@@ -8,10 +8,10 @@
 
 import UIKit
 
-class RegionTableViewController: UITableViewController {
+class AssociationTableViewController: UITableViewController {
 
-    static func instantiate() -> RegionTableViewController {
-        return UIStoryboard(name: "Region", bundle: nil).instantiateInitialViewController() as! RegionTableViewController
+    static func instantiate() -> AssociationTableViewController {
+        return UIStoryboard(name: "Association", bundle: nil).instantiateInitialViewController() as! AssociationTableViewController
     }
 
     var association: Association!
@@ -26,7 +26,7 @@ class RegionTableViewController: UITableViewController {
 
 // MARK: - UITableViewDataSource
 
-extension RegionTableViewController {
+extension AssociationTableViewController {
 
 //    override func numberOfSections(in tableView: UITableView) -> Int {
 //        return 0
@@ -47,7 +47,7 @@ extension RegionTableViewController {
 
 // MARK: - UITableViewDelegate
 
-extension RegionTableViewController {
+extension AssociationTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.row]

@@ -10,11 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Competitions-->
+        <!--Maps-->
         <scene sceneID="69V-ZC-zea">
             <objects>
                 <navigationController id="WcD-nU-HyQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Competitions" image="baseline_map_black_24pt" id="EYF-aT-5eV"/>
+                    <tabBarItem key="tabBarItem" title="Maps" image="baseline_map_black_24pt" id="EYF-aT-5eV"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="o1h-Op-aan">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -28,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="-873" y="148"/>
         </scene>
-        <!--Competitions-->
+        <!--Maps-->
         <scene sceneID="ABC-uh-iSS">
             <objects>
                 <viewController id="OB6-45-eNb" customClass="MapsViewController" customModule="Goalscorer" customModuleProvider="target" sceneMemberID="viewController">
@@ -49,7 +49,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="e3D-oh-0HX"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Competitions" id="eKW-h7-tX3"/>
+                    <navigationItem key="navigationItem" title="Maps" id="eKW-h7-tX3"/>
                     <connections>
                         <outlet property="mapView" destination="A9w-hG-bDD" id="xRW-li-2cn"/>
                     </connections>
