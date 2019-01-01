@@ -18,12 +18,18 @@ struct Competition: Comparable {
 extension Competition {
 
     // swiftlint:disable all
+    // National Team
     static let fifaWorldCup =               Competition(name: "FIFA World Cup",                 regionCode: "fifa")
-    static let fifaClubWorldCup =           Competition(name: "FIFA Club World Cup",            regionCode: "fifa")
-    static let copaAmerica =                Competition(name: "Copa América",                   regionCode: "conmebol")
     static let uefaEuro =                   Competition(name: "UEFA Euro",                      regionCode: "uefa")
+    static let copaAmerica =                Competition(name: "Copa América",                   regionCode: "conmebol")
+    static let concacafGoldCup =            Competition(name: "CONCACAF Gold Cup",              regionCode: "concacaf")
+    // Club
+    static let fifaClubWorldCup =           Competition(name: "FIFA Club World Cup",            regionCode: "fifa")
     static let uefaChampionsLeague =        Competition(name: "UEFA Champions League",          regionCode: "uefa")
     static let uefaEuropaLeague =           Competition(name: "UEFA Europa League",             regionCode: "uefa")
+    static let copaLibertadores =           Competition(name: "Copa Libertadores",              regionCode: "conmebol")
+    static let concacafChampionsLeague =    Competition(name: "CONCACAF Champions League",      regionCode: "concacaf")
+    // UEFA
     static let laLiga =                     Competition(name: "La Liga",                        regionCode: "ES")
     static let premierLeague =              Competition(name: "Premier League",                 regionCode: "GB-ENG")
     static let serieA =                     Competition(name: "Serie A",                        regionCode: "IT")
@@ -33,11 +39,13 @@ extension Competition {
     static let eredivisie =                 Competition(name: "Eredivisie",                     regionCode: "NL")
     static let belgianFirstDivisionA =      Competition(name: "Belgian First Division A",       regionCode: "BE")
     static let austrianFootballBundesliga = Competition(name: "Austrian Football Bundesliga",   regionCode: "AT")
-    static let copaLibertadores =           Competition(name: "Copa Libertadores",              regionCode: "conmebol")
+    // CONMEBOL
     static let campeonatoBrasileiroSerieA = Competition(name: "Campeonato Brasileiro Série A",  regionCode: "BR")
     static let argentinePrimeraDivision =   Competition(name: "Argentine Primera División",     regionCode: "AR")
+    // CONCACAF
     static let majorLeagueSoccer =          Competition(name: "Major League Soccer season",     regionCode: "US")
     static let ligaMX =                     Competition(name: "Liga MX season",                 regionCode: "MX")
+    // AFC
     static let aLeague =                    Competition(name: "A-League",                       regionCode: "AU")
     static let qatarStarsLeague =           Competition(name: "Qatar Stars League",             regionCode: "QA")
     static let uaeProLeague =               Competition(name: "UAE Pro-League",                 regionCode: "AE")
