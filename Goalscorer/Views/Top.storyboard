@@ -63,7 +63,7 @@
         <scene sceneID="fH8-yg-2R1">
             <objects>
                 <viewControllerPlaceholder storyboardName="AllTime" id="yNh-5s-RME" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All time" image="baseline_timeline_black_24pt" id="sJM-pB-YU2"/>
+                    <tabBarItem key="tabBarItem" title="All-time" image="baseline_timeline_black_24pt" id="sJM-pB-YU2"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q5i-uZ-OdO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

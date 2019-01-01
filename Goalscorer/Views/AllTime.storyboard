@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--All time top scorers-->
+        <!--All-time top scorers-->
         <scene sceneID="cci-QK-4Xb">
             <objects>
                 <tableViewController id="cTE-hT-H3M" customClass="AllTimeTableViewController" customModule="Goalscorer" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,17 +45,17 @@
                             <outlet property="delegate" destination="cTE-hT-H3M" id="cLb-66-Q25"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="All time top scorers" id="ECW-sC-guD"/>
+                    <navigationItem key="navigationItem" title="All-time top scorers" id="ECW-sC-guD"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nhw-RX-Af8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1956" y="-63"/>
         </scene>
-        <!--All time-->
+        <!--All-time-->
         <scene sceneID="qO0-KD-bdW">
             <objects>
                 <navigationController id="PfB-QB-RRz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All time" image="baseline_timeline_black_24pt" id="Xtj-hU-8FY"/>
+                    <tabBarItem key="tabBarItem" title="All-time" image="baseline_timeline_black_24pt" id="Xtj-hU-8FY"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="6IL-2X-sHm">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
