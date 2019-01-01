@@ -16,10 +16,13 @@ struct Association {
 extension Association {
 
     static let all = [
+        // Union
         Association(coordinate: CLLocationCoordinate2D(latitude: 47.381389,     longitude: 8.574444),   competitions: [.fifaClubWorldCup, .fifaWorldCup]),
         Association(coordinate: CLLocationCoordinate2D(latitude: 46.371009,     longitude: 6.23103),    competitions: [.uefaEuro, .uefaChampionsLeague, .uefaEuropaLeague]),
         Association(coordinate: CLLocationCoordinate2D(latitude: -25.260556,    longitude: -57.516111), competitions: [.copaAmerica, .copaLibertadores]),
         Association(coordinate: CLLocationCoordinate2D(latitude: 25.773,        longitude: -80.138),    competitions: [.concacafGoldCup, .concacafChampionsLeague]),
+        Association(coordinate: CLLocationCoordinate2D(latitude: 3.056296,      longitude: 101.688919), competitions: [.afcAsiaCup, .afcChampionsLeague]),
+        // Countries
         Association(coordinate: CLLocationCoordinate2D(latitude: 40.433333,     longitude: -3.7),       competitions: [.laLiga]),
         Association(coordinate: CLLocationCoordinate2D(latitude: 51.5,          longitude: -0.116667),  competitions: [.premierLeague]),
         Association(coordinate: CLLocationCoordinate2D(latitude: 41.9,          longitude: 12.483333),  competitions: [.serieA]),
