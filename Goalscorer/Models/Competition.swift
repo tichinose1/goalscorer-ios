@@ -19,6 +19,7 @@ extension Competition {
 
     // swiftlint:disable all
     static let fifaWorldCup =               Competition(name: "FIFA World Cup",                 regionCode: "fifa")
+    static let fifaClubWorldCup =           Competition(name: "FIFA Club World Cup",            regionCode: "fifa")
     static let copaAmerica =                Competition(name: "Copa América",                   regionCode: "conmebol")
     static let uefaEuro =                   Competition(name: "UEFA Euro",                      regionCode: "uefa")
     static let uefaChampionsLeague =        Competition(name: "UEFA Champions League",          regionCode: "uefa")
