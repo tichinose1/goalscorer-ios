@@ -33,6 +33,10 @@ extension Association {
         Association(coordinate: CLLocationCoordinate2D(latitude: 38.883333, longitude: -77.016667), competitions: [.majorLeagueSoccer]),
         Association(coordinate: CLLocationCoordinate2D(latitude: 19.433333, longitude: -99.133333), competitions: [.ligaMX]),
         Association(coordinate: CLLocationCoordinate2D(latitude: -35.308056, longitude: 149.124444), competitions: [.aLeague]),
+        Association(coordinate: CLLocationCoordinate2D(latitude: 25.3, longitude: 51.516667), competitions: [.qatarStarsLeague]),
+        Association(coordinate: CLLocationCoordinate2D(latitude: 24.466667, longitude: 54.366667), competitions: [.uaeProLeague]),
+        Association(coordinate: CLLocationCoordinate2D(latitude: 35.683333, longitude: 51.416667), competitions: [.persianGulfProLeague]),
+        Association(coordinate: CLLocationCoordinate2D(latitude: 24.65, longitude: 46.766667), competitions: [.saudiProfessionalLeague]),
         Association(coordinate: CLLocationCoordinate2D(latitude: 39.916667, longitude: 116.383333), competitions: [.chineseSuperLeague]),
         Association(coordinate: CLLocationCoordinate2D(latitude: 37.55, longitude: 126.966667), competitions: [.kLeague1]),
         Association(coordinate: CLLocationCoordinate2D(latitude: 35.683333, longitude: 139.766667), competitions: [.j1League])
