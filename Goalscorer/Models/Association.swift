@@ -22,6 +22,7 @@ extension Association {
         Association(coordinate: CLLocationCoordinate2D(latitude: -25.260556,    longitude: -57.516111), competitions: [.copaAmerica, .copaLibertadores]),
         Association(coordinate: CLLocationCoordinate2D(latitude: 25.773,        longitude: -80.138),    competitions: [.concacafGoldCup, .concacafChampionsLeague]),
         Association(coordinate: CLLocationCoordinate2D(latitude: 29.938126,     longitude: 30.91398),   competitions: [.africaCupOfNations, .cafChampionsLeague]),
+        Association(coordinate: CLLocationCoordinate2D(latitude: -36.840556,    longitude: 174.74),     competitions: [.ofcNationsCup, .ofcChampionsLeague]),
         Association(coordinate: CLLocationCoordinate2D(latitude: 3.056296,      longitude: 101.688919), competitions: [.afcAsiaCup, .afcChampionsLeague]),
         // Countries
         Association(coordinate: CLLocationCoordinate2D(latitude: 40.433333,     longitude: -3.7),       competitions: [.laLiga]),
