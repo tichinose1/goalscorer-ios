@@ -41,9 +41,12 @@ extension Competition {
     static let serieA =                     Competition(name: "Serie A",                        regionCode: "IT")
     static let bundesliga =                 Competition(name: "Bundesliga",                     regionCode: "DE")
     static let ligue1 =                     Competition(name: "Ligue 1",                        regionCode: "FR")
+    static let russianPremierLeague =       Competition(name: "Russian Premier League",         regionCode: "RU")
     static let primeiraLiga =               Competition(name: "Primeira Liga",                  regionCode: "PT")
-    static let eredivisie =                 Competition(name: "Eredivisie",                     regionCode: "NL")
     static let belgianFirstDivisionA =      Competition(name: "Belgian First Division A",       regionCode: "BE")
+    static let ukrainianPremierLeague =     Competition(name: "Ukrainian Premier League",       regionCode: "UA")
+    static let superLig =                   Competition(name: "Süper Lig",                      regionCode: "TR")
+    static let eredivisie =                 Competition(name: "Eredivisie",                     regionCode: "NL")
     static let austrianFootballBundesliga = Competition(name: "Austrian Football Bundesliga",   regionCode: "AT")
     // CONMEBOL
     static let campeonatoBrasileiroSerieA = Competition(name: "Campeonato Brasileiro Série A",  regionCode: "BR")

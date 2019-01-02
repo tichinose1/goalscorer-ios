@@ -55,9 +55,12 @@ extension TopScorer {
         TopScorer(season: "2018–19",    competition: .serieA,                       header: "Top goalscorers"),
         TopScorer(season: "2018–19",    competition: .bundesliga,                   header: "Top scorers"),
         TopScorer(season: "2018–19",    competition: .ligue1,                       header: "Top goalscorers"),
+        TopScorer(season: "2018–19",    competition: .russianPremierLeague,         header: "Top goalscorers"),
         TopScorer(season: "2018–19",    competition: .primeiraLiga,                 header: "Top goalscorers"),
-        TopScorer(season: "2018–19",    competition: .eredivisie,                   header: "Top scorers"),
         TopScorer(season: "2018–19",    competition: .belgianFirstDivisionA,        header: "Top scorers"),
+        TopScorer(season: "2018–19",    competition: .ukrainianPremierLeague,       header: "Top goalscorers"),
+        TopScorer(season: "2018–19",    competition: .superLig,                     header: "Top goalscorers"),
+        TopScorer(season: "2018–19",    competition: .eredivisie,                   header: "Top scorers"),
         TopScorer(season: "2018–19",    competition: .austrianFootballBundesliga,   header: "Top scorers"),
         // CAF
         TopScorer(season: "2018–19",    competition: .cafChampionsLeague,           header: "Top goalscorers"),
