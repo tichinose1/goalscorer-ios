@@ -18,7 +18,15 @@ struct Competition: Comparable {
 extension Competition {
 
     // swiftlint:disable all
-    // Club
+    // National competitions
+    static let fifaWorldCup =               Competition(name: "FIFA World Cup",                 regionCode: "fifa")
+    static let uefaEuro =                   Competition(name: "UEFA Euro",                      regionCode: "uefa")
+    static let copaAmerica =                Competition(name: "Copa América",                   regionCode: "conmebol")
+    static let concacafGoldCup =            Competition(name: "CONCACAF Gold Cup",              regionCode: "concacaf")
+    static let africaCupOfNations =         Competition(name: "Africa Cup of Nations",          regionCode: "caf")
+    static let ofcNationsCup =              Competition(name: "OFC Nations Cup",                regionCode: "ofc")
+    static let afcAsiaCup =                 Competition(name: "AFC Asian Cup",                  regionCode: "afc")
+    // Club competitions
     static let fifaClubWorldCup =           Competition(name: "FIFA Club World Cup",            regionCode: "fifa")
     static let uefaChampionsLeague =        Competition(name: "UEFA Champions League",          regionCode: "uefa")
     static let uefaEuropaLeague =           Competition(name: "UEFA Europa League",             regionCode: "uefa")
@@ -27,14 +35,6 @@ extension Competition {
     static let cafChampionsLeague =         Competition(name: "CAF Champions League",           regionCode: "caf")
     static let afcChampionsLeague =         Competition(name: "AFC Champions League",           regionCode: "afc")
     static let ofcChampionsLeague =         Competition(name: "OFC Champions League",           regionCode: "ofc")
-    // National Team
-    static let fifaWorldCup =               Competition(name: "FIFA World Cup",                 regionCode: "fifa")
-    static let uefaEuro =                   Competition(name: "UEFA Euro",                      regionCode: "uefa")
-    static let copaAmerica =                Competition(name: "Copa América",                   regionCode: "conmebol")
-    static let concacafGoldCup =            Competition(name: "CONCACAF Gold Cup",              regionCode: "concacaf")
-    static let africaCupOfNations =         Competition(name: "Africa Cup of Nations",          regionCode: "caf")
-    static let ofcNationsCup =              Competition(name: "OFC Nations Cup",                regionCode: "ofc")
-    static let afcAsiaCup =                 Competition(name: "AFC Asian Cup",                  regionCode: "afc")
     // UEFA
     static let laLiga =                     Competition(name: "La Liga",                        regionCode: "ES")
     static let premierLeague =              Competition(name: "Premier League",                 regionCode: "GB-ENG")

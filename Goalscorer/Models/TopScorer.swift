@@ -47,6 +47,7 @@ extension TopScorer {
 
     // swiftlint:disable all
     static let all = [
+        // UEFA
         TopScorer(season: "2018–19",    competition: .uefaChampionsLeague,          header: "Top goalscorers"),
         TopScorer(season: "2018–19",    competition: .uefaEuropaLeague,             header: "Top goalscorers"),
         TopScorer(season: "2018–19",    competition: .laLiga,                       header: "Top goalscorers"),
@@ -58,24 +59,34 @@ extension TopScorer {
         TopScorer(season: "2018–19",    competition: .eredivisie,                   header: "Top scorers"),
         TopScorer(season: "2018–19",    competition: .belgianFirstDivisionA,        header: "Top scorers"),
         TopScorer(season: "2018–19",    competition: .austrianFootballBundesliga,   header: "Top scorers"),
+        // CAF
         TopScorer(season: "2018–19",    competition: .cafChampionsLeague,           header: "Top goalscorers"),
-        TopScorer(season: "2018",       competition: .copaLibertadores,             header: "Top scorers"),
-        TopScorer(season: "2018",       competition: .concacafChampionsLeague,      header: "Top goalscorers"),
-        TopScorer(season: "2018",       competition: .ofcChampionsLeague,           header: "Top goalscorers"),
-        TopScorer(season: "2018",       competition: .afcChampionsLeague,           header: "Top scorers"),
-        TopScorer(season: "2018",       competition: .campeonatoBrasileiroSerieA,   header: "Top scorers"),
+        // CONMEBOL
         TopScorer(season: "2018–19",    competition: .argentinePrimeraDivision,     header: "Top goalscorers"),
-        TopScorer(season: "2018",       competition: .majorLeagueSoccer,            header: "Goals"),
+        // CONCACAF
         TopScorer(season: "2018–19",    competition: .ligaMX,                       header: "Top goalscorers"),
+        // AFC
         TopScorer(season: "2018–19",    competition: .aLeague,                      header: "Top scorers"),
         TopScorer(season: "2018–19",    competition: .qatarStarsLeague,             header: "Top scorers"),
         TopScorer(season: "2018–19",    competition: .uaeProLeague,                 header: "Season statistics"),
         TopScorer(season: "2018–19",    competition: .persianGulfProLeague,         header: "Top scorers"),
         TopScorer(season: "2018–19",    competition: .saudiProfessionalLeague,      header: "Top scorers"),
+        // FIFA
+        TopScorer(season: "2018",       competition: .fifaClubWorldCup,             header: "Goalscorers"),
+        // CONMEBBOL
+        TopScorer(season: "2018",       competition: .copaLibertadores,             header: "Top scorers"),
+        TopScorer(season: "2018",       competition: .campeonatoBrasileiroSerieA,   header: "Top scorers"),
+        // CONCACAF
+        TopScorer(season: "2018",       competition: .concacafChampionsLeague,      header: "Top goalscorers"),
+        TopScorer(season: "2018",       competition: .majorLeagueSoccer,            header: "Goals"),
+        // OFC
+        TopScorer(season: "2018",       competition: .ofcChampionsLeague,           header: "Top goalscorers"),
+        // AFC
+        TopScorer(season: "2018",       competition: .afcChampionsLeague,           header: "Top scorers"),
         TopScorer(season: "2018",       competition: .chineseSuperLeague,           header: "Top scorers"),
         TopScorer(season: "2018",       competition: .kLeague1,                     header: "Top scorers"),
         TopScorer(season: "2018",       competition: .j1League,                     header: "Top scorers"),
-        TopScorer(season: "2018",       competition: .fifaClubWorldCup,             header: "Goalscorers"),
+        // National competitions
         TopScorer(season: "2018",       competition: .fifaWorldCup,                 header: "Goalscorers"),
         TopScorer(season: "2017–18",    competition: .uefaChampionsLeague,          header: "Top goalscorers"),
         TopScorer(season: "2017–18",    competition: .uefaEuropaLeague,             header: "Top goalscorers"),

@@ -15,15 +15,20 @@ extension AllTimeTopScorer {
 
     // swiftlint:disable all
     static let all = [
-        // National Team
+        // National competitions
         AllTimeTopScorer(competition: .fifaWorldCup, url: "https://en.wikipedia.org/wiki/FIFA_World_Cup_top_goalscorers#Overall_top_goalscorers"),
         AllTimeTopScorer(competition: .uefaEuro, url: "https://en.wikipedia.org/wiki/List_of_UEFA_European_Championship_goalscorers#Overall_top_goalscorers"),
         AllTimeTopScorer(competition: .copaAmerica, url: "https://en.wikipedia.org/wiki/Copa_Am%C3%A9rica_records_and_statistics#Goalscoring"),
-        // Club
+        AllTimeTopScorer(competition: .concacafGoldCup, url: "https://en.wikipedia.org/wiki/CONCACAF_Gold_Cup_records_and_statistics#Top_20_goal_leaders"),
+        AllTimeTopScorer(competition: .africaCupOfNations, url: "https://en.wikipedia.org/wiki/Africa_Cup_of_Nations_records_and_statistics#Overall_top_goalscorers"),
+        AllTimeTopScorer(competition: .ofcNationsCup, url: "https://en.wikipedia.org/wiki/OFC_Nations_Cup_records_and_statistics#Overall_top_goalscorers"),
+        AllTimeTopScorer(competition: .afcAsiaCup, url: "https://en.wikipedia.org/wiki/AFC_Asian_Cup_records_and_statistics#Overall_top_goalscorers"),
+        // Club competitions
         AllTimeTopScorer(competition: .fifaClubWorldCup, url: "https://en.wikipedia.org/wiki/List_of_FIFA_Club_World_Cup_goalscorers#Overall_top_goalscorers"),
         AllTimeTopScorer(competition: .uefaChampionsLeague, url: "https://en.wikipedia.org/wiki/List_of_European_Cup_and_UEFA_Champions_League_top_scorers#All-time_top_scorers"),
         AllTimeTopScorer(competition: .copaLibertadores, url: "https://en.wikipedia.org/wiki/Copa_Libertadores_records_and_statistics#All-time_top_scorers"),
         AllTimeTopScorer(competition: .concacafChampionsLeague, url: "https://en.wikipedia.org/wiki/CONCACAF_Champions%27_Cup_and_Champions_League_records_and_statistics#All-time_top_scorers"),
+        AllTimeTopScorer(competition: .ofcChampionsLeague, url: "https://en.wikipedia.org/wiki/Oceania_Club_Championship_and_OFC_Champions_League_records_and_statistics#All-time_top_scorers"),
         AllTimeTopScorer(competition: .afcChampionsLeague, url: "https://en.wikipedia.org/wiki/Asian_Club_Championship_and_AFC_Champions_League_records_and_statistics#All-time_top_goalscorers"),
         // League
         AllTimeTopScorer(competition: .laLiga, url: "https://en.wikipedia.org/wiki/List_of_La_Liga_top_scorers#All-time_top_scorers"),
