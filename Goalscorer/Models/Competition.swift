@@ -24,12 +24,14 @@ extension Competition {
     static let uefaEuropaLeague =           Competition(name: "UEFA Europa League",             regionCode: "uefa")
     static let copaLibertadores =           Competition(name: "Copa Libertadores",              regionCode: "conmebol")
     static let concacafChampionsLeague =    Competition(name: "CONCACAF Champions League",      regionCode: "concacaf")
+    static let cafChampionsLeague =         Competition(name: "CAF Champions League",           regionCode: "caf")
     static let afcChampionsLeague =         Competition(name: "AFC Champions League",           regionCode: "afc")
     // National Team
     static let fifaWorldCup =               Competition(name: "FIFA World Cup",                 regionCode: "fifa")
     static let uefaEuro =                   Competition(name: "UEFA Euro",                      regionCode: "uefa")
     static let copaAmerica =                Competition(name: "Copa América",                   regionCode: "conmebol")
     static let concacafGoldCup =            Competition(name: "CONCACAF Gold Cup",              regionCode: "concacaf")
+    static let africaCupOfNations =         Competition(name: "Africa Cup of Nations",          regionCode: "caf")
     static let afcAsiaCup =                 Competition(name: "AFC Asian Cup",                  regionCode: "afc")
     // UEFA
     static let laLiga =                     Competition(name: "La Liga",                        regionCode: "ES")
