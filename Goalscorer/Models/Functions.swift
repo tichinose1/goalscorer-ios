@@ -11,9 +11,9 @@ import FlagKit
 
 func createImage(code: String) -> UIImage? {
     switch code {
-    case "fifa", "uefa", "conmebol", "concacaf", "caf", "ofc", "afc":
+    case "CAF", "CAS", "CEU", "CNA", "COC", "CSA", "WW":
         return UIImage(named: code)
     default:
-        return Flag(countryCode: code)?.originalImage
+        return Flag(countryCode: code)?.image(style: .roundedRect)
     }
 }
