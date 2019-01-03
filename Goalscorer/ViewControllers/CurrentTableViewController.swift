@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwipeCellKit
 
 class CurrentTableViewController: UITableViewController {
 
@@ -19,6 +20,24 @@ class CurrentTableViewController: UITableViewController {
     }
 }
 
+// MARK: - SwipeTableViewCellDelegate
+
+extension CurrentTableViewController: SwipeTableViewCellDelegate {
+
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+
+        let addAction = SwipeAction(style: .default, title: "Favorite") { action, indexPath in
+        }
+        addAction.backgroundColor = view.tintColor
+
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+        }
+
+        return [addAction, deleteAction]
+    }
+}
+
 // MARK: - UITableViewDataSource
 
 extension CurrentTableViewController {
@@ -28,8 +47,10 @@ extension CurrentTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "currentCell") as? SwipeTableViewCell else { fatalError() }
+        cell.delegate = self
+
         let item = items[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "currentCell", for: indexPath)
         cell.textLabel?.text = item.title
         cell.imageView?.image = createImage(code: item.competition.regionCode)
         return cell
