@@ -24,63 +24,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        guard let favorite = LocalStorage.shared.loadFavoriteTopScorers().first else {
-            return
+        let dispatchGroup = DispatchGroup()
+
+        LocalStorage.shared.readFavorites().forEach { favorite in
+            dispatchGroup.enter()
+            WebAPI.shared.checkUpdate(title: favorite.topScorer.title) { timestamp in
+                print(timestamp)
+                LocalStorage.shared.updateFavorite(url: favorite.url, lastUpdatedAt: timestamp)
+
+                dispatchGroup.leave()
+            }
         }
-        guard let topScorer = (TopScorer.all.first { $0.url == favorite }) else {
-            return
+
+        dispatchGroup.notify(queue: .main) {
+            completionHandler(.newData)
         }
-
-        var component = URLComponents(string: "https://en.wikipedia.org/w/api.php")!
-        component.queryItems = [
-            URLQueryItem(name: "action", value: "query"),
-            URLQueryItem(name: "format", value: "json"),
-            URLQueryItem(name: "prop", value: "revisions"),
-            URLQueryItem(name: "titles", value: topScorer.title),
-            URLQueryItem(name: "rvlimit", value: "1")
-        ]
-
-        URLSession.shared.dataTask(with: component.url!) { data, response, error in
-            defer {
-                completionHandler(.newData)
-            }
-
-            guard let data = data else {
-                return
-            }
-            guard let jsonText = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) else {
-                return
-            }
-            guard let dic = jsonText as? [String: Any] else {
-                print("jsonText: \(jsonText)")
-                return
-            }
-            guard let query = dic["query"] as? [String: Any] else {
-                print("dic: \(dic)")
-                return
-            }
-            guard let pages = query["pages"] as? [String: Any] else {
-                print("query: \(query)")
-                return
-            }
-            guard let page = pages.values.first as? [String: Any] else {
-                print("pages: \(pages)")
-                return
-            }
-            guard let revisions = page["revisions"] as? [Any] else {
-                print("page: \(page)")
-                return
-            }
-            guard let revision = revisions.first as? [String: Any] else {
-                print("revisions: \(revisions)")
-                return
-            }
-            guard let timestamp = revision["timestamp"] else {
-                print("revision: \(revision)")
-                return
-            }
-
-            print(timestamp)
-        }.resume()
     }
 }

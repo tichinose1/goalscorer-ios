@@ -20,3 +20,21 @@ extension UIViewController {
         }
     }
 }
+
+extension JSONDecoder {
+
+    static let shared: JSONDecoder = {
+        var decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        return decoder
+    }()
+}
+
+extension JSONEncoder {
+
+    static let shared: JSONEncoder = {
+        var encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+        return encoder
+    }()
+}

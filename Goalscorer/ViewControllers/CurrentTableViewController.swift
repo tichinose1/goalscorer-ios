@@ -11,7 +11,7 @@ import SwipeCellKit
 
 class CurrentTableViewController: UITableViewController {
 
-    private lazy var favorites: [String] = LocalStorage.shared.loadFavoriteTopScorers()
+    private lazy var favorites: [Favorite] = LocalStorage.shared.readFavorites()
 
     private lazy var items: [TopScorer] = TopScorer.all.filter { ["2018–19", "2018"].contains($0.season) }
 
@@ -28,25 +28,29 @@ extension CurrentTableViewController: SwipeTableViewCellDelegate {
         guard orientation == .right else { return nil }
 
         let addAction = SwipeAction(style: .default, title: "Favorite") { action, indexPath in
-            self.favorites.append(self.items[indexPath.row].url)
+            let item = self.items[indexPath.row]
+            LocalStorage.shared.createFavorite(url: item.url)
+            self.favorites = LocalStorage.shared.readFavorites()
             self.tableView.reloadData()
-            LocalStorage.shared.saveFavoriteTopScorers(topScorers: self.favorites)
         }
         addAction.backgroundColor = view.tintColor
 
         let deleteAction = SwipeAction(style: .destructive, title: "Remove Favorite") { action, indexPath in
-            switch indexPath.section {
-            case 0: self.favorites.remove(at: indexPath.row)
-            case 1: self.favorites = self.favorites.filter { $0 != self.items[indexPath.row].url }
-            default: fatalError()
-            }
+            let url: String = {
+                switch indexPath.section {
+                case 0: return self.favorites[indexPath.row].url
+                case 1: return self.items[indexPath.row].url
+                default: fatalError()
+                }
+            }()
+            LocalStorage.shared.deleteFavorite(url: url)
+            self.favorites = LocalStorage.shared.readFavorites()
             self.tableView.reloadData()
-            LocalStorage.shared.saveFavoriteTopScorers(topScorers: self.favorites)
         }
 
         switch indexPath.section {
         case 0: return [deleteAction]
-        case 1: return favorites.contains(items[indexPath.row].url) ? [deleteAction] : [addAction]
+        case 1: return favorites.contains { $0.url == items[indexPath.row].url } ? [deleteAction] : [addAction]
         default: fatalError()
         }
     }
@@ -82,7 +86,7 @@ extension CurrentTableViewController {
 
         let item: TopScorer = {
             switch indexPath.section {
-            case 0: return items.first { $0.url == favorites[indexPath.row] }!
+            case 0: return items.first { $0.url == favorites[indexPath.row].url }!
             case 1: return items[indexPath.row]
             default: fatalError()
             }
@@ -90,6 +94,16 @@ extension CurrentTableViewController {
 
         cell.textLabel?.text = item.title
         cell.imageView?.image = createImage(code: item.competition.regionCode)
+
+        let favorite = LocalStorage.shared.readFavorite(url: item.url)
+        print("favorite: \(favorite)")
+        if let favorite = favorite,
+            let lastReadAt = favorite.lastReadAt,
+            let lastUpdatedAt = favorite.lastUpdatedAt,
+            lastReadAt < lastUpdatedAt {
+            cell.textLabel?.textColor = .red
+        }
+
         return cell
     }
 }
@@ -99,7 +113,16 @@ extension CurrentTableViewController {
 extension CurrentTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = items[indexPath.row]
-        presentSafariViewController(url: item.url)
+        let url: String = {
+            switch indexPath.section {
+            case 0: return favorites[indexPath.row].url
+            case 1: return items[indexPath.row].url
+            default: fatalError()
+            }
+        }()
+        LocalStorage.shared.updateFavorite(url: url, lastReadAt: Date())
+        favorites = LocalStorage.shared.readFavorites()
+
+        presentSafariViewController(url: url)
     }
 }
