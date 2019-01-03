@@ -15,6 +15,9 @@ struct Competition: Comparable {
     }
 }
 
+extension Competition: Codable {
+}
+
 extension Competition {
 
     // swiftlint:disable all
