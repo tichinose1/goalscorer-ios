@@ -6,9 +6,11 @@ version: 2.0.0
 
 name: SwiftLint, nameSpecified: 
 body: The MIT License (MIT…
-version: 0.29.1
+version: 0.29.2
 
 name: FlagKit, nameSpecified: , owner: madebybowtie, version: v2.0.1
+
+name: SwipeCellKit, nameSpecified: , owner: SwipeCellKit, version: 2.5.1
 
 add-version-numbers: false
 

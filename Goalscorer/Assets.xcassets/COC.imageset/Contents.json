@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "afc.png",
+      "filename" : "COC.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "COC@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "COC@3x.png",
       "scale" : "3x"
     }
   ],

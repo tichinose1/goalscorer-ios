@@ -29,6 +29,9 @@ struct TopScorer {
     }
 }
 
+extension TopScorer: Codable {
+}
+
 private extension TopScorer {
 
     var path: String {

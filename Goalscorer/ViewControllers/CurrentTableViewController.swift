@@ -7,15 +7,48 @@
 //
 
 import UIKit
+import SwipeCellKit
 
 class CurrentTableViewController: UITableViewController {
 
-    var items: [TopScorer] = {
-        return TopScorer.all.filter { ["2018–19", "2018"].contains($0.season) }
-    }()
+    private lazy var favorites: [String] = LocalStorage.shared.loadFavoriteTopScorers()
+
+    private lazy var items: [TopScorer] = TopScorer.all.filter { ["2018–19", "2018"].contains($0.season) }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+}
+
+// MARK: - SwipeTableViewCellDelegate
+
+extension CurrentTableViewController: SwipeTableViewCellDelegate {
+
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+
+        let addAction = SwipeAction(style: .default, title: "Favorite") { action, indexPath in
+            self.favorites.append(self.items[indexPath.row].url)
+            self.tableView.reloadData()
+            LocalStorage.shared.saveFavoriteTopScorers(topScorers: self.favorites)
+        }
+        addAction.backgroundColor = view.tintColor
+
+        let deleteAction = SwipeAction(style: .destructive, title: "Remove Favorite") { action, indexPath in
+            switch indexPath.section {
+            case 0: self.favorites.remove(at: indexPath.row)
+            case 1: self.favorites = self.favorites.filter { $0 != self.items[indexPath.row].url }
+            default: fatalError()
+            }
+            self.tableView.reloadData()
+            LocalStorage.shared.saveFavoriteTopScorers(topScorers: self.favorites)
+        }
+
+        switch indexPath.section {
+        case 0: return [deleteAction]
+        case 1: return favorites.contains(items[indexPath.row].url) ? [deleteAction] : [addAction]
+        default: fatalError()
+        }
     }
 }
 
@@ -23,13 +56,38 @@ class CurrentTableViewController: UITableViewController {
 
 extension CurrentTableViewController {
 
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0: return "Favorites"
+        case 1: return "Top scorers"
+        default: fatalError()
+        }
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        switch section {
+        case 0: return favorites.count
+        case 1: return items.count
+        default: fatalError()
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = items[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "currentCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "currentCell") as? SwipeTableViewCell else { fatalError() }
+        cell.delegate = self
+
+        let item: TopScorer = {
+            switch indexPath.section {
+            case 0: return items.first { $0.url == favorites[indexPath.row] }!
+            case 1: return items[indexPath.row]
+            default: fatalError()
+            }
+        }()
+
         cell.textLabel?.text = item.title
         cell.imageView?.image = createImage(code: item.competition.regionCode)
         return cell
