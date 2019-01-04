@@ -8,14 +8,27 @@
 
 import UIKit
 
+private enum Section: Int, CaseIterable {
+    case favorites
+    case topScorers
+
+    var header: String {
+        switch self {
+        case .favorites: return "Favorites"
+        case .topScorers: return "Top scorers"
+        }
+    }
+}
+
 class CurrentTableViewController: UITableViewController {
 
     private var favorites: [Favorite] = []
-    private lazy var items: [TopScorer] = TopScorer.all.filter { ["2018–19", "2018"].contains($0.season) }
+    private lazy var topScorers: [TopScorer] = TopScorer.all.filter { ["2018–19", "2018"].contains($0.season) }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 通知をタップしてフォアグラウンドになった際にviewWillAppearが呼ばれないためアプリのフォアグラウンド復帰イベントに登録しておく
         NotificationCenter.default.addObserver(self, selector: #selector(updateTableView), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
 
@@ -31,40 +44,33 @@ class CurrentTableViewController: UITableViewController {
 extension CurrentTableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return Section.allCases.count
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0: return "Favorites"
-        case 1: return "Top scorers"
-        default: fatalError()
-        }
+        return Section(rawValue: section)!.header
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0: return favorites.count
-        case 1: return items.count
-        default: fatalError()
+        switch Section(rawValue: section)! {
+        case .favorites: return favorites.count
+        case .topScorers: return topScorers.count
         }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let section = Section(rawValue: indexPath.section)!
         let cell = tableView.dequeueReusableCell(withIdentifier: "currentCell", for: indexPath)
-
-        let item: TopScorer = {
-            switch indexPath.section {
-            case 0: return items.first { $0.url == favorites[indexPath.row].url }!
-            case 1: return items[indexPath.row]
-            default: fatalError()
+        let topScorer: TopScorer = {
+            switch section {
+            case .favorites: return topScorers.first { $0.url == favorites[indexPath.row].url }!
+            case .topScorers: return topScorers[indexPath.row]
             }
         }()
-
-        cell.textLabel?.text = item.title
-        cell.imageView?.image = createImage(code: item.competition.regionCode)
-
-        if let favorite = LocalStorage.shared.readFavorite(url: item.url), favorite.updated {
+        cell.textLabel?.text = topScorer.title
+        cell.imageView?.image = createImage(code: topScorer.competition.regionCode)
+        // TODO: セルに更新通知を表示する
+        if case .favorites = section, favorites[indexPath.row].updated {
             cell.accessoryType = .detailDisclosureButton
         } else {
             cell.accessoryType = .disclosureIndicator
@@ -79,35 +85,33 @@ extension CurrentTableViewController {
 extension CurrentTableViewController {
 
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let addAction = UIContextualAction(style: .normal, title: "Favorite") { action, view, completionHandler in
-            let item = self.items[indexPath.row]
-            LocalStorage.shared.createFavorite(url: item.url)
+        let addAction = UIContextualAction(style: .normal, title: "Favorite") { _, _, completion in
+            let topScorer = self.topScorers[indexPath.row]
+            LocalStorage.shared.createFavorite(url: topScorer.url)
             self.updateTableView()
-            completionHandler(true)
+            completion(true)
         }
-        let removeAction = UIContextualAction(style: .destructive, title: "Remove Favorite") { action, view, completionHandler in
+        let removeAction = UIContextualAction(style: .destructive, title: "Remove Favorite") { _, _, completion in
             let favorite = self.favorites[indexPath.row]
             LocalStorage.shared.deleteFavorite(url: favorite.url)
             self.updateTableView()
-            completionHandler(true)
+            completion(true)
         }
         let actions: [UIContextualAction] = {
-            switch indexPath.section {
-            case 0: return [removeAction]
-            case 1: return [addAction]
-            default: fatalError()
+            switch Section(rawValue: indexPath.section)! {
+            case .favorites: return [removeAction]
+            case .topScorers: return [addAction]
             }
         }()
-
         return UISwipeActionsConfiguration(actions: actions)
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // いずれのセクションからタップされたか関係なく、favoritesの最終参照時刻を更新する
         let url: String = {
-            switch indexPath.section {
-            case 0: return favorites[indexPath.row].url
-            case 1: return items[indexPath.row].url
-            default: fatalError()
+            switch Section(rawValue: indexPath.section)! {
+            case .favorites: return favorites[indexPath.row].url
+            case .topScorers: return topScorers[indexPath.row].url
             }
         }()
         LocalStorage.shared.updateFavorite(url: url, lastReadAt: Date())
@@ -116,9 +120,12 @@ extension CurrentTableViewController {
     }
 }
 
+// MARK: - Private functions
+
 private extension CurrentTableViewController {
 
     @objc func updateTableView() {
+        // topScorersは不変なのでfavoritesのみローカルから全取得する
         favorites = LocalStorage.shared.readFavorites()
         tableView.reloadData()
     }
