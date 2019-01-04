@@ -10,6 +10,7 @@ import Foundation
 
 struct Favorite {
     let url: String
+    var createdAt: Date
     var lastReadAt: Date? = nil
     var lastUpdatedAt: Date? = nil
 }
@@ -24,10 +25,22 @@ extension Favorite {
     }
 
     var updated: Bool {
-        if let lastReadAt = lastReadAt, let lastUpdatedAt = lastUpdatedAt, lastReadAt < lastUpdatedAt {
-            return true
+        // サーバーの更新時刻を未取得の場合は判断できない
+        if let lastUpdatedAt = lastUpdatedAt {
+            switch lastReadAt {
+            case .some(let lastReadAt):
+                // favorite追加後にreadしている場合
+                if lastReadAt < lastUpdatedAt {
+                    return true
+                }
+            case .none:
+                // favorite追加後にreadしていない場合
+                // 一度readした後は二度とこの条件では判定されない
+                if createdAt < lastUpdatedAt {
+                    return true
+                }
+            }
         }
-
         return false
     }
 }

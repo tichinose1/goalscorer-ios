@@ -87,7 +87,7 @@ extension CurrentTableViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let addAction = UIContextualAction(style: .normal, title: "Favorite") { _, _, completion in
             let topScorer = self.topScorers[indexPath.row]
-            LocalStorage.shared.createFavorite(url: topScorer.url)
+            LocalStorage.shared.createFavorite(url: topScorer.url, createdAt: Date())
             self.updateTableView()
             completion(true)
         }

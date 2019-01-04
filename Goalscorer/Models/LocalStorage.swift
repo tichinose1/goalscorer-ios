@@ -14,11 +14,12 @@ final class LocalStorage {
 
     private init() { }
 
-    func createFavorite(url: String, lastReadAt: Date? = nil, lastUpdatedAt: Date? = nil) {
+    func createFavorite(url: String, createdAt: Date, lastReadAt: Date? = nil, lastUpdatedAt: Date? = nil) {
         var favorites = loadFavoriteTopScorers()
         if (favorites.contains { $0.url == url }) { return }
 
         let favorite = Favorite(url: url,
+                                createdAt: createdAt,
                                 lastReadAt: lastReadAt,
                                 lastUpdatedAt: lastUpdatedAt)
         favorites.append(favorite)
@@ -38,6 +39,7 @@ final class LocalStorage {
         let newFavorites: [Favorite] = favorites.map { f in
             f.url == url
                 ? Favorite(url: f.url,
+                           createdAt: f.createdAt,
                            lastReadAt: lastReadAt ?? f.lastReadAt,
                            lastUpdatedAt: lastUpdatedAt ?? f.lastUpdatedAt)
                 : f
