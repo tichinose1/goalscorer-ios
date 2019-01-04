@@ -16,6 +16,8 @@ final class LocalStorage {
 
     func createFavorite(url: String, lastReadAt: Date? = nil, lastUpdatedAt: Date? = nil) {
         var favorites = loadFavoriteTopScorers()
+        if (favorites.contains { $0.url == url }) { return }
+
         let favorite = Favorite(url: url,
                                 lastReadAt: lastReadAt,
                                 lastUpdatedAt: lastUpdatedAt)

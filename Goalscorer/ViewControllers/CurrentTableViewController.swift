@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwipeCellKit
 
 class CurrentTableViewController: UITableViewController {
 
@@ -24,40 +23,6 @@ class CurrentTableViewController: UITableViewController {
         super.viewWillAppear(animated)
 
         updateTableView()
-    }
-}
-
-// MARK: - SwipeTableViewCellDelegate
-
-extension CurrentTableViewController: SwipeTableViewCellDelegate {
-
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        guard orientation == .right else { return nil }
-
-        let addAction = SwipeAction(style: .default, title: "Favorite") { action, indexPath in
-            let item = self.items[indexPath.row]
-            LocalStorage.shared.createFavorite(url: item.url)
-            self.updateTableView()
-        }
-        addAction.backgroundColor = view.tintColor
-
-        let deleteAction = SwipeAction(style: .destructive, title: "Remove Favorite") { action, indexPath in
-            let url: String = {
-                switch indexPath.section {
-                case 0: return self.favorites[indexPath.row].url
-                case 1: return self.items[indexPath.row].url
-                default: fatalError()
-                }
-            }()
-            LocalStorage.shared.deleteFavorite(url: url)
-            self.updateTableView()
-        }
-
-        switch indexPath.section {
-        case 0: return [deleteAction]
-        case 1: return favorites.contains { $0.url == items[indexPath.row].url } ? [deleteAction] : [addAction]
-        default: fatalError()
-        }
     }
 }
 
@@ -86,8 +51,7 @@ extension CurrentTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "currentCell") as? SwipeTableViewCell else { fatalError() }
-        cell.delegate = self
+        let cell = tableView.dequeueReusableCell(withIdentifier: "currentCell", for: indexPath)
 
         let item: TopScorer = {
             switch indexPath.section {
@@ -113,6 +77,30 @@ extension CurrentTableViewController {
 // MARK: - UITableViewDelegate
 
 extension CurrentTableViewController {
+
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let addAction = UIContextualAction(style: .normal, title: "Favorite") { action, view, completionHandler in
+            let item = self.items[indexPath.row]
+            LocalStorage.shared.createFavorite(url: item.url)
+            self.updateTableView()
+            completionHandler(true)
+        }
+        let deleteAction = UIContextualAction(style: .destructive, title: "Remove Favorite") { action, view, completionHandler in
+            let favorite = self.favorites[indexPath.row]
+            LocalStorage.shared.deleteFavorite(url: favorite.url)
+            self.updateTableView()
+            completionHandler(true)
+        }
+        let actions: [UIContextualAction] = {
+            switch indexPath.section {
+            case 0: return [deleteAction]
+            case 1: return [addAction]
+            default: fatalError()
+            }
+        }()
+
+        return UISwipeActionsConfiguration(actions: actions)
+    }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let url: String = {
