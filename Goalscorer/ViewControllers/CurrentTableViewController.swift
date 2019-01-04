@@ -85,7 +85,7 @@ extension CurrentTableViewController {
             self.updateTableView()
             completionHandler(true)
         }
-        let deleteAction = UIContextualAction(style: .destructive, title: "Remove Favorite") { action, view, completionHandler in
+        let removeAction = UIContextualAction(style: .destructive, title: "Remove Favorite") { action, view, completionHandler in
             let favorite = self.favorites[indexPath.row]
             LocalStorage.shared.deleteFavorite(url: favorite.url)
             self.updateTableView()
@@ -93,7 +93,7 @@ extension CurrentTableViewController {
         }
         let actions: [UIContextualAction] = {
             switch indexPath.section {
-            case 0: return [deleteAction]
+            case 0: return [removeAction]
             case 1: return [addAction]
             default: fatalError()
             }
