@@ -11,12 +11,19 @@ import SwipeCellKit
 
 class CurrentTableViewController: UITableViewController {
 
-    private lazy var favorites: [Favorite] = LocalStorage.shared.readFavorites()
-
+    private var favorites: [Favorite] = []
     private lazy var items: [TopScorer] = TopScorer.all.filter { ["2018–19", "2018"].contains($0.season) }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTableView), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        updateTableView()
     }
 }
 
@@ -30,8 +37,7 @@ extension CurrentTableViewController: SwipeTableViewCellDelegate {
         let addAction = SwipeAction(style: .default, title: "Favorite") { action, indexPath in
             let item = self.items[indexPath.row]
             LocalStorage.shared.createFavorite(url: item.url)
-            self.favorites = LocalStorage.shared.readFavorites()
-            self.tableView.reloadData()
+            self.updateTableView()
         }
         addAction.backgroundColor = view.tintColor
 
@@ -44,8 +50,7 @@ extension CurrentTableViewController: SwipeTableViewCellDelegate {
                 }
             }()
             LocalStorage.shared.deleteFavorite(url: url)
-            self.favorites = LocalStorage.shared.readFavorites()
-            self.tableView.reloadData()
+            self.updateTableView()
         }
 
         switch indexPath.section {
@@ -95,13 +100,10 @@ extension CurrentTableViewController {
         cell.textLabel?.text = item.title
         cell.imageView?.image = createImage(code: item.competition.regionCode)
 
-        let favorite = LocalStorage.shared.readFavorite(url: item.url)
-        print("favorite: \(favorite)")
-        if let favorite = favorite,
-            let lastReadAt = favorite.lastReadAt,
-            let lastUpdatedAt = favorite.lastUpdatedAt,
-            lastReadAt < lastUpdatedAt {
-            cell.textLabel?.textColor = .red
+        if let favorite = LocalStorage.shared.readFavorite(url: item.url), favorite.updated {
+            cell.accessoryType = .detailDisclosureButton
+        } else {
+            cell.accessoryType = .disclosureIndicator
         }
 
         return cell
@@ -121,8 +123,15 @@ extension CurrentTableViewController {
             }
         }()
         LocalStorage.shared.updateFavorite(url: url, lastReadAt: Date())
-        favorites = LocalStorage.shared.readFavorites()
 
         presentSafariViewController(url: url)
+    }
+}
+
+private extension CurrentTableViewController {
+
+    @objc func updateTableView() {
+        favorites = LocalStorage.shared.readFavorites()
+        tableView.reloadData()
     }
 }

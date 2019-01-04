@@ -22,4 +22,12 @@ extension Favorite {
     var topScorer: TopScorer {
         return TopScorer.all.first { $0.url == url }!
     }
+
+    var updated: Bool {
+        if let lastReadAt = lastReadAt, let lastUpdatedAt = lastUpdatedAt, lastReadAt < lastUpdatedAt {
+            return true
+        }
+
+        return false
+    }
 }
