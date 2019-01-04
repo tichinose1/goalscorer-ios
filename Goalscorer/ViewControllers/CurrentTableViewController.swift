@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TDBadgedCell
 
 private enum Section: Int, CaseIterable {
     case favorites
@@ -60,21 +61,27 @@ extension CurrentTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = Section(rawValue: indexPath.section)!
-        let cell = tableView.dequeueReusableCell(withIdentifier: "currentCell", for: indexPath)
+
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "currentCell") as? TDBadgedCell else {
+            fatalError()
+        }
+        cell.badgeColor = .red
+        // セルに更新通知を表示する
+        cell.badgeString = {
+            switch section {
+            case .favorites: return favorites[indexPath.row].updated ? "1" : ""
+            case .topScorers: return ""
+            }
+        }()
+
         let topScorer: TopScorer = {
             switch section {
-            case .favorites: return topScorers.first { $0.url == favorites[indexPath.row].url }!
+            case .favorites: return favorites[indexPath.row].topScorer
             case .topScorers: return topScorers[indexPath.row]
             }
         }()
         cell.textLabel?.text = topScorer.title
         cell.imageView?.image = createImage(code: topScorer.competition.regionCode)
-        // TODO: セルに更新通知を表示する
-        if case .favorites = section, favorites[indexPath.row].updated {
-            cell.accessoryType = .detailDisclosureButton
-        } else {
-            cell.accessoryType = .disclosureIndicator
-        }
 
         return cell
     }
