@@ -38,19 +38,19 @@ extension Association {
         Association(coordinate: CLLocationCoordinate2D(latitude: -34.603333,    longitude: -58.381667), competitions: [.argentinePrimeraDivision]),
         // CONCACAF
         Association(coordinate: CLLocationCoordinate2D(latitude: 25.773,        longitude: -80.138),    competitions: [.concacafGoldCup, .concacafChampionsLeague]),
-        Association(coordinate: CLLocationCoordinate2D(latitude: 38.883333,     longitude: -77.016667), competitions: [.majorLeagueSoccer]),
-        Association(coordinate: CLLocationCoordinate2D(latitude: 19.433333,     longitude: -99.133333), competitions: [.ligaMX]),
+        Association(coordinate: CLLocationCoordinate2D(latitude: 41.836944,     longitude: -87.684722), competitions: [.majorLeagueSoccer]),
+        Association(coordinate: CLLocationCoordinate2D(latitude: 19.409444,     longitude: -99.130833), competitions: [.ligaMX]),
         // CAF
         Association(coordinate: CLLocationCoordinate2D(latitude: 29.938126,     longitude: 30.91398),   competitions: [.africaCupOfNations, .cafChampionsLeague]),
         // OFC
         Association(coordinate: CLLocationCoordinate2D(latitude: -36.840556,    longitude: 174.74),     competitions: [.ofcNationsCup, .ofcChampionsLeague]),
         // AFC
         Association(coordinate: CLLocationCoordinate2D(latitude: 3.056296,      longitude: 101.688919), competitions: [.afcAsiaCup, .afcChampionsLeague]),
-        Association(coordinate: CLLocationCoordinate2D(latitude: -35.308056,    longitude: 149.124444), competitions: [.aLeague]),
+        Association(coordinate: CLLocationCoordinate2D(latitude: -33.865,       longitude: 151.209444), competitions: [.aLeague]),
         Association(coordinate: CLLocationCoordinate2D(latitude: 25.3,          longitude: 51.516667),  competitions: [.qatarStarsLeague]),
-        Association(coordinate: CLLocationCoordinate2D(latitude: 24.466667,     longitude: 54.366667),  competitions: [.uaeProLeague]),
+        Association(coordinate: CLLocationCoordinate2D(latitude: 25.263056,     longitude: 55.297222),  competitions: [.uaeProLeague]),
         Association(coordinate: CLLocationCoordinate2D(latitude: 35.683333,     longitude: 51.416667),  competitions: [.persianGulfProLeague]),
-        Association(coordinate: CLLocationCoordinate2D(latitude: 24.65,         longitude: 46.766667),  competitions: [.saudiProfessionalLeague]),
+        Association(coordinate: CLLocationCoordinate2D(latitude: 24.633333,     longitude: 46.716667),  competitions: [.saudiProfessionalLeague]),
         Association(coordinate: CLLocationCoordinate2D(latitude: 39.916667,     longitude: 116.383333), competitions: [.chineseSuperLeague]),
         Association(coordinate: CLLocationCoordinate2D(latitude: 37.55,         longitude: 126.966667), competitions: [.kLeague1]),
         Association(coordinate: CLLocationCoordinate2D(latitude: 35.683333,     longitude: 139.766667), competitions: [.j1League])
