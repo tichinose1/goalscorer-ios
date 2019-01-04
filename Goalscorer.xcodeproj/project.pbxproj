@@ -21,11 +21,13 @@
 		7754E3C7217D0EDC005AA750 /* TopScorers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7754E3C6217D0EDC005AA750 /* TopScorers.storyboard */; };
 		77603842217D05BA005DABC3 /* TopScorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77603841217D05BA005DABC3 /* TopScorer.swift */; };
 		77603846217D07B6005DABC3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77603845217D07B6005DABC3 /* Extensions.swift */; };
+		776F1D4821DE301E00625C3E /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F1D4721DE301E00625C3E /* Favorite.swift */; };
+		776F1D4A21DE513400625C3E /* Wikipedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F1D4921DE513400625C3E /* Wikipedia.swift */; };
+		776F1D4C21DE547400625C3E /* WebAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F1D4B21DE547400625C3E /* WebAPI.swift */; };
 		7778558A21C89FA0006AF1AB /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7778558921C89F9F006AF1AB /* Settings.bundle */; };
 		7794E4662199EFE8006CB5BE /* AllTime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7794E4652199EFE8006CB5BE /* AllTime.storyboard */; };
 		7794E4682199F138006CB5BE /* AllTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */; };
 		7794E46A2199F388006CB5BE /* AllTimeTopScorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4692199F388006CB5BE /* AllTimeTopScorer.swift */; };
-		7796F66621DD8BCA003C2252 /* SwipeCellKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7796F66521DD8BCA003C2252 /* SwipeCellKit.framework */; };
 		7796F66821DD90BB003C2252 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7796F66721DD90BB003C2252 /* LocalStorage.swift */; };
 		77AB25E021D8E0EA005FBCF5 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB25DF21D8E0EA005FBCF5 /* Functions.swift */; };
 		77AB25E421D8E6FF005FBCF5 /* Current.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AB25E321D8E6FF005FBCF5 /* Current.storyboard */; };
@@ -55,6 +57,9 @@
 		7754E3C6217D0EDC005AA750 /* TopScorers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TopScorers.storyboard; sourceTree = "<group>"; };
 		77603841217D05BA005DABC3 /* TopScorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScorer.swift; sourceTree = "<group>"; };
 		77603845217D07B6005DABC3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		776F1D4721DE301E00625C3E /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		776F1D4921DE513400625C3E /* Wikipedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wikipedia.swift; sourceTree = "<group>"; };
+		776F1D4B21DE547400625C3E /* WebAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAPI.swift; sourceTree = "<group>"; };
 		7778558921C89F9F006AF1AB /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		7794E4652199EFE8006CB5BE /* AllTime.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AllTime.storyboard; sourceTree = "<group>"; };
 		7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTimeTableViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +84,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7796F66621DD8BCA003C2252 /* SwipeCellKit.framework in Frameworks */,
 				77F868B5217D16EF002B1132 /* FlagKit.framework in Frameworks */,
 				071A5B2A813C9F160218D677 /* Pods_Goalscorer.framework in Frameworks */,
 			);
@@ -160,6 +164,9 @@
 				771539BA21DA0559005C0A4C /* Association.swift */,
 				771539BC21DA073D005C0A4C /* AssociationAnnotation.swift */,
 				7796F66721DD90BB003C2252 /* LocalStorage.swift */,
+				776F1D4721DE301E00625C3E /* Favorite.swift */,
+				776F1D4921DE513400625C3E /* Wikipedia.swift */,
+				776F1D4B21DE547400625C3E /* WebAPI.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -195,6 +202,7 @@
 				772ABC8A217D024600A9D589 /* Frameworks */,
 				772ABC8B217D024600A9D589 /* Resources */,
 				77F868B6217D16F4002B1132 /* ShellScript */,
+				A5A239570D3F4CA7B02AE367 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -217,6 +225,11 @@
 				TargetAttributes = {
 					772ABC8C217D024600A9D589 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -268,17 +281,37 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/FlagKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwipeCellKit.framework",
 			);
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/FlagKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwipeCellKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		A5A239570D3F4CA7B02AE367 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Goalscorer/Pods-Goalscorer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/TDBadgedCell/TDBadgedCell.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TDBadgedCell.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Goalscorer/Pods-Goalscorer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		D90FC11F2662BE6D9A0F1362 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -311,6 +344,7 @@
 			files = (
 				771539BD21DA073D005C0A4C /* AssociationAnnotation.swift in Sources */,
 				77603846217D07B6005DABC3 /* Extensions.swift in Sources */,
+				776F1D4C21DE547400625C3E /* WebAPI.swift in Sources */,
 				772ABCA7217D03C900A9D589 /* TopScorersTableViewController.swift in Sources */,
 				77AB25F021D91334005FBCF5 /* AssociationTableViewController.swift in Sources */,
 				7794E4682199F138006CB5BE /* AllTimeTableViewController.swift in Sources */,
@@ -321,6 +355,8 @@
 				772ABC91217D024600A9D589 /* AppDelegate.swift in Sources */,
 				7794E46A2199F388006CB5BE /* AllTimeTopScorer.swift in Sources */,
 				77229AB32181DFDD002840A1 /* Player.swift in Sources */,
+				776F1D4821DE301E00625C3E /* Favorite.swift in Sources */,
+				776F1D4A21DE513400625C3E /* Wikipedia.swift in Sources */,
 				77F158FB21984EAF001575FC /* Competition.swift in Sources */,
 				7796F66821DD90BB003C2252 /* LocalStorage.swift in Sources */,
 				77603842217D05BA005DABC3 /* TopScorer.swift in Sources */,

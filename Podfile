@@ -5,5 +5,6 @@ target 'Goalscorer' do
 
   pod 'SwiftLint'
   pod 'LicensePlist'
+  pod 'TDBadgedCell'
 end
 

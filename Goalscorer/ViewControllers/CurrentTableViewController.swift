@@ -7,48 +7,36 @@
 //
 
 import UIKit
-import SwipeCellKit
+import TDBadgedCell
 
-class CurrentTableViewController: UITableViewController {
+private enum Section: Int, CaseIterable {
+    case favorites
+    case topScorers
 
-    private lazy var favorites: [String] = LocalStorage.shared.loadFavoriteTopScorers()
-
-    private lazy var items: [TopScorer] = TopScorer.all.filter { ["2018–19", "2018"].contains($0.season) }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var header: String {
+        switch self {
+        case .favorites: return "Favorites"
+        case .topScorers: return "Top scorers"
+        }
     }
 }
 
-// MARK: - SwipeTableViewCellDelegate
+class CurrentTableViewController: UITableViewController {
 
-extension CurrentTableViewController: SwipeTableViewCellDelegate {
+    private var favorites: [Favorite] = []
+    private lazy var topScorers: [TopScorer] = TopScorer.all.filter { ["2018–19", "2018"].contains($0.season) }
 
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        guard orientation == .right else { return nil }
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-        let addAction = SwipeAction(style: .default, title: "Favorite") { action, indexPath in
-            self.favorites.append(self.items[indexPath.row].url)
-            self.tableView.reloadData()
-            LocalStorage.shared.saveFavoriteTopScorers(topScorers: self.favorites)
-        }
-        addAction.backgroundColor = view.tintColor
+        // 通知をタップしてフォアグラウンドになった際にviewWillAppearが呼ばれないためアプリのフォアグラウンド復帰イベントに登録しておく
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTableView), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
 
-        let deleteAction = SwipeAction(style: .destructive, title: "Remove Favorite") { action, indexPath in
-            switch indexPath.section {
-            case 0: self.favorites.remove(at: indexPath.row)
-            case 1: self.favorites = self.favorites.filter { $0 != self.items[indexPath.row].url }
-            default: fatalError()
-            }
-            self.tableView.reloadData()
-            LocalStorage.shared.saveFavoriteTopScorers(topScorers: self.favorites)
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-        switch indexPath.section {
-        case 0: return [deleteAction]
-        case 1: return favorites.contains(items[indexPath.row].url) ? [deleteAction] : [addAction]
-        default: fatalError()
-        }
+        updateTableView()
     }
 }
 
@@ -57,39 +45,44 @@ extension CurrentTableViewController: SwipeTableViewCellDelegate {
 extension CurrentTableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return Section.allCases.count
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0: return "Favorites"
-        case 1: return "Top scorers"
-        default: fatalError()
-        }
+        return Section(rawValue: section)!.header
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0: return favorites.count
-        case 1: return items.count
-        default: fatalError()
+        switch Section(rawValue: section)! {
+        case .favorites: return favorites.count
+        case .topScorers: return topScorers.count
         }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "currentCell") as? SwipeTableViewCell else { fatalError() }
-        cell.delegate = self
+        let section = Section(rawValue: indexPath.section)!
 
-        let item: TopScorer = {
-            switch indexPath.section {
-            case 0: return items.first { $0.url == favorites[indexPath.row] }!
-            case 1: return items[indexPath.row]
-            default: fatalError()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "currentCell") as? TDBadgedCell else {
+            fatalError()
+        }
+        cell.badgeColor = .red
+        // セルに更新通知を表示する
+        cell.badgeString = {
+            switch section {
+            case .favorites: return favorites[indexPath.row].updated ? "1" : ""
+            case .topScorers: return ""
             }
         }()
 
-        cell.textLabel?.text = item.title
-        cell.imageView?.image = createImage(code: item.competition.regionCode)
+        let topScorer: TopScorer = {
+            switch section {
+            case .favorites: return favorites[indexPath.row].topScorer
+            case .topScorers: return topScorers[indexPath.row]
+            }
+        }()
+        cell.textLabel?.text = topScorer.title
+        cell.imageView?.image = createImage(code: topScorer.competition.regionCode)
+
         return cell
     }
 }
@@ -98,8 +91,49 @@ extension CurrentTableViewController {
 
 extension CurrentTableViewController {
 
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let addAction = UIContextualAction(style: .normal, title: "Favorite") { _, _, completion in
+            let topScorer = self.topScorers[indexPath.row]
+            LocalStorage.shared.createFavorite(url: topScorer.url, createdAt: Date())
+            self.updateTableView()
+            completion(true)
+        }
+        let removeAction = UIContextualAction(style: .destructive, title: "Remove Favorite") { _, _, completion in
+            let favorite = self.favorites[indexPath.row]
+            LocalStorage.shared.deleteFavorite(url: favorite.url)
+            self.updateTableView()
+            completion(true)
+        }
+        let actions: [UIContextualAction] = {
+            switch Section(rawValue: indexPath.section)! {
+            case .favorites: return [removeAction]
+            case .topScorers: return [addAction]
+            }
+        }()
+        return UISwipeActionsConfiguration(actions: actions)
+    }
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = items[indexPath.row]
-        presentSafariViewController(url: item.url)
+        // いずれのセクションからタップされたか関係なく、favoritesの最終参照時刻を更新する
+        let url: String = {
+            switch Section(rawValue: indexPath.section)! {
+            case .favorites: return favorites[indexPath.row].url
+            case .topScorers: return topScorers[indexPath.row].url
+            }
+        }()
+        LocalStorage.shared.updateFavorite(url: url, lastReadAt: Date())
+
+        presentSafariViewController(url: url)
+    }
+}
+
+// MARK: - Private functions
+
+private extension CurrentTableViewController {
+
+    @objc func updateTableView() {
+        // topScorersは不変なのでfavoritesのみローカルから全取得する
+        favorites = LocalStorage.shared.readFavorites()
+        tableView.reloadData()
     }
 }

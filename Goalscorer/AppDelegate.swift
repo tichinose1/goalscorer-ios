@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,74 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print($0)
         }
 
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
+
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            print("granted: \(granted)")
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+
         return true
+    }
+
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        application.applicationIconBadgeNumber = 0
+    }
+
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        let dispatchGroup = DispatchGroup()
+
+        LocalStorage.shared.readFavorites().forEach { favorite in
+            dispatchGroup.enter()
+            WebAPI.shared.checkUpdate(title: favorite.topScorer.title) { timestamp in
+                LocalStorage.shared.updateFavorite(url: favorite.url, lastUpdatedAt: timestamp)
+                dispatchGroup.leave()
+            }
+        }
+
+        dispatchGroup.notify(queue: .main) {
+            self.addNotificationIfNeeded()
+
+            completionHandler(.newData)
+        }
+    }
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    }
+}
+
+private extension AppDelegate {
+
+    func addNotificationIfNeeded() {
+        let favorites = LocalStorage.shared.readFavorites()
+        let updatedFavorites = favorites.filter { $0.updated }
+        guard updatedFavorites.count > 0 else { return }
+
+        let body = updatedFavorites.map { $0.topScorer.title }.joined(separator: ", ")
+        addNotification(body: body)
+    }
+
+    func addNotification(body: String) {
+        let content = UNMutableNotificationContent()
+        content.title = "Updated!"
+        content.body = body
+        content.sound = UNNotificationSound.default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: "favoritesUpdate",
+                                            content: content,
+                                            trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+
+        UIApplication.shared.applicationIconBadgeNumber = 1
     }
 }
