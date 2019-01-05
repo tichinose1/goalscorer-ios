@@ -17,6 +17,7 @@ final class AssociationAnnotation: MKPointAnnotation {
         super.init()
 
         self.coordinate = association.coordinate
-        self.title = association.competitions.map { $0.name }.joined(separator: ", ")
+        self.title = association.name
+        self.subtitle = association.competitions.map { $0.name }.joined(separator: ", ")
     }
 }

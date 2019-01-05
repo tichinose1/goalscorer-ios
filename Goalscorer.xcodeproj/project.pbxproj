@@ -17,8 +17,6 @@
 		772ABC98217D024700A9D589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 772ABC97217D024700A9D589 /* Assets.xcassets */; };
 		772ABC9B217D024700A9D589 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 772ABC99217D024700A9D589 /* LaunchScreen.storyboard */; };
 		772ABCA5217D030300A9D589 /* Top.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 772ABCA4217D030300A9D589 /* Top.storyboard */; };
-		772ABCA7217D03C900A9D589 /* TopScorersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772ABCA6217D03C900A9D589 /* TopScorersTableViewController.swift */; };
-		7754E3C7217D0EDC005AA750 /* TopScorers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7754E3C6217D0EDC005AA750 /* TopScorers.storyboard */; };
 		77603842217D05BA005DABC3 /* TopScorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77603841217D05BA005DABC3 /* TopScorer.swift */; };
 		77603846217D07B6005DABC3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77603845217D07B6005DABC3 /* Extensions.swift */; };
 		776F1D4821DE301E00625C3E /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F1D4721DE301E00625C3E /* Favorite.swift */; };
@@ -53,8 +51,6 @@
 		772ABC9A217D024700A9D589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		772ABC9C217D024700A9D589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		772ABCA4217D030300A9D589 /* Top.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Top.storyboard; sourceTree = "<group>"; };
-		772ABCA6217D03C900A9D589 /* TopScorersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScorersTableViewController.swift; sourceTree = "<group>"; };
-		7754E3C6217D0EDC005AA750 /* TopScorers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TopScorers.storyboard; sourceTree = "<group>"; };
 		77603841217D05BA005DABC3 /* TopScorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScorer.swift; sourceTree = "<group>"; };
 		77603845217D07B6005DABC3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		776F1D4721DE301E00625C3E /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
@@ -132,7 +128,6 @@
 				77AB25E321D8E6FF005FBCF5 /* Current.storyboard */,
 				77AB25E721D8EB85005FBCF5 /* Maps.storyboard */,
 				77AB25ED21D912B0005FBCF5 /* Association.storyboard */,
-				7754E3C6217D0EDC005AA750 /* TopScorers.storyboard */,
 				7794E4652199EFE8006CB5BE /* AllTime.storyboard */,
 				77229AB62181E065002840A1 /* Players.storyboard */,
 			);
@@ -145,7 +140,6 @@
 				77AB25E521D8E7E8005FBCF5 /* CurrentTableViewController.swift */,
 				77AB25EB21D8ED5F005FBCF5 /* MapsViewController.swift */,
 				77AB25EF21D91334005FBCF5 /* AssociationTableViewController.swift */,
-				772ABCA6217D03C900A9D589 /* TopScorersTableViewController.swift */,
 				7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */,
 				77229AB42181E02B002840A1 /* PlayersTableViewController.swift */,
 			);
@@ -263,7 +257,6 @@
 				77229AB72181E065002840A1 /* Players.storyboard in Resources */,
 				77AB25E421D8E6FF005FBCF5 /* Current.storyboard in Resources */,
 				77AB25EE21D912B0005FBCF5 /* Association.storyboard in Resources */,
-				7754E3C7217D0EDC005AA750 /* TopScorers.storyboard in Resources */,
 				772ABC98217D024700A9D589 /* Assets.xcassets in Resources */,
 				7778558A21C89FA0006AF1AB /* Settings.bundle in Resources */,
 			);
@@ -345,7 +338,6 @@
 				771539BD21DA073D005C0A4C /* AssociationAnnotation.swift in Sources */,
 				77603846217D07B6005DABC3 /* Extensions.swift in Sources */,
 				776F1D4C21DE547400625C3E /* WebAPI.swift in Sources */,
-				772ABCA7217D03C900A9D589 /* TopScorersTableViewController.swift in Sources */,
 				77AB25F021D91334005FBCF5 /* AssociationTableViewController.swift in Sources */,
 				7794E4682199F138006CB5BE /* AllTimeTableViewController.swift in Sources */,
 				77AB25EC21D8ED5F005FBCF5 /* MapsViewController.swift in Sources */,
