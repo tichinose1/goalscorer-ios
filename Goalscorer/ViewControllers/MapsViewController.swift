@@ -19,7 +19,7 @@ class MapsViewController: UIViewController {
         mapView.delegate = self
         mapView.centerCoordinate = Association.fifa.coordinate
 
-        let annotations = Association.all.map(AssociationAnnotation.init)
+        let annotations = Association.all.filter { !$0.competitions.isEmpty }.map(AssociationAnnotation.init)
         mapView.addAnnotations(annotations)
     }
 }
