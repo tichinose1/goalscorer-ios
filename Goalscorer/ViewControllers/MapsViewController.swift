@@ -13,13 +13,11 @@ class MapsViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
 
-    private let zurich = CLLocationCoordinate2D(latitude: 47.376886, longitude: 8.5416940)
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         mapView.delegate = self
-        mapView.centerCoordinate = zurich
+        mapView.centerCoordinate = Association.fifa.coordinate
 
         let annotations = Association.all.map(AssociationAnnotation.init)
         mapView.addAnnotations(annotations)
@@ -33,7 +31,7 @@ extension MapsViewController: MKMapViewDelegate {
         guard let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) else { fatalError() }
 
         annotationView.canShowCallout = true
-        let regionCode = annotation.association.competitions.first!.regionCode
+        let regionCode = annotation.association.regionCode
         let image = createImage(code: regionCode)!
         annotationView.leftCalloutAccessoryView = UIImageView(image: image)
         let button = UIButton(type: .detailDisclosure)

@@ -20,7 +20,9 @@ class AssociationTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        items = TopScorer.all.filter { association.competitions.contains($0.competition) }
+        title = association.name
+
+        items = TopScorer.all.filter { $0.competition.association == association }
     }
 }
 
@@ -40,7 +42,7 @@ extension AssociationTableViewController {
         let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "regionCell", for: indexPath)
         cell.textLabel?.text = item.title
-        cell.imageView?.image = createImage(code: item.competition.regionCode)
+        cell.imageView?.image = createImage(code: item.competition.association.regionCode)
         return cell
     }
 }
