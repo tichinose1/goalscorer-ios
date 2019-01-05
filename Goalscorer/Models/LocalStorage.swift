@@ -61,13 +61,22 @@ private extension LocalStorage {
             return []
         }
 
-        return try! JSONDecoder.shared.decode([Favorite].self, from: data)
+        do {
+            return try JSONDecoder.shared.decode([Favorite].self, from: data)
+        } catch {
+            // TODO: エラーレポート
+            print(error.localizedDescription)
+            return []
+        }
     }
 
     func saveFavoriteTopScorers(favorites: [Favorite]) {
-        let data = try! JSONEncoder.shared.encode(favorites)
-
-        UserDefaults.standard.topScorers = data
+        do {
+            UserDefaults.standard.topScorers = try JSONEncoder.shared.encode(favorites)
+        } catch {
+            // TODO: エラーレポート
+            print(error.localizedDescription)
+        }
     }
 }
 
