@@ -11,8 +11,8 @@ import RealmSwift
 
 class Favorite: Object {
     @objc dynamic var createdAt: Date = Date()
-    @objc dynamic var lastReadAt: Date? = nil
-    @objc dynamic var lastUpdatedAt: Date? = nil
+    @objc dynamic var lastReadAt: Date?
+    @objc dynamic var lastUpdatedAt: Date?
     let topScorers = List<TopScorer>()
 
     var topScorer: TopScorer {

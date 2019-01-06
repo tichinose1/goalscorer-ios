@@ -26,7 +26,7 @@ class CurrentTableViewController: UITableViewController {
 
     private lazy var favorites = LocalStorage<Favorite>().findAll()
     private lazy var topScorers = LocalStorage<TopScorer>().filter(clause: "season IN {'2019', '2018–19', '2018'}")
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

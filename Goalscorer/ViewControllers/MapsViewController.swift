@@ -22,7 +22,7 @@ class MapsViewController: UIViewController {
         let associations = LocalStorage<Association>().findAll()
         let annotations = Array(associations).map(AssociationAnnotation.init)
         mapView.addAnnotations(annotations)
-        mapView.centerCoordinate = CLLocationCoordinate2D(latitude: 47.381389,    longitude: 8.574444)
+        mapView.centerCoordinate = CLLocationCoordinate2D(latitude: 47.381389, longitude: 8.574444)
     }
 }
 
