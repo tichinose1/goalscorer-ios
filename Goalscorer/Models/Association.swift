@@ -9,11 +9,12 @@
 import CoreLocation
 import RealmSwift
 
+@objcMembers
 class Association: Object {
-    @objc dynamic var name: String = ""
-    @objc dynamic var regionCode: String = ""
-    @objc dynamic var latitude: Double = 0
-    @objc dynamic var longitude: Double = 0
+    dynamic var name: String = ""
+    dynamic var regionCode: String = ""
+    dynamic var latitude: Double = 0
+    dynamic var longitude: Double = 0
     let competitions = List<Competition>()
     let players = List<Player>()
 

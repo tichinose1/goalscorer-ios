@@ -9,10 +9,11 @@
 import Foundation
 import RealmSwift
 
+@objcMembers
 class Favorite: Object {
-    @objc dynamic var createdAt: Date = Date()
-    @objc dynamic var lastReadAt: Date?
-    @objc dynamic var lastUpdatedAt: Date?
+    dynamic var createdAt: Date = Date()
+    dynamic var lastReadAt: Date?
+    dynamic var lastUpdatedAt: Date?
     let topScorers = List<TopScorer>()
 
     var topScorer: TopScorer {

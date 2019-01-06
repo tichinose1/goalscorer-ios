@@ -9,8 +9,9 @@
 import Foundation
 import RealmSwift
 
+@objcMembers
 class Competition: Object {
-    @objc dynamic var name: String = ""
+    dynamic var name: String = ""
     let topScorers = List<TopScorer>()
     let allTimeTopScorers = List<AllTimeTopScorer>()
     let associations = LinkingObjects(fromType: Association.self, property: "competitions")

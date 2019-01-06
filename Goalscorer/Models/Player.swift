@@ -9,8 +9,9 @@
 import Foundation
 import RealmSwift
 
+@objcMembers
 class Player: Object {
-    @objc dynamic var name: String = ""
+    dynamic var name: String = ""
     let associations = LinkingObjects(fromType: Association.self, property: "players")
 
     convenience init(name: String) {

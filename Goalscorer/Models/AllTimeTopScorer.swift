@@ -9,8 +9,9 @@
 import Foundation
 import RealmSwift
 
+@objcMembers
 class AllTimeTopScorer: Object {
-    @objc dynamic var url: String = ""
+    dynamic var url: String = ""
     let competitions = LinkingObjects(fromType: Competition.self, property: "allTimeTopScorers")
 
     convenience init(url: String) {

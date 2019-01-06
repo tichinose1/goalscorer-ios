@@ -9,9 +9,10 @@
 import Foundation
 import RealmSwift
 
+@objcMembers
 class TopScorer: Object {
-    @objc dynamic var season: String = ""
-    @objc dynamic var header: String = ""
+    dynamic var season: String = ""
+    dynamic var header: String = ""
     let competitions = LinkingObjects(fromType: Competition.self, property: "topScorers")
     let favorites = LinkingObjects(fromType: Favorite.self, property: "topScorers")
 
