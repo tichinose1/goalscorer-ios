@@ -7,82 +7,47 @@
 //
 
 import Foundation
+import RealmSwift
 
-final class LocalStorage {
+final class LocalStorage<T: Object> {
 
-    static let shared = LocalStorage()
+    let realm: Realm
 
-    private init() { }
-
-    func createFavorite(url: String, createdAt: Date, lastReadAt: Date? = nil, lastUpdatedAt: Date? = nil) {
-        var favorites = loadFavoriteTopScorers()
-        if (favorites.contains { $0.url == url }) { return }
-
-        let favorite = Favorite(url: url,
-                                createdAt: createdAt,
-                                lastReadAt: lastReadAt,
-                                lastUpdatedAt: lastUpdatedAt)
-        favorites.append(favorite)
-        LocalStorage.shared.saveFavoriteTopScorers(favorites: favorites)
+    init() {
+        realm = try! Realm()
     }
 
-    func readFavorite(url: String) -> Favorite? {
-        return loadFavoriteTopScorers().first { $0.url == url }
+    func findAll() -> Results<T> {
+        return realm.objects(T.self)
     }
 
-    func readFavorites() -> [Favorite] {
-        return loadFavoriteTopScorers()
+    func filter(clause: String) -> Results<T> {
+        return realm.objects(T.self).filter(clause)
     }
 
-    func updateFavorite(url: String, lastReadAt: Date? = nil, lastUpdatedAt: Date? = nil) {
-        let favorites = loadFavoriteTopScorers()
-        let newFavorites: [Favorite] = favorites.map { f in
-            f.url == url
-                ? Favorite(url: f.url,
-                           createdAt: f.createdAt,
-                           lastReadAt: lastReadAt ?? f.lastReadAt,
-                           lastUpdatedAt: lastUpdatedAt ?? f.lastUpdatedAt)
-                : f
-        }
-        saveFavoriteTopScorers(favorites: newFavorites)
-    }
+    func add(t: T) {
+        // 重複チェックは呼び出し元で実施する
 
-    func deleteFavorite(url: String) {
-        let favorites = loadFavoriteTopScorers()
-        let newFavorites = favorites.filter { $0.url != url }
-        saveFavoriteTopScorers(favorites: newFavorites)
-    }
-}
-
-private extension LocalStorage {
-
-    func loadFavoriteTopScorers() -> [Favorite] {
-        guard let data = UserDefaults.standard.topScorers else {
-            return []
-        }
-
-        do {
-            return try JSONDecoder.shared.decode([Favorite].self, from: data)
-        } catch {
-            // TODO: エラーレポート
-            print(error.localizedDescription)
-            return []
+        try! realm.write {
+            realm.add(t)
         }
     }
 
-    func saveFavoriteTopScorers(favorites: [Favorite]) {
-        do {
-            UserDefaults.standard.topScorers = try JSONEncoder.shared.encode(favorites)
-        } catch {
-            // TODO: エラーレポート
-            print(error.localizedDescription)
+    func add(array: [T]) {
+        try! realm.write {
+            realm.add(array)
         }
     }
-}
 
-extension UserDefaults {
-    var topScorers: Data? {
-        get { return data(forKey: #function) }
-        set { set(newValue, forKey: #function) }
+    func update(block: () -> Void) {
+        try! realm.write {
+            block()
+        }
+    }
+
+    func delete(t: T) {
+        try! realm.write {
+            realm.delete(t)
+        }
     }
 }

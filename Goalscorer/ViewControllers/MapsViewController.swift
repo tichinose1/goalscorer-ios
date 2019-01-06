@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import RealmSwift
 
 class MapsViewController: UIViewController {
 
@@ -17,10 +18,11 @@ class MapsViewController: UIViewController {
         super.viewDidLoad()
 
         mapView.delegate = self
-        mapView.centerCoordinate = Association.fifa.coordinate
 
-        let annotations = Association.all.filter { !$0.competitions.isEmpty }.map(AssociationAnnotation.init)
+        let associations = LocalStorage<Association>().findAll()
+        let annotations = Array(associations).map(AssociationAnnotation.init)
         mapView.addAnnotations(annotations)
+        mapView.centerCoordinate = CLLocationCoordinate2D(latitude: 47.381389,    longitude: 8.574444)
     }
 }
 

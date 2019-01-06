@@ -10,7 +10,7 @@ import UIKit
 
 class AllTimeTableViewController: UITableViewController {
 
-    private var items = AllTimeTopScorer.all
+    private lazy var items = LocalStorage<AllTimeTopScorer>().findAll()
 
     override func viewDidLoad() {
         super.viewDidLoad()

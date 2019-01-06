@@ -7,21 +7,16 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Favorite {
-    let url: String
-    var createdAt: Date
-    var lastReadAt: Date? = nil
-    var lastUpdatedAt: Date? = nil
-}
-
-extension Favorite: Codable {
-}
-
-extension Favorite {
+class Favorite: Object {
+    @objc dynamic var createdAt: Date = Date()
+    @objc dynamic var lastReadAt: Date? = nil
+    @objc dynamic var lastUpdatedAt: Date? = nil
+    let topScorers = List<TopScorer>()
 
     var topScorer: TopScorer {
-        return TopScorer.all.first { $0.url == url }!
+        return topScorers.first!
     }
 
     var updated: Bool {

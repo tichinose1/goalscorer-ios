@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
+        DataInitializer().initData()
+
         return true
     }
 
@@ -39,11 +42,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         let dispatchGroup = DispatchGroup()
 
-        LocalStorage.shared.readFavorites().forEach { favorite in
+        let favorites = LocalStorage<Favorite>().findAll()
+        favorites.forEach { favorite in
             dispatchGroup.enter()
             WebAPI.shared.checkUpdate(title: favorite.topScorer.title) { timestamp in
-                LocalStorage.shared.updateFavorite(url: favorite.url, lastUpdatedAt: timestamp)
-                dispatchGroup.leave()
+                DispatchQueue.main.async {
+                    LocalStorage<Favorite>().update {
+                        favorite.lastUpdatedAt = timestamp
+                    }
+                    dispatchGroup.leave()
+                }
             }
         }
 
@@ -64,7 +72,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 private extension AppDelegate {
 
     func addNotificationIfNeeded() {
-        let favorites = LocalStorage.shared.readFavorites()
+        // TODO: 複雑な条件のクエリをSQLでやるかどうか
+        let favorites = LocalStorage<Favorite>().findAll()
         let updatedFavorites = favorites.filter { $0.updated }
         guard updatedFavorites.count > 0 else { return }
 

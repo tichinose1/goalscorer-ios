@@ -8,6 +8,7 @@
 
 import UIKit
 import TDBadgedCell
+import RealmSwift
 
 private enum Section: Int, CaseIterable {
     case favorites
@@ -23,20 +24,20 @@ private enum Section: Int, CaseIterable {
 
 class CurrentTableViewController: UITableViewController {
 
-    private var favorites: [Favorite] = []
-    private lazy var topScorers: [TopScorer] = TopScorer.all.filter { ["2018–19", "2018"].contains($0.season) }
-
+    private lazy var favorites = LocalStorage<Favorite>().findAll()
+    private lazy var topScorers = LocalStorage<TopScorer>().filter(clause: "season IN {'2019', '2018–19', '2018'}")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // 通知をタップしてフォアグラウンドになった際にviewWillAppearが呼ばれないためアプリのフォアグラウンド復帰イベントに登録しておく
-        NotificationCenter.default.addObserver(self, selector: #selector(updateTableView), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onAppForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        updateTableView()
+        tableView.reloadData()
     }
 }
 
@@ -94,14 +95,19 @@ extension CurrentTableViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let addAction = UIContextualAction(style: .normal, title: "Favorite") { _, _, completion in
             let topScorer = self.topScorers[indexPath.row]
-            LocalStorage.shared.createFavorite(url: topScorer.url, createdAt: Date())
-            self.updateTableView()
+            if topScorer.favorites.isEmpty {
+                // topScorerにfavoriteが1件も関連づいていない場合のみ追加する
+                let favorite = Favorite()
+                favorite.topScorers.append(topScorer)
+                LocalStorage<Favorite>().add(t: favorite)
+                self.tableView.reloadData()
+            }
             completion(true)
         }
         let removeAction = UIContextualAction(style: .destructive, title: "Remove Favorite") { _, _, completion in
             let favorite = self.favorites[indexPath.row]
-            LocalStorage.shared.deleteFavorite(url: favorite.url)
-            self.updateTableView()
+            LocalStorage<Favorite>().delete(t: favorite)
+            self.tableView.reloadData()
             completion(true)
         }
         let actions: [UIContextualAction] = {
@@ -114,16 +120,25 @@ extension CurrentTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let section = Section(rawValue: indexPath.section)!
         // いずれのセクションからタップされたか関係なく、favoritesの最終参照時刻を更新する
-        let url: String = {
-            switch Section(rawValue: indexPath.section)! {
-            case .favorites: return favorites[indexPath.row].url
-            case .topScorers: return topScorers[indexPath.row].url
+        let favorite: Favorite? = {
+            switch section {
+            case .favorites: return favorites[indexPath.row]
+            case .topScorers: return topScorers[indexPath.row].favorite
             }
         }()
-        LocalStorage.shared.updateFavorite(url: url, lastReadAt: Date())
+        LocalStorage<Favorite>().update {
+            favorite?.lastReadAt = Date()
+        }
 
-        presentSafariViewController(url: url)
+        let topScorer: TopScorer = {
+            switch section {
+            case .favorites: return favorites[indexPath.row].topScorer
+            case .topScorers: return topScorers[indexPath.row]
+            }
+        }()
+        presentSafariViewController(url: topScorer.url)
     }
 }
 
@@ -131,9 +146,7 @@ extension CurrentTableViewController {
 
 private extension CurrentTableViewController {
 
-    @objc func updateTableView() {
-        // topScorersは不変なのでfavoritesのみローカルから全取得する
-        favorites = LocalStorage.shared.readFavorites()
+    @objc func onAppForeground() {
         tableView.reloadData()
     }
 }

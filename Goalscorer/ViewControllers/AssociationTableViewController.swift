@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class AssociationTableViewController: UITableViewController {
 
@@ -15,14 +16,12 @@ class AssociationTableViewController: UITableViewController {
     }
 
     var association: Association!
-    private var items: [TopScorer] = []
+    private lazy var items: [TopScorer] = association!.competitions.flatMap { $0.topScorers }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = association.name
-
-        items = TopScorer.all.filter { $0.competition.association == association }
     }
 }
 

@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import RealmSwift
 
 class PlayersTableViewController: UITableViewController {
 
-    private var items: [Player] = Player.all
+    private lazy var items = LocalStorage<Player>().findAll()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,11 +62,10 @@ extension PlayersTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { fatalError() }
 
-        // TODO: I wanna remove "if"
-        if searchText == "" {
-            items = Player.all
+        if searchText.isEmpty {
+            items = LocalStorage<Player>().findAll()
         } else {
-            items = Player.all.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+            items = LocalStorage<Player>().filter(clause: "name CONTAINS[c] '\(searchText)'")
         }
 
         tableView.reloadData()
