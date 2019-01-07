@@ -13,21 +13,23 @@ import RealmSwift
 class Competition: Object {
     dynamic var name: String = ""
     dynamic var association: Association!
+    dynamic var order: Int = 0
+
     let topScorers = LinkingObjects(fromType: TopScorer.self, property: "competition")
 
     var topScorersTemp: [TopScorer] = []
-    var allTimeTopScorersTemp: [AllTimeTopScorer] = []
+    var overallTopScorersTemp: [OverallTopScorer] = []
 
-    convenience init(name: String, topScorers: [TopScorer], allTimeTopScorers: [AllTimeTopScorer]) {
+    convenience init(name: String, topScorers: [TopScorer], overallTopScorers: [OverallTopScorer]) {
         self.init()
 
         self.name = name
 
         self.topScorersTemp = topScorers
-        self.allTimeTopScorersTemp = allTimeTopScorers
+        self.overallTopScorersTemp = overallTopScorers
     }
 
     override static func ignoredProperties() -> [String] {
-        return ["topScorersTemp", "allTimeTopScorersTemp"]
+        return ["topScorersTemp", "overallTopScorersTemp"]
     }
 }

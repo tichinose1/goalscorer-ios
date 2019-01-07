@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 @objcMembers
-class AllTimeTopScorer: Object {
+class OverallTopScorer: Object {
     dynamic var competition: Competition!
     dynamic var url: String = ""
 

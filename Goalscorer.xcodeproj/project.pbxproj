@@ -29,7 +29,7 @@
 		7778558A21C89FA0006AF1AB /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7778558921C89F9F006AF1AB /* Settings.bundle */; };
 		7794E4662199EFE8006CB5BE /* AllTime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7794E4652199EFE8006CB5BE /* AllTime.storyboard */; };
 		7794E4682199F138006CB5BE /* AllTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */; };
-		7794E46A2199F388006CB5BE /* AllTimeTopScorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4692199F388006CB5BE /* AllTimeTopScorer.swift */; };
+		7794E46A2199F388006CB5BE /* OverallTopScorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4692199F388006CB5BE /* OverallTopScorer.swift */; };
 		7796F66821DD90BB003C2252 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7796F66721DD90BB003C2252 /* LocalStorage.swift */; };
 		77AB25E021D8E0EA005FBCF5 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB25DF21D8E0EA005FBCF5 /* Functions.swift */; };
 		77AB25E421D8E6FF005FBCF5 /* Current.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AB25E321D8E6FF005FBCF5 /* Current.storyboard */; };
@@ -67,7 +67,7 @@
 		7778558921C89F9F006AF1AB /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		7794E4652199EFE8006CB5BE /* AllTime.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AllTime.storyboard; sourceTree = "<group>"; };
 		7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTimeTableViewController.swift; sourceTree = "<group>"; };
-		7794E4692199F388006CB5BE /* AllTimeTopScorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTimeTopScorer.swift; sourceTree = "<group>"; };
+		7794E4692199F388006CB5BE /* OverallTopScorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallTopScorer.swift; sourceTree = "<group>"; };
 		7796F66521DD8BCA003C2252 /* SwipeCellKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeCellKit.framework; path = Carthage/Build/iOS/SwipeCellKit.framework; sourceTree = "<group>"; };
 		7796F66721DD90BB003C2252 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		77AB25DF21D8E0EA005FBCF5 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 				77603845217D07B6005DABC3 /* Extensions.swift */,
 				77229AB22181DFDD002840A1 /* Player.swift */,
 				77F158FA21984EAF001575FC /* Competition.swift */,
-				7794E4692199F388006CB5BE /* AllTimeTopScorer.swift */,
+				7794E4692199F388006CB5BE /* OverallTopScorer.swift */,
 				77AB25DF21D8E0EA005FBCF5 /* Functions.swift */,
 				771539BA21DA0559005C0A4C /* Association.swift */,
 				771539BC21DA073D005C0A4C /* AssociationAnnotation.swift */,
@@ -365,7 +365,7 @@
 				771539BB21DA0559005C0A4C /* Association.swift in Sources */,
 				772ABC91217D024600A9D589 /* AppDelegate.swift in Sources */,
 				775841BF21E154AC00B64862 /* DataInitializer.swift in Sources */,
-				7794E46A2199F388006CB5BE /* AllTimeTopScorer.swift in Sources */,
+				7794E46A2199F388006CB5BE /* OverallTopScorer.swift in Sources */,
 				77229AB32181DFDD002840A1 /* Player.swift in Sources */,
 				776F1D4821DE301E00625C3E /* Favorite.swift in Sources */,
 				776F1D4A21DE513400625C3E /* Wikipedia.swift in Sources */,
