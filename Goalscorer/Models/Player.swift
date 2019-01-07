@@ -13,6 +13,7 @@ import RealmSwift
 class Player: Object {
     dynamic var name: String = ""
     dynamic var association: Association!
+    dynamic var order: Int = 999
 
     convenience init(name: String) {
         self.init()
