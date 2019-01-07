@@ -12,15 +12,11 @@ import RealmSwift
 @objcMembers
 class AllTimeTopScorer: Object {
     dynamic var url: String = ""
-    let competitions = LinkingObjects(fromType: Competition.self, property: "allTimeTopScorers")
+    dynamic var competition: Competition!
 
     convenience init(url: String) {
         self.init()
 
         self.url = url
-    }
-
-    var competition: Competition {
-        return competitions.first!
     }
 }

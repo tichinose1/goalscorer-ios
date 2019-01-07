@@ -12,19 +12,12 @@ import RealmSwift
 @objcMembers
 class Competition: Object {
     dynamic var name: String = ""
-    let topScorers = List<TopScorer>()
-    let allTimeTopScorers = List<AllTimeTopScorer>()
-    let associations = LinkingObjects(fromType: Association.self, property: "competitions")
+    dynamic var association: Association!
+    let topScorers = LinkingObjects(fromType: TopScorer.self, property: "competition")
 
     convenience init(name: String, topScorers: [TopScorer], allTimeTopScorers: [AllTimeTopScorer]) {
         self.init()
 
         self.name = name
-        self.topScorers.append(objectsIn: topScorers)
-        self.allTimeTopScorers.append(objectsIn: allTimeTopScorers)
-    }
-
-    var association: Association {
-        return associations.first!
     }
 }

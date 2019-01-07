@@ -12,13 +12,13 @@ import RealmSwift
 final class DataInitializer {
 
     func initData() {
-        let old = LocalStorage<Association>().findAll()
-        if old.count > 0 {
-            print("initialized")
-            return
+        let bundleURL = Bundle.main.url(forResource: "default", withExtension: "realm")!
+        let storageURL = Realm.Configuration.defaultConfiguration.fileURL!
+        do {
+            try FileManager.default.copyItem(at: bundleURL, to: storageURL)
+        } catch {
+            print(error.localizedDescription)
         }
-
-        LocalStorage<Association>().add(array: associations)
     }
 }
 

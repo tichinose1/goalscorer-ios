@@ -65,7 +65,7 @@ extension PlayersTableViewController: UISearchResultsUpdating {
         if searchText.isEmpty {
             items = LocalStorage<Player>().findAll()
         } else {
-            items = LocalStorage<Player>().filter(clause: "name CONTAINS[c] '\(searchText)'")
+            items = LocalStorage<Player>().findAll().filter("name CONTAINS[c] '\(searchText)'")
         }
 
         tableView.reloadData()

@@ -25,7 +25,7 @@ private enum Section: Int, CaseIterable {
 class CurrentTableViewController: UITableViewController {
 
     private lazy var favorites = LocalStorage<Favorite>().findAll()
-    private lazy var topScorers = LocalStorage<TopScorer>().filter(clause: "season IN {'2019', '2018–19', '2018'}")
+    private lazy var topScorers = LocalStorage<TopScorer>().findAll().filter("season IN {'2019', '2018–19', '2018'}")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,10 +95,10 @@ extension CurrentTableViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let addAction = UIContextualAction(style: .normal, title: "Favorite") { _, _, completion in
             let topScorer = self.topScorers[indexPath.row]
-            if topScorer.favorites.isEmpty {
+            if case .none = topScorer.favorite {
                 // topScorerにfavoriteが1件も関連づいていない場合のみ追加する
                 let favorite = Favorite()
-                favorite.topScorers.append(topScorer)
+                favorite.topScorer = topScorer
                 LocalStorage<Favorite>().add(t: favorite)
                 self.tableView.reloadData()
             }

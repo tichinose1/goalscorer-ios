@@ -12,7 +12,7 @@ import RealmSwift
 @objcMembers
 class Player: Object {
     dynamic var name: String = ""
-    let associations = LinkingObjects(fromType: Association.self, property: "players")
+    dynamic var association: Association!
 
     convenience init(name: String) {
         self.init()
@@ -22,10 +22,6 @@ class Player: Object {
 
     var url: String {
         return "https://en.wikipedia.org/wiki/\(path)#Career_statistics"
-    }
-
-    var association: Association {
-        return associations.first!
     }
 }
 

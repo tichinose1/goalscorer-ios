@@ -13,18 +13,14 @@ import RealmSwift
 class TopScorer: Object {
     dynamic var season: String = ""
     dynamic var header: String = ""
-    let competitions = LinkingObjects(fromType: Competition.self, property: "topScorers")
-    let favorites = LinkingObjects(fromType: Favorite.self, property: "topScorers")
+    dynamic var competition: Competition!
+    let favorites = LinkingObjects(fromType: Favorite.self, property: "topScorer")
 
     convenience init(season: String, header: String) {
         self.init()
 
         self.season = season
         self.header = header
-    }
-
-    var competition: Competition {
-        return competitions.first!
     }
 
     var favorite: Favorite? {

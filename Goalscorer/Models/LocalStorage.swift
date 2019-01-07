@@ -21,21 +21,11 @@ final class LocalStorage<T: Object> {
         return realm.objects(T.self)
     }
 
-    func filter(clause: String) -> Results<T> {
-        return realm.objects(T.self).filter(clause)
-    }
-
     func add(t: T) {
         // 重複チェックは呼び出し元で実施する
 
         try! realm.write {
             realm.add(t)
-        }
-    }
-
-    func add(array: [T]) {
-        try! realm.write {
-            realm.add(array)
         }
     }
 

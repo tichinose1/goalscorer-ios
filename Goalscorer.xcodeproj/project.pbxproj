@@ -10,6 +10,7 @@
 		071A5B2A813C9F160218D677 /* Pods_Goalscorer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99A7E1DA6C48C68446204B9 /* Pods_Goalscorer.framework */; };
 		771539BB21DA0559005C0A4C /* Association.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771539BA21DA0559005C0A4C /* Association.swift */; };
 		771539BD21DA073D005C0A4C /* AssociationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771539BC21DA073D005C0A4C /* AssociationAnnotation.swift */; };
+		771EF7B321E29D4B006ACEFD /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 771EF7B221E29BFD006ACEFD /* default.realm */; };
 		77229AB32181DFDD002840A1 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77229AB22181DFDD002840A1 /* Player.swift */; };
 		77229AB52181E02B002840A1 /* PlayersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77229AB42181E02B002840A1 /* PlayersTableViewController.swift */; };
 		77229AB72181E065002840A1 /* Players.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77229AB62181E065002840A1 /* Players.storyboard */; };
@@ -45,6 +46,7 @@
 		0FC9773539757ACA07EDF8CB /* Pods-Goalscorer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Goalscorer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Goalscorer/Pods-Goalscorer.release.xcconfig"; sourceTree = "<group>"; };
 		771539BA21DA0559005C0A4C /* Association.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Association.swift; sourceTree = "<group>"; };
 		771539BC21DA073D005C0A4C /* AssociationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociationAnnotation.swift; sourceTree = "<group>"; };
+		771EF7B221E29BFD006ACEFD /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.realm; sourceTree = "<group>"; };
 		77229AB22181DFDD002840A1 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		77229AB42181E02B002840A1 /* PlayersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTableViewController.swift; sourceTree = "<group>"; };
 		77229AB62181E065002840A1 /* Players.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Players.storyboard; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				772ABC97217D024700A9D589 /* Assets.xcassets */,
 				772ABC99217D024700A9D589 /* LaunchScreen.storyboard */,
 				772ABC9C217D024700A9D589 /* Info.plist */,
+				771EF7B221E29BFD006ACEFD /* default.realm */,
 				7778558921C89F9F006AF1AB /* Settings.bundle */,
 			);
 			path = Goalscorer;
@@ -261,6 +264,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				771EF7B321E29D4B006ACEFD /* default.realm in Resources */,
 				77AB25E821D8EB85005FBCF5 /* Maps.storyboard in Resources */,
 				772ABCA5217D030300A9D589 /* Top.storyboard in Resources */,
 				772ABC9B217D024700A9D589 /* LaunchScreen.storyboard in Resources */,

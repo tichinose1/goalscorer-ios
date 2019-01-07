@@ -14,11 +14,7 @@ class Favorite: Object {
     dynamic var createdAt: Date = Date()
     dynamic var lastReadAt: Date?
     dynamic var lastUpdatedAt: Date?
-    let topScorers = List<TopScorer>()
-
-    var topScorer: TopScorer {
-        return topScorers.first!
-    }
+    dynamic var topScorer: TopScorer!
 
     var updated: Bool {
         // サーバーの更新時刻を未取得の場合は判断できない
