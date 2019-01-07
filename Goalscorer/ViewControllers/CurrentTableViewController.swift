@@ -12,20 +12,20 @@ import RealmSwift
 
 private enum Section: Int, CaseIterable {
     case favorites
-    case topScorers
+    case scorers
 
     var header: String {
         switch self {
         case .favorites: return "Favorites"
-        case .topScorers: return "Top scorers"
+        case .scorers: return "Scorers"
         }
     }
 }
 
 class CurrentTableViewController: UITableViewController {
 
-    private lazy var favorites = LocalStorage<Favorite>().findAll()
-    private lazy var topScorers = LocalStorage<TopScorer>().findAll().filter("season IN {'2019', '2018–19', '2018'}")
+    private lazy var favorites = LocalStorage<FavoriteScorer>().findAll()
+    private lazy var scorers = LocalStorage<Scorer>().findAll().filter("season IN {'2019', '2018–19', '2018'}")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +56,7 @@ extension CurrentTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch Section(rawValue: section)! {
         case .favorites: return favorites.count
-        case .topScorers: return topScorers.count
+        case .scorers: return scorers.count
         }
     }
 
@@ -71,18 +71,18 @@ extension CurrentTableViewController {
         cell.badgeString = {
             switch section {
             case .favorites: return favorites[indexPath.row].updated ? "1" : ""
-            case .topScorers: return ""
+            case .scorers: return ""
             }
         }()
 
-        let topScorer: TopScorer = {
+        let scorer: Scorer = {
             switch section {
-            case .favorites: return favorites[indexPath.row].topScorer
-            case .topScorers: return topScorers[indexPath.row]
+            case .favorites: return favorites[indexPath.row].scorer
+            case .scorers: return scorers[indexPath.row]
             }
         }()
-        cell.textLabel?.text = topScorer.title
-        cell.imageView?.image = createImage(code: topScorer.competition.association.regionCode)
+        cell.textLabel?.text = scorer.title
+        cell.imageView?.image = createImage(code: scorer.competition.association.regionCode)
 
         return cell
     }
@@ -94,26 +94,26 @@ extension CurrentTableViewController {
 
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let addAction = UIContextualAction(style: .normal, title: "Favorite") { _, _, completion in
-            let topScorer = self.topScorers[indexPath.row]
-            if case .none = topScorer.favorite {
-                // topScorerにfavoriteが1件も関連づいていない場合のみ追加する
-                let favorite = Favorite()
-                favorite.topScorer = topScorer
-                LocalStorage<Favorite>().add(t: favorite)
+            let scorer = self.scorers[indexPath.row]
+            if case .none = scorer.favorite {
+                // scorerにfavoriteが1件も関連づいていない場合のみ追加する
+                let favorite = FavoriteScorer()
+                favorite.scorer = scorer
+                LocalStorage<FavoriteScorer>().add(t: favorite)
                 self.tableView.reloadData()
             }
             completion(true)
         }
         let removeAction = UIContextualAction(style: .destructive, title: "Remove Favorite") { _, _, completion in
             let favorite = self.favorites[indexPath.row]
-            LocalStorage<Favorite>().delete(t: favorite)
+            LocalStorage<FavoriteScorer>().delete(t: favorite)
             self.tableView.reloadData()
             completion(true)
         }
         let actions: [UIContextualAction] = {
             switch Section(rawValue: indexPath.section)! {
             case .favorites: return [removeAction]
-            case .topScorers: return [addAction]
+            case .scorers: return [addAction]
             }
         }()
         return UISwipeActionsConfiguration(actions: actions)
@@ -122,23 +122,23 @@ extension CurrentTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let section = Section(rawValue: indexPath.section)!
         // いずれのセクションからタップされたか関係なく、favoritesの最終参照時刻を更新する
-        let favorite: Favorite? = {
+        let favorite: FavoriteScorer? = {
             switch section {
             case .favorites: return favorites[indexPath.row]
-            case .topScorers: return topScorers[indexPath.row].favorite
+            case .scorers: return scorers[indexPath.row].favorite
             }
         }()
-        LocalStorage<Favorite>().update {
+        LocalStorage<FavoriteScorer>().update {
             favorite?.lastReadAt = Date()
         }
 
-        let topScorer: TopScorer = {
+        let scorer: Scorer = {
             switch section {
-            case .favorites: return favorites[indexPath.row].topScorer
-            case .topScorers: return topScorers[indexPath.row]
+            case .favorites: return favorites[indexPath.row].scorer
+            case .scorers: return scorers[indexPath.row]
             }
         }()
-        presentSafariViewController(url: topScorer.url)
+        presentSafariViewController(url: scorer.url)
     }
 }
 

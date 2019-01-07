@@ -42,12 +42,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         let dispatchGroup = DispatchGroup()
 
-        let favorites = LocalStorage<Favorite>().findAll()
+        let favorites = LocalStorage<FavoriteScorer>().findAll()
         favorites.forEach { favorite in
             dispatchGroup.enter()
-            WebAPI.shared.checkUpdate(title: favorite.topScorer.title) { timestamp in
+            WebAPI.shared.checkUpdate(title: favorite.scorer.title) { timestamp in
                 DispatchQueue.main.async {
-                    LocalStorage<Favorite>().update {
+                    LocalStorage<FavoriteScorer>().update {
                         favorite.lastUpdatedAt = timestamp
                     }
                     dispatchGroup.leave()
@@ -73,11 +73,11 @@ private extension AppDelegate {
 
     func addNotificationIfNeeded() {
         // TODO: 複雑な条件のクエリをSQLでやるかどうか
-        let favorites = LocalStorage<Favorite>().findAll()
+        let favorites = LocalStorage<FavoriteScorer>().findAll()
         let updatedFavorites = favorites.filter { $0.updated }
         guard updatedFavorites.count > 0 else { return }
 
-        let body = updatedFavorites.map { $0.topScorer.title }.joined(separator: ", ")
+        let body = updatedFavorites.map { $0.scorer.title }.joined(separator: ", ")
         addNotification(body: body)
     }
 

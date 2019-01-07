@@ -16,7 +16,7 @@ class AssociationTableViewController: UITableViewController {
     }
 
     var association: Association!
-    private lazy var items: [TopScorer] = association!.competitions.flatMap { $0.topScorers }
+    private lazy var items: [Scorer] = association!.competitions.flatMap { $0.scorers }
 
     override func viewDidLoad() {
         super.viewDidLoad()

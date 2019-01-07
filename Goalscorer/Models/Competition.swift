@@ -15,21 +15,21 @@ class Competition: Object {
     dynamic var association: Association!
     dynamic var order: Int = 0
 
-    let topScorers = LinkingObjects(fromType: TopScorer.self, property: "competition")
+    let scorers = LinkingObjects(fromType: Scorer.self, property: "competition")
 
-    var topScorersTemp: [TopScorer] = []
-    var overallTopScorersTemp: [OverallTopScorer] = []
+    var scorersTemp: [Scorer] = []
+    var overallScorersTemp: [OverallScorer] = []
 
-    convenience init(name: String, topScorers: [TopScorer], overallTopScorers: [OverallTopScorer]) {
+    convenience init(name: String, scorers: [Scorer], overallScorers: [OverallScorer]) {
         self.init()
 
         self.name = name
 
-        self.topScorersTemp = topScorers
-        self.overallTopScorersTemp = overallTopScorers
+        self.scorersTemp = scorers
+        self.overallScorersTemp = overallScorers
     }
 
     override static func ignoredProperties() -> [String] {
-        return ["topScorersTemp", "overallTopScorersTemp"]
+        return ["scorersTemp", "overallScorersTemp"]
     }
 }

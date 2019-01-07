@@ -1,5 +1,5 @@
 //
-//  Favorite.swift
+//  FavoriteScorer.swift
 //  Goalscorer
 //
 //  Created by tichinose1 on 2019/01/03.
@@ -10,8 +10,8 @@ import Foundation
 import RealmSwift
 
 @objcMembers
-class Favorite: Object {
-    dynamic var topScorer: TopScorer!
+class FavoriteScorer: Object {
+    dynamic var scorer: Scorer!
     dynamic var createdAt: Date = Date()
     dynamic var lastReadAt: Date?
     dynamic var lastUpdatedAt: Date?

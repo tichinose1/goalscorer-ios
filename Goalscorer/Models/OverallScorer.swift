@@ -1,5 +1,5 @@
 //
-//  AllTimeTopScorer.swift
+//  OverallScorer.swift
 //  Goalscorer
 //
 //  Created by tichinose1 on 2018/11/13.
@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 @objcMembers
-class OverallTopScorer: Object {
+class OverallScorer: Object {
     dynamic var competition: Competition!
     dynamic var url: String = ""
 

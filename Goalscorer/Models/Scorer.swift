@@ -1,5 +1,5 @@
 //
-//  TopScorer.swift
+//  Scorer.swift
 //  Goalscorer
 //
 //  Created by tichinose1 on 2018/10/22.
@@ -10,11 +10,12 @@ import Foundation
 import RealmSwift
 
 @objcMembers
-class TopScorer: Object {
+class Scorer: Object {
     dynamic var competition: Competition!
     dynamic var season: String = ""
     dynamic var header: String = ""
-    let favorites = LinkingObjects(fromType: Favorite.self, property: "topScorer")
+    
+    let favorites = LinkingObjects(fromType: FavoriteScorer.self, property: "scorer")
 
     convenience init(season: String, header: String) {
         self.init()
@@ -23,7 +24,7 @@ class TopScorer: Object {
         self.header = header
     }
 
-    var favorite: Favorite? {
+    var favorite: FavoriteScorer? {
         return favorites.first
     }
 
@@ -43,7 +44,7 @@ class TopScorer: Object {
     }
 }
 
-private extension TopScorer {
+private extension Scorer {
 
     var path: String {
         return title
