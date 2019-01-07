@@ -11,8 +11,8 @@ import RealmSwift
 
 @objcMembers
 class Association: Object {
-    dynamic var name: String = ""
     dynamic var regionCode: String = ""
+    dynamic var name: String = ""
     dynamic var latitude: Double = 0
     dynamic var longitude: Double = 0
     let competitions = LinkingObjects(fromType: Competition.self, property: "association")

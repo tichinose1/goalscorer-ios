@@ -11,10 +11,10 @@ import RealmSwift
 
 @objcMembers
 class Favorite: Object {
+    dynamic var topScorer: TopScorer!
     dynamic var createdAt: Date = Date()
     dynamic var lastReadAt: Date?
     dynamic var lastUpdatedAt: Date?
-    dynamic var topScorer: TopScorer!
 
     var updated: Bool {
         // サーバーの更新時刻を未取得の場合は判断できない

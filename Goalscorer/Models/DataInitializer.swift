@@ -12,13 +12,15 @@ import RealmSwift
 final class DataInitializer {
 
     func initData() {
-        let bundleURL = Bundle.main.url(forResource: "default", withExtension: "realm")!
-        let storageURL = Realm.Configuration.defaultConfiguration.fileURL!
-        do {
-            try FileManager.default.copyItem(at: bundleURL, to: storageURL)
-        } catch {
-            print(error.localizedDescription)
-        }
+//        let bundleURL = Bundle.main.url(forResource: "default", withExtension: "realm")!
+//        let storageURL = Realm.Configuration.defaultConfiguration.fileURL!
+//        do {
+//            try FileManager.default.copyItem(at: bundleURL, to: storageURL)
+//        } catch {
+//            print(error.localizedDescription)
+//        }
+
+        bulkInsert()
     }
 
     func bulkInsert() {

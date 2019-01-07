@@ -11,8 +11,8 @@ import RealmSwift
 
 @objcMembers
 class AllTimeTopScorer: Object {
-    dynamic var url: String = ""
     dynamic var competition: Competition!
+    dynamic var url: String = ""
 
     convenience init(url: String) {
         self.init()
