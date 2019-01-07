@@ -42,7 +42,7 @@ extension PlayersTableViewController {
         let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath)
         cell.textLabel?.text = item.name
-        cell.imageView?.image = createImage(code: item.association.regionCode)
+        cell.imageView?.image = item.association.image
         return cell
     }
 }

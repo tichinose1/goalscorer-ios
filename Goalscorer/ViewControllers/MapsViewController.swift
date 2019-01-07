@@ -35,8 +35,7 @@ extension MapsViewController: MKMapViewDelegate {
         guard let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) else { fatalError() }
 
         annotationView.canShowCallout = true
-        let regionCode = annotation.association.regionCode
-        let image = createImage(code: regionCode)!
+        let image = annotation.association.image!
         annotationView.leftCalloutAccessoryView = UIImageView(image: image)
         let button = UIButton(type: .detailDisclosure)
         annotationView.rightCalloutAccessoryView = button

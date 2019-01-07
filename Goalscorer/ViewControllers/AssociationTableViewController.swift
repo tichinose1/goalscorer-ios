@@ -42,7 +42,7 @@ extension AssociationTableViewController {
         let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "regionCell", for: indexPath)
         cell.textLabel?.text = item.title
-        cell.imageView?.image = createImage(code: item.competition.association.regionCode)
+        cell.imageView?.image = item.competition.association.image
         return cell
     }
 }

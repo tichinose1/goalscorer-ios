@@ -31,7 +31,7 @@ extension AllTimeTableViewController {
         let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "allTimeCell", for: indexPath)
         cell.textLabel?.text = item.competition.name
-        cell.imageView?.image = createImage(code: item.competition.association.regionCode)
+        cell.imageView?.image = item.competition.association.image
         return cell
     }
 }

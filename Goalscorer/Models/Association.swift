@@ -41,3 +41,19 @@ class Association: Object {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 }
+
+// TODO: モデルにUIKitかきたくない問題
+import UIKit
+import FlagKit
+
+extension Association {
+
+    var image: UIImage? {
+        switch regionCode {
+        case "CAF", "CAS", "CEU", "CNA", "COC", "CSA", "WW":
+            return UIImage(named: regionCode)
+        default:
+            return Flag(countryCode: regionCode)?.image(style: .roundedRect)
+        }
+    }
+}

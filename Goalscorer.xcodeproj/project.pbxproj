@@ -31,7 +31,6 @@
 		7794E4682199F138006CB5BE /* AllTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */; };
 		7794E46A2199F388006CB5BE /* OverallScorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4692199F388006CB5BE /* OverallScorer.swift */; };
 		7796F66821DD90BB003C2252 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7796F66721DD90BB003C2252 /* LocalStorage.swift */; };
-		77AB25E021D8E0EA005FBCF5 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB25DF21D8E0EA005FBCF5 /* Functions.swift */; };
 		77AB25E421D8E6FF005FBCF5 /* Current.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AB25E321D8E6FF005FBCF5 /* Current.storyboard */; };
 		77AB25E621D8E7E8005FBCF5 /* CurrentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB25E521D8E7E8005FBCF5 /* CurrentTableViewController.swift */; };
 		77AB25E821D8EB85005FBCF5 /* Maps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AB25E721D8EB85005FBCF5 /* Maps.storyboard */; };
@@ -70,7 +69,6 @@
 		7794E4692199F388006CB5BE /* OverallScorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallScorer.swift; sourceTree = "<group>"; };
 		7796F66521DD8BCA003C2252 /* SwipeCellKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeCellKit.framework; path = Carthage/Build/iOS/SwipeCellKit.framework; sourceTree = "<group>"; };
 		7796F66721DD90BB003C2252 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
-		77AB25DF21D8E0EA005FBCF5 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		77AB25E321D8E6FF005FBCF5 /* Current.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Current.storyboard; sourceTree = "<group>"; };
 		77AB25E521D8E7E8005FBCF5 /* CurrentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTableViewController.swift; sourceTree = "<group>"; };
 		77AB25E721D8EB85005FBCF5 /* Maps.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Maps.storyboard; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 				77229AB22181DFDD002840A1 /* Player.swift */,
 				776F1D4721DE301E00625C3E /* FavoriteScorer.swift */,
 				77603845217D07B6005DABC3 /* Extensions.swift */,
-				77AB25DF21D8E0EA005FBCF5 /* Functions.swift */,
 				771539BC21DA073D005C0A4C /* AssociationAnnotation.swift */,
 				7796F66721DD90BB003C2252 /* LocalStorage.swift */,
 				776F1D4921DE513400625C3E /* Wikipedia.swift */,
@@ -360,7 +357,6 @@
 				77AB25F021D91334005FBCF5 /* AssociationTableViewController.swift in Sources */,
 				7794E4682199F138006CB5BE /* AllTimeTableViewController.swift in Sources */,
 				77AB25EC21D8ED5F005FBCF5 /* MapsViewController.swift in Sources */,
-				77AB25E021D8E0EA005FBCF5 /* Functions.swift in Sources */,
 				77229AB52181E02B002840A1 /* PlayersTableViewController.swift in Sources */,
 				771539BB21DA0559005C0A4C /* Association.swift in Sources */,
 				772ABC91217D024600A9D589 /* AppDelegate.swift in Sources */,

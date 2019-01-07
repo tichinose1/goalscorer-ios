@@ -87,7 +87,7 @@ extension CurrentTableViewController {
             }
         }()
         cell.textLabel?.text = scorer.title
-        cell.imageView?.image = createImage(code: scorer.competition.association.regionCode)
+        cell.imageView?.image = scorer.competition.association.image
 
         return cell
     }
