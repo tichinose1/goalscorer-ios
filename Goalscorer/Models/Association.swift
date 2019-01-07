@@ -17,6 +17,9 @@ class Association: Object {
     dynamic var longitude: Double = 0
     let competitions = LinkingObjects(fromType: Competition.self, property: "association")
 
+    var competitionsTemp: [Competition] = []
+    var playersTemp: [Player] = []
+
     convenience init(name: String, regionCode: String, latitude: Double, longitude: Double, competitions: [Competition], players: [Player]) {
         self.init()
 
@@ -24,6 +27,13 @@ class Association: Object {
         self.regionCode = regionCode
         self.latitude = latitude
         self.longitude = longitude
+
+        self.competitionsTemp = competitions
+        self.playersTemp = players
+    }
+
+    override static func ignoredProperties() -> [String] {
+        return ["competitionsTemp", "playersTemp"]
     }
 
     var coordinate: CLLocationCoordinate2D {

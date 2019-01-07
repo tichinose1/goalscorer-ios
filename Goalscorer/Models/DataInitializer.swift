@@ -20,6 +20,36 @@ final class DataInitializer {
             print(error.localizedDescription)
         }
     }
+
+    func bulkInsert() {
+        for association in associations {
+            for competition in association.competitionsTemp {
+                competition.association = association
+
+                for topScorer in competition.topScorersTemp {
+                    topScorer.competition = competition
+                }
+
+                for allTimeTopScorer in competition.allTimeTopScorersTemp {
+                    allTimeTopScorer.competition = competition
+                }
+            }
+
+            for player in association.playersTemp {
+                player.association = association
+            }
+        }
+
+        let realm = try! Realm()
+
+        try! realm.write {
+            realm.add(associations)
+            realm.add(associations.flatMap { $0.competitionsTemp })
+            realm.add(associations.flatMap { $0.competitionsTemp }.flatMap { $0.topScorersTemp })
+            realm.add(associations.flatMap { $0.competitionsTemp }.flatMap { $0.allTimeTopScorersTemp })
+            realm.add(associations.flatMap { $0.playersTemp })
+        }
+    }
 }
 
 let associations = [

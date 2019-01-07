@@ -15,9 +15,19 @@ class Competition: Object {
     dynamic var association: Association!
     let topScorers = LinkingObjects(fromType: TopScorer.self, property: "competition")
 
+    var topScorersTemp: [TopScorer] = []
+    var allTimeTopScorersTemp: [AllTimeTopScorer] = []
+
     convenience init(name: String, topScorers: [TopScorer], allTimeTopScorers: [AllTimeTopScorer]) {
         self.init()
 
         self.name = name
+
+        self.topScorersTemp = topScorers
+        self.allTimeTopScorersTemp = allTimeTopScorers
+    }
+
+    override static func ignoredProperties() -> [String] {
+        return ["topScorersTemp", "allTimeTopScorersTemp"]
     }
 }
