@@ -31,18 +31,26 @@ class CurrentTableViewController: UITableViewController {
         .sorted(by: [SortDescriptor(keyPath: "season", ascending: false),
                      SortDescriptor(keyPath: "competition.kind", ascending: true),
                      SortDescriptor(keyPath: "competition.order", ascending: true)])
+    var notificationToken: NotificationToken?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // 通知をタップしてフォアグラウンドになった際にviewWillAppearが呼ばれないためアプリのフォアグラウンド復帰イベントに登録しておく
-        NotificationCenter.default.addObserver(self, selector: #selector(onAppForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
-    }
+        notificationToken = favorites.observe { [weak self] changes in
+            guard let self = self else { return }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+            switch changes {
+            case .initial:
+                print("initial")
+            case .update(_, let deletions, let insertions, let modifications):
+                print("update")
+                self.tableView.reloadData()
+            case .error(let error):
+                print("error")
+            }
 
-        tableView.reloadData()
+            UIApplication.shared.applicationIconBadgeNumber = self.favorites.filter { $0.updated }.count
+        }
     }
 }
 
@@ -105,14 +113,12 @@ extension CurrentTableViewController {
                 let favorite = FavoriteScorer()
                 favorite.scorer = scorer
                 LocalStorage<FavoriteScorer>().add(t: favorite)
-                self.tableView.reloadData()
             }
             completion(true)
         }
         let removeAction = UIContextualAction(style: .destructive, title: "Remove Favorite") { _, _, completion in
             let favorite = self.favorites[indexPath.row]
             LocalStorage<FavoriteScorer>().delete(t: favorite)
-            self.tableView.reloadData()
             completion(true)
         }
         let actions: [UIContextualAction] = {
@@ -144,14 +150,5 @@ extension CurrentTableViewController {
             }
         }()
         presentSafariViewController(url: scorer.url)
-    }
-}
-
-// MARK: - Private functions
-
-private extension CurrentTableViewController {
-
-    @objc func onAppForeground() {
-        tableView.reloadData()
     }
 }

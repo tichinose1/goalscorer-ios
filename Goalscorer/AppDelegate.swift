@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
 
-        UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             print("granted: \(granted)")
             if let error = error {
@@ -35,37 +34,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        application.applicationIconBadgeNumber = 0
-    }
-
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // TODO: やはりRxSwift使った方が良い
         let dispatchGroup = DispatchGroup()
 
+        var closures: [() -> Void] = []
         let favorites = LocalStorage<FavoriteScorer>().findAll()
         favorites.forEach { favorite in
             dispatchGroup.enter()
             WebAPI.shared.checkUpdate(title: favorite.scorer.title) { timestamp in
-                DispatchQueue.main.async {
-                    LocalStorage<FavoriteScorer>().update {
-                        favorite.lastUpdatedAt = timestamp
-                    }
-                    dispatchGroup.leave()
+                closures.append {
+                    favorite.lastUpdatedAt = timestamp
                 }
+
+                dispatchGroup.leave()
             }
         }
 
         dispatchGroup.notify(queue: .main) {
+            LocalStorage<FavoriteScorer>().update {
+                closures.forEach {
+                    $0()
+                }
+            }
+
             self.addNotificationIfNeeded()
 
             completionHandler(.newData)
         }
-    }
-}
-
-extension AppDelegate: UNUserNotificationCenterDelegate {
-
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
     }
 }
 
@@ -78,10 +74,10 @@ private extension AppDelegate {
         guard updatedFavorites.count > 0 else { return }
 
         let body = updatedFavorites.map { $0.scorer.title }.joined(separator: ", ")
-        addNotification(body: body)
+        addNotification(body: body, badgeNumber: updatedFavorites.count)
     }
 
-    func addNotification(body: String) {
+    func addNotification(body: String, badgeNumber: Int) {
         let content = UNMutableNotificationContent()
         content.title = "Updated!"
         content.body = body
@@ -96,6 +92,6 @@ private extension AppDelegate {
             }
         }
 
-        UIApplication.shared.applicationIconBadgeNumber = 1
+        UIApplication.shared.applicationIconBadgeNumber = badgeNumber
     }
 }
