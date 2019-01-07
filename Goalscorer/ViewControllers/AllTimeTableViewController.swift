@@ -10,7 +10,9 @@ import UIKit
 
 class AllTimeTableViewController: UITableViewController {
 
-    private lazy var items = LocalStorage<OverallScorer>().findAll()
+    private lazy var items = LocalStorage<OverallScorer>()
+        .findAll()
+        .sorted(byKeyPath: "competition.order")
 
     override func viewDidLoad() {
         super.viewDidLoad()

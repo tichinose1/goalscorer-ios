@@ -11,7 +11,9 @@ import RealmSwift
 
 class PlayersTableViewController: UITableViewController {
 
-    private lazy var items = LocalStorage<Player>().findAll()
+    private lazy var items = LocalStorage<Player>()
+        .findAll()
+        .sorted(byKeyPath: "order")
 
     override func viewDidLoad() {
         super.viewDidLoad()

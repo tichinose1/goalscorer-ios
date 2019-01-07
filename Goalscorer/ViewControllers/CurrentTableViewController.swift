@@ -25,7 +25,12 @@ private enum Section: Int, CaseIterable {
 class CurrentTableViewController: UITableViewController {
 
     private lazy var favorites = LocalStorage<FavoriteScorer>().findAll()
-    private lazy var scorers = LocalStorage<Scorer>().findAll().filter("season IN {'2019', '2018–19', '2018'}")
+    private lazy var scorers = LocalStorage<Scorer>()
+        .findAll()
+        .filter("season IN {'2018', '2018–19', '2019'}")
+        .sorted(by: [SortDescriptor(keyPath: "season", ascending: false),
+                     SortDescriptor(keyPath: "competition.kind", ascending: true),
+                     SortDescriptor(keyPath: "competition.order", ascending: true)])
 
     override func viewDidLoad() {
         super.viewDidLoad()

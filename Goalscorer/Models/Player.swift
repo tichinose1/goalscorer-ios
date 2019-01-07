@@ -15,10 +15,11 @@ class Player: Object {
     dynamic var association: Association!
     dynamic var order: Int = 999
 
-    convenience init(name: String) {
+    convenience init(name: String, order: Int? = nil) {
         self.init()
 
         self.name = name
+        self.order = order ?? 999
     }
 
     var url: String {

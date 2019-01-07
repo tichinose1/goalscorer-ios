@@ -19,7 +19,9 @@ class MapsViewController: UIViewController {
 
         mapView.delegate = self
 
-        let associations = LocalStorage<Association>().findAll()
+        let associations = LocalStorage<Association>()
+            .findAll()
+            .filter("competitions.@count > 0")
         let annotations = Array(associations).map(AssociationAnnotation.init)
         mapView.addAnnotations(annotations)
         mapView.centerCoordinate = CLLocationCoordinate2D(latitude: 47.381389, longitude: 8.574444)
