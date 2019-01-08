@@ -1,5 +1,5 @@
 //
-//  WebAPI.swift
+//  WikipediaClient.swift
 //  Goalscorer
 //
 //  Created by tichinose1 on 2019/01/03.
@@ -10,20 +10,19 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-// TODO: rename
-final class WebAPI {
+final class WikipediaClient {
     
-    // TODO: rename
-    func getWikipedia(title: String) -> Single<Wikipedia> {
+    func searchPageRevision(title: String) -> Single<Wikipedia> {
         let urlRequest = buildURLRequest(title: title)
         return URLSession.shared.rx
+            // extensionメソッド（.data）がRxCocoaをimportしないと使えない
             .data(request: urlRequest)
             .map { try JSONDecoder.shared.decode(Wikipedia.self, from: $0) }
             .asSingle()
     }
 }
 
-private extension WebAPI {
+private extension WikipediaClient {
 
     func buildURLRequest(title: String) -> URLRequest {
         var component = URLComponents(string: "https://en.wikipedia.org/w/api.php")!

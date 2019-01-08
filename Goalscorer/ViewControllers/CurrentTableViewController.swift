@@ -24,8 +24,8 @@ private enum Section: Int, CaseIterable {
 
 class CurrentTableViewController: UITableViewController {
 
-    private lazy var favorites = LocalStorage<FavoriteScorer>().findAll()
-    private lazy var scorers = LocalStorage<Scorer>()
+    private lazy var favorites = RealmDAO<FavoriteScorer>().findAll()
+    private lazy var scorers = RealmDAO<Scorer>()
         .findAll()
         .filter("season IN {'2018', '2018–19', '2019'}")
         .sorted(by: [SortDescriptor(keyPath: "season", ascending: false),
@@ -119,13 +119,13 @@ extension CurrentTableViewController {
                 // scorerにfavoriteが1件も関連づいていない場合のみ追加する
                 let favorite = FavoriteScorer()
                 favorite.scorer = scorer
-                LocalStorage<FavoriteScorer>().add(t: favorite)
+                RealmDAO<FavoriteScorer>().add(t: favorite)
             }
             completion(true)
         }
         let removeAction = UIContextualAction(style: .destructive, title: "Remove Favorite") { _, _, completion in
             let favorite = self.favorites[indexPath.row]
-            LocalStorage<FavoriteScorer>().delete(t: favorite)
+            RealmDAO<FavoriteScorer>().delete(t: favorite)
             completion(true)
         }
         let actions: [UIContextualAction] = {
@@ -146,7 +146,7 @@ extension CurrentTableViewController {
             case .scorers: return scorers[indexPath.row].favorite
             }
         }()
-        LocalStorage<FavoriteScorer>().update {
+        RealmDAO<FavoriteScorer>().update {
             favorite?.lastReadAt = Date()
         }
 

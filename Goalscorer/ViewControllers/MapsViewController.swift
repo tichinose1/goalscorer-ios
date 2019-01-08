@@ -19,7 +19,7 @@ class MapsViewController: UIViewController {
 
         mapView.delegate = self
 
-        let associations = LocalStorage<Association>()
+        let associations = RealmDAO<Association>()
             .findAll()
             .filter("competitions.@count > 0")
         let annotations = Array(associations).map(AssociationAnnotation.init)

@@ -11,7 +11,7 @@ import RealmSwift
 
 class PlayersTableViewController: UITableViewController {
 
-    private lazy var items = LocalStorage<Player>()
+    private lazy var items = RealmDAO<Player>()
         .findAll()
         .sorted(byKeyPath: "order")
 
@@ -65,11 +65,12 @@ extension PlayersTableViewController: UISearchResultsUpdating {
         guard let searchText = searchController.searchBar.text else { fatalError() }
 
         if searchText.isEmpty {
-            items = LocalStorage<Player>().findAll()
+            items = RealmDAO<Player>().findAll()
         } else {
-            items = LocalStorage<Player>().findAll().filter("name CONTAINS[c] '\(searchText)'")
+            items = RealmDAO<Player>().findAll().filter("name CONTAINS[c] '\(searchText)'")
         }
 
+        // TODO: reloadDataしないようにしたい
         tableView.reloadData()
     }
 }

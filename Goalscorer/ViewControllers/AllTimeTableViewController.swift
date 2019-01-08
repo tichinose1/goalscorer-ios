@@ -10,7 +10,7 @@ import UIKit
 
 class AllTimeTableViewController: UITableViewController {
 
-    private lazy var items = LocalStorage<OverallScorer>()
+    private lazy var items = RealmDAO<OverallScorer>()
         .findAll()
         .sorted(byKeyPath: "competition.order")
 

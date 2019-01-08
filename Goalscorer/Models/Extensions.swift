@@ -22,7 +22,7 @@ extension UIViewController {
 }
 
 extension JSONDecoder {
-
+    // TODO: sharedでやっちゃっていいか検討する
     static let shared: JSONDecoder = {
         var decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601

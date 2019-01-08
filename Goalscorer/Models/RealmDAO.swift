@@ -9,11 +9,12 @@
 import Foundation
 import RealmSwift
 
-final class LocalStorage<T: Object> {
+final class RealmDAO<T: Object> {
 
     let realm: Realm
 
     init() {
+        // TODO: エラーハンドリング
         realm = try! Realm()
     }
 
@@ -30,6 +31,7 @@ final class LocalStorage<T: Object> {
     }
 
     func update(block: () -> Void) {
+        // TODO: エラーハンドリング
         try! realm.write {
             block()
         }

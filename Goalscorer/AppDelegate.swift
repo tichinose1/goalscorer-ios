@@ -51,14 +51,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 private extension AppDelegate {
 
     func performFetch(completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        let favorites = LocalStorage<FavoriteScorer>().findAll()
+        let favorites = RealmDAO<FavoriteScorer>().findAll()
 
         let updateSingles = favorites.map(updateFavorite)
         Single.zip(updateSingles)
             .observeOn(MainScheduler.instance)
             .subscribe(
                 onSuccess: { closures in
-                    LocalStorage<FavoriteScorer>().update {
+                    RealmDAO<FavoriteScorer>().update {
                         closures.forEach { closure in
                             closure()
                         }
@@ -73,7 +73,7 @@ private extension AppDelegate {
     }
 
     func updateFavorite(favorite: FavoriteScorer) -> Single<() -> Void> {
-        return WebAPI().getWikipedia(title: favorite.scorer.title)
+        return WikipediaClient().searchPageRevision(title: favorite.scorer.title)
             .map { $0.query.pages.first!.value.revisions.first!.timestamp }
             .map { timestamp in
                 // 後でまとめて実施するためにクロージャとして返す
@@ -83,7 +83,7 @@ private extension AppDelegate {
 
     func addNotificationIfNeeded() {
         // TODO: 複雑な条件のクエリをSQLでやるかどうか
-        let updatedFavorites = LocalStorage<FavoriteScorer>().findAll().filter { $0.updated }
+        let updatedFavorites = RealmDAO<FavoriteScorer>().findAll().filter { $0.updated }
         guard updatedFavorites.count > 0 else { return }
 
         let body = updatedFavorites.map { $0.scorer.title }.joined(separator: ", ")
