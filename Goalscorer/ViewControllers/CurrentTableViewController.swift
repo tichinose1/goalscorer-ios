@@ -33,6 +33,10 @@ class CurrentTableViewController: UITableViewController {
                      SortDescriptor(keyPath: "competition.order", ascending: true)])
     var notificationToken: NotificationToken?
 
+    deinit {
+        notificationToken?.invalidate()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

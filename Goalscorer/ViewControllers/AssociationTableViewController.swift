@@ -11,8 +11,10 @@ import RealmSwift
 
 class AssociationTableViewController: UITableViewController {
 
-    static func instantiate() -> AssociationTableViewController {
-        return UIStoryboard(name: "Association", bundle: nil).instantiateInitialViewController() as! AssociationTableViewController
+    static func instantiate(association: Association) -> AssociationTableViewController {
+        let vc = UIStoryboard(name: "Association", bundle: nil).instantiateInitialViewController() as! AssociationTableViewController
+        vc.association = association
+        return vc
     }
 
     var association: Association!
