@@ -10,18 +10,18 @@ import Foundation
 
 struct Wikipedia: Decodable {
     let query: Query
-}
 
-struct Query: Decodable {
-    let pages: Pages
-}
+    struct Query: Decodable {
+        let pages: Pages
 
-typealias Pages = [String: Page]
+        typealias Pages = [String: Page]
 
-struct Page: Decodable {
-    let revisions: [Revision]
-}
+        struct Page: Decodable {
+            let revisions: [Revision]
 
-struct Revision: Decodable {
-    let timestamp: Date
+            struct Revision: Decodable {
+                let timestamp: Date
+            }
+        }
+    }
 }

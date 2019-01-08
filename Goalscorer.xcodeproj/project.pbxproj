@@ -18,6 +18,8 @@
 		772ABC98217D024700A9D589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 772ABC97217D024700A9D589 /* Assets.xcassets */; };
 		772ABC9B217D024700A9D589 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 772ABC99217D024700A9D589 /* LaunchScreen.storyboard */; };
 		772ABCA5217D030300A9D589 /* Top.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 772ABCA4217D030300A9D589 /* Top.storyboard */; };
+		7756B33321E3D580004EED23 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7756B33221E3D580004EED23 /* RxSwift.framework */; };
+		7756B33721E3DE47004EED23 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7756B33621E3DE47004EED23 /* RxCocoa.framework */; };
 		775841BC21E1325700B64862 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775841BA21E1325700B64862 /* Realm.framework */; };
 		775841BD21E1325700B64862 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775841BB21E1325700B64862 /* RealmSwift.framework */; };
 		775841BF21E154AC00B64862 /* DataInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775841BE21E154AC00B64862 /* DataInitializer.swift */; };
@@ -55,6 +57,9 @@
 		772ABC9A217D024700A9D589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		772ABC9C217D024700A9D589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		772ABCA4217D030300A9D589 /* Top.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Top.storyboard; sourceTree = "<group>"; };
+		7756B33221E3D580004EED23 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		7756B33421E3DAB6004EED23 /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = "<group>"; };
+		7756B33621E3DE47004EED23 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		775841BA21E1325700B64862 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		775841BB21E1325700B64862 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		775841BE21E154AC00B64862 /* DataInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInitializer.swift; sourceTree = "<group>"; };
@@ -86,6 +91,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7756B33721E3DE47004EED23 /* RxCocoa.framework in Frameworks */,
+				7756B33321E3D580004EED23 /* RxSwift.framework in Frameworks */,
 				775841BC21E1325700B64862 /* Realm.framework in Frameworks */,
 				775841BD21E1325700B64862 /* RealmSwift.framework in Frameworks */,
 				77F868B5217D16EF002B1132 /* FlagKit.framework in Frameworks */,
@@ -164,11 +171,11 @@
 				7794E4692199F388006CB5BE /* OverallScorer.swift */,
 				77229AB22181DFDD002840A1 /* Player.swift */,
 				776F1D4721DE301E00625C3E /* FavoriteScorer.swift */,
-				77603845217D07B6005DABC3 /* Extensions.swift */,
+				776F1D4921DE513400625C3E /* Wikipedia.swift */,
 				771539BC21DA073D005C0A4C /* AssociationAnnotation.swift */,
 				7796F66721DD90BB003C2252 /* LocalStorage.swift */,
-				776F1D4921DE513400625C3E /* Wikipedia.swift */,
 				776F1D4B21DE547400625C3E /* WebAPI.swift */,
+				77603845217D07B6005DABC3 /* Extensions.swift */,
 				775841BE21E154AC00B64862 /* DataInitializer.swift */,
 			);
 			path = Models;
@@ -177,6 +184,9 @@
 		77F868B3217D16EF002B1132 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7756B33621E3DE47004EED23 /* RxCocoa.framework */,
+				7756B33421E3DAB6004EED23 /* RxAtomic.framework */,
+				7756B33221E3D580004EED23 /* RxSwift.framework */,
 				775841BA21E1325700B64862 /* Realm.framework */,
 				775841BB21E1325700B64862 /* RealmSwift.framework */,
 				7796F66521DD8BCA003C2252 /* SwipeCellKit.framework */,
@@ -288,6 +298,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/FlagKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -295,6 +307,8 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/FlagKit.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Realm.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RealmSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
