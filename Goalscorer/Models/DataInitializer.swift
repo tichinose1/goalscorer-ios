@@ -80,6 +80,9 @@ private extension DataInitializer {
             realm.add(associations.flatMap { $0.competitionsTemp }.flatMap { $0.overallScorersTemp })
             realm.add(associations.flatMap { $0.playersTemp })
         }
+
+        let exportFileURL = Realm.Configuration.defaultConfiguration.fileURL!.deletingLastPathComponent().appendingPathComponent("exported.realm")
+        try! realm.writeCopy(toFile: exportFileURL)
     }
 }
 
