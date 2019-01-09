@@ -12,15 +12,44 @@ import RealmSwift
 final class DataInitializer {
 
     func initData() {
-//        let bundleURL = Bundle.main.url(forResource: "default", withExtension: "realm")!
-//        let storageURL = Realm.Configuration.defaultConfiguration.fileURL!
-//        do {
-//            try FileManager.default.copyItem(at: bundleURL, to: storageURL)
-//        } catch {
-//            print(error.localizedDescription)
-//        }
+        let storageURL = Realm.Configuration.defaultConfiguration.fileURL!
+        if FileManager.default.fileExists(atPath: storageURL.path) {
+            return
+        }
 
-        bulkInsert()
+        let bundleURL = Bundle.main.url(forResource: "default", withExtension: "realm")!
+        do {
+            try FileManager.default.copyItem(at: bundleURL, to: storageURL)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+}
+
+private extension DataInitializer {
+
+    func exportToUserDefaults() {
+        let realmObjects = RealmDAO<FavoriteScorer>().findAll()
+        // TODO: Arrayへの変換を除きたい
+        let plainObjects = Array(realmObjects).map(FavoriteScorerPlain.init)
+        UserDefaultsDAO().saveFavoriteScorers(plainObjects)
+    }
+
+    func importFromUserDefaults() {
+        let scorers = RealmDAO<Scorer>().findAll()
+        UserDefaultsDAO().loadFavoriteScorers()
+            .map { plainObject in
+                let realmObject = FavoriteScorer()
+                let scorer = scorers.first { $0.url == plainObject.url }
+                realmObject.scorer = scorer
+                realmObject.createdAt = plainObject.createdAt
+                realmObject.lastReadAt = plainObject.lastReadAt
+                realmObject.lastUpdatedAt = plainObject.lastUpdatedAt
+                return realmObject
+            }
+            .forEach {
+                RealmDAO<FavoriteScorer>().add(t: $0)
+            }
     }
 
     func bulkInsert() {

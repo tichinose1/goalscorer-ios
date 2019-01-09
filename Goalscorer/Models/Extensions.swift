@@ -38,3 +38,11 @@ extension JSONEncoder {
         return encoder
     }()
 }
+
+extension UserDefaults {
+
+    var favoriteScorers: Data? {
+        get { return data(forKey: #function) }
+        set { set(newValue, forKey: #function) }
+    }
+}

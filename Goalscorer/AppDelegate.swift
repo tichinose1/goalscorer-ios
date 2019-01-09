@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
-//        DataInitializer().initData()
+        DataInitializer().initData()
 
         return true
     }

@@ -29,6 +29,8 @@
 		776F1D4A21DE513400625C3E /* Wikipedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F1D4921DE513400625C3E /* Wikipedia.swift */; };
 		776F1D4C21DE547400625C3E /* WikipediaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F1D4B21DE547400625C3E /* WikipediaClient.swift */; };
 		7778558A21C89FA0006AF1AB /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7778558921C89F9F006AF1AB /* Settings.bundle */; };
+		77944B2021E5A14A00796382 /* FavoriteScorerPlain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77944B1F21E5A14A00796382 /* FavoriteScorerPlain.swift */; };
+		77944B2221E5A1CF00796382 /* UserDefaultsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77944B2121E5A1CF00796382 /* UserDefaultsDAO.swift */; };
 		7794E4662199EFE8006CB5BE /* AllTime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7794E4652199EFE8006CB5BE /* AllTime.storyboard */; };
 		7794E4682199F138006CB5BE /* AllTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */; };
 		7794E46A2199F388006CB5BE /* OverallScorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4692199F388006CB5BE /* OverallScorer.swift */; };
@@ -69,6 +71,8 @@
 		776F1D4921DE513400625C3E /* Wikipedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wikipedia.swift; sourceTree = "<group>"; };
 		776F1D4B21DE547400625C3E /* WikipediaClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaClient.swift; sourceTree = "<group>"; };
 		7778558921C89F9F006AF1AB /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		77944B1F21E5A14A00796382 /* FavoriteScorerPlain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteScorerPlain.swift; sourceTree = "<group>"; };
+		77944B2121E5A1CF00796382 /* UserDefaultsDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsDAO.swift; sourceTree = "<group>"; };
 		7794E4652199EFE8006CB5BE /* AllTime.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AllTime.storyboard; sourceTree = "<group>"; };
 		7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTimeTableViewController.swift; sourceTree = "<group>"; };
 		7794E4692199F388006CB5BE /* OverallScorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallScorer.swift; sourceTree = "<group>"; };
@@ -171,9 +175,11 @@
 				7794E4692199F388006CB5BE /* OverallScorer.swift */,
 				77229AB22181DFDD002840A1 /* Player.swift */,
 				776F1D4721DE301E00625C3E /* FavoriteScorer.swift */,
+				77944B1F21E5A14A00796382 /* FavoriteScorerPlain.swift */,
 				776F1D4921DE513400625C3E /* Wikipedia.swift */,
 				771539BC21DA073D005C0A4C /* AssociationAnnotation.swift */,
 				7796F66721DD90BB003C2252 /* RealmDAO.swift */,
+				77944B2121E5A1CF00796382 /* UserDefaultsDAO.swift */,
 				776F1D4B21DE547400625C3E /* WikipediaClient.swift */,
 				77603845217D07B6005DABC3 /* Extensions.swift */,
 				775841BE21E154AC00B64862 /* DataInitializer.swift */,
@@ -378,7 +384,9 @@
 				7794E46A2199F388006CB5BE /* OverallScorer.swift in Sources */,
 				77229AB32181DFDD002840A1 /* Player.swift in Sources */,
 				776F1D4821DE301E00625C3E /* FavoriteScorer.swift in Sources */,
+				77944B2021E5A14A00796382 /* FavoriteScorerPlain.swift in Sources */,
 				776F1D4A21DE513400625C3E /* Wikipedia.swift in Sources */,
+				77944B2221E5A1CF00796382 /* UserDefaultsDAO.swift in Sources */,
 				77F158FB21984EAF001575FC /* Competition.swift in Sources */,
 				7796F66821DD90BB003C2252 /* RealmDAO.swift in Sources */,
 				77603842217D05BA005DABC3 /* Scorer.swift in Sources */,
