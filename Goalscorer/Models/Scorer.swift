@@ -11,11 +11,21 @@ import RealmSwift
 
 @objcMembers
 class Scorer: Object {
+    dynamic var url: String = ""
+    dynamic var title: String = ""
     dynamic var competition: Competition!
     dynamic var season: String = ""
-    dynamic var header: String = ""
-    
+
     let favorites = LinkingObjects(fromType: FavoriteScorer.self, property: "scorer")
+    var favorite: FavoriteScorer? {
+        return favorites.first
+    }
+
+    var header: String = ""
+
+    override static func ignoredProperties() -> [String] {
+        return ["header"]
+    }
 
     convenience init(season: String, header: String) {
         self.init()
@@ -24,23 +34,20 @@ class Scorer: Object {
         self.header = header
     }
 
-    var favorite: FavoriteScorer? {
-        return favorites.first
-    }
+    func setProperties(competition: Competition) {
+        self.competition = competition
+        self.title = {
+            // TODO: 特別扱いをやめたい
+            if competition.name == "UEFA Euro" {
+                return "\(competition.name) \(season)"
+            } else if competition.name == "Copa América" && season == "2016" {
+                return "Copa América Centenario"
+            }
 
-    var title: String {
-        // TODO: 特別扱いをやめたい
-        if competition.name == "UEFA Euro" {
-            return "\(competition.name) \(season)"
-        } else if competition.name == "Copa América" && season == "2016" {
-            return "Copa América Centenario"
-        }
+            return "\(season) \(competition.name)"
 
-        return "\(season) \(competition.name)"
-    }
-
-    var url: String {
-        return "https://en.wikipedia.org/wiki/\(path)#\(fragment)"
+        }()
+        self.url = "https://en.wikipedia.org/wiki/\(path)#\(fragment)"
     }
 }
 

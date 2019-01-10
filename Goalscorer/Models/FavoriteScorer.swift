@@ -11,6 +11,7 @@ import RealmSwift
 
 @objcMembers
 class FavoriteScorer: Object {
+    dynamic var url: String = ""
     dynamic var scorer: Scorer!
     dynamic var createdAt: Date = Date()
     dynamic var lastReadAt: Date?
@@ -34,5 +35,10 @@ class FavoriteScorer: Object {
             }
         }
         return false
+    }
+
+    func setProperties(scorer: Scorer) {
+        self.scorer = scorer
+        self.url = scorer.url
     }
 }

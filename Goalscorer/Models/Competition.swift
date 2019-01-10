@@ -21,6 +21,10 @@ class Competition: Object {
     var scorersTemp: [Scorer] = []
     var overallScorersTemp: [OverallScorer] = []
 
+    override static func ignoredProperties() -> [String] {
+        return ["scorersTemp", "overallScorersTemp"]
+    }
+
     convenience init(name: String, kind: String, order: Int, scorers: [Scorer], overallScorers: [OverallScorer]) {
         self.init()
 
@@ -32,7 +36,7 @@ class Competition: Object {
         self.overallScorersTemp = overallScorers
     }
 
-    override static func ignoredProperties() -> [String] {
-        return ["scorersTemp", "overallScorersTemp"]
+    func setProperties(association: Association) {
+        self.association = association
     }
 }

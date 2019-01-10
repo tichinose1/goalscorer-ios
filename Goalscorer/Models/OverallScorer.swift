@@ -11,12 +11,16 @@ import RealmSwift
 
 @objcMembers
 class OverallScorer: Object {
-    dynamic var competition: Competition!
     dynamic var url: String = ""
+    dynamic var competition: Competition!
 
     convenience init(url: String) {
         self.init()
 
         self.url = url
+    }
+
+    func setProperties(competition: Competition) {
+        self.competition = competition
     }
 }

@@ -11,6 +11,7 @@ import RealmSwift
 
 @objcMembers
 class Player: Object {
+    dynamic var url: String = ""
     dynamic var name: String = ""
     dynamic var association: Association!
     dynamic var order: Int = 999
@@ -22,8 +23,9 @@ class Player: Object {
         self.order = order ?? 999
     }
 
-    var url: String {
-        return "https://en.wikipedia.org/wiki/\(path)#Career_statistics"
+    func setProperties(association: Association) {
+        self.association = association
+        self.url = "https://en.wikipedia.org/wiki/\(path)#Career_statistics"
     }
 }
 

@@ -12,6 +12,20 @@ import RealmSwift
 final class DataInitializer {
 
     func initData() {
+        bulkInsert()
+    }
+}
+
+private extension DataInitializer {
+
+    func exportToUserDefaults() {
+        let realmObjects = RealmDAO<FavoriteScorer>().findAll()
+        // TODO: Arrayへの変換を除きたい
+        let plainObjects = Array(realmObjects).map(FavoriteScorerPlain.init)
+        UserDefaultsDAO().saveFavoriteScorers(plainObjects)
+    }
+
+    func replaceRealm() {
         let storageURL = Realm.Configuration.defaultConfiguration.fileURL!
         if FileManager.default.fileExists(atPath: storageURL.path) {
             return
@@ -23,16 +37,6 @@ final class DataInitializer {
         } catch {
             print(error.localizedDescription)
         }
-    }
-}
-
-private extension DataInitializer {
-
-    func exportToUserDefaults() {
-        let realmObjects = RealmDAO<FavoriteScorer>().findAll()
-        // TODO: Arrayへの変換を除きたい
-        let plainObjects = Array(realmObjects).map(FavoriteScorerPlain.init)
-        UserDefaultsDAO().saveFavoriteScorers(plainObjects)
     }
 
     func importFromUserDefaults() {
@@ -55,19 +59,19 @@ private extension DataInitializer {
     func bulkInsert() {
         for association in associations {
             for competition in association.competitionsTemp {
-                competition.association = association
+                competition.setProperties(association: association)
 
                 for scorer in competition.scorersTemp {
-                    scorer.competition = competition
+                    scorer.setProperties(competition: competition)
                 }
 
                 for overallScorer in competition.overallScorersTemp {
-                    overallScorer.competition = competition
+                    overallScorer.setProperties(competition: competition)
                 }
             }
 
             for player in association.playersTemp {
-                player.association = association
+                player.setProperties(association: association)
             }
         }
 

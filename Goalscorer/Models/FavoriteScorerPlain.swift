@@ -21,7 +21,7 @@ extension FavoriteScorerPlain: Codable {
 extension FavoriteScorerPlain {
 
     init(realmObject: FavoriteScorer) {
-        self.init(url: realmObject.scorer.url,
+        self.init(url: realmObject.url,
                   createdAt: realmObject.createdAt,
                   lastReadAt: realmObject.lastReadAt,
                   lastUpdatedAt: realmObject.lastUpdatedAt)
