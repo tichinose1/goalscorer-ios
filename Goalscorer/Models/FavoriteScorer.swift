@@ -1,5 +1,5 @@
 //
-//  Favorite.swift
+//  FavoriteScorer.swift
 //  Goalscorer
 //
 //  Created by tichinose1 on 2019/01/03.
@@ -7,22 +7,15 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Favorite {
-    let url: String
-    var createdAt: Date
-    var lastReadAt: Date? = nil
-    var lastUpdatedAt: Date? = nil
-}
-
-extension Favorite: Codable {
-}
-
-extension Favorite {
-
-    var topScorer: TopScorer {
-        return TopScorer.all.first { $0.url == url }!
-    }
+@objcMembers
+class FavoriteScorer: Object {
+    dynamic var url: String = ""
+    dynamic var scorer: Scorer!
+    dynamic var createdAt: Date = Date()
+    dynamic var lastReadAt: Date?
+    dynamic var lastUpdatedAt: Date?
 
     var updated: Bool {
         // サーバーの更新時刻を未取得の場合は判断できない

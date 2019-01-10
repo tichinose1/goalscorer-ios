@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import RealmSwift
 
 class MapsViewController: UIViewController {
 
@@ -17,10 +18,11 @@ class MapsViewController: UIViewController {
         super.viewDidLoad()
 
         mapView.delegate = self
-        mapView.centerCoordinate = Association.fifa.coordinate
 
-        let annotations = Association.all.filter { !$0.competitions.isEmpty }.map(AssociationAnnotation.init)
+        let associations = RealmDAO<Association>().findAll().filter("competitions.@count > 0")
+        let annotations = Array(associations).map(AssociationAnnotation.init)
         mapView.addAnnotations(annotations)
+        mapView.centerCoordinate = CLLocationCoordinate2D(latitude: 47.381389, longitude: 8.574444)
     }
 }
 
@@ -31,8 +33,7 @@ extension MapsViewController: MKMapViewDelegate {
         guard let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) else { fatalError() }
 
         annotationView.canShowCallout = true
-        let regionCode = annotation.association.regionCode
-        let image = createImage(code: regionCode)!
+        let image = annotation.association.image!
         annotationView.leftCalloutAccessoryView = UIImageView(image: image)
         let button = UIButton(type: .detailDisclosure)
         annotationView.rightCalloutAccessoryView = button
@@ -42,8 +43,7 @@ extension MapsViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard let annotation = view.annotation as? AssociationAnnotation else { fatalError() }
 
-        let vc = AssociationTableViewController.instantiate()
-        vc.association = annotation.association
+        let vc = AssociationTableViewController.instantiate(association: annotation.association)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

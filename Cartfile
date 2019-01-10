@@ -1,2 +1,4 @@
 github "madebybowtie/FlagKit"
+github "realm/realm-cocoa"
+github "ReactiveX/RxSwift"
 

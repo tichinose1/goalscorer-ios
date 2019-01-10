@@ -7,22 +7,24 @@
 //
 
 import UIKit
+import RealmSwift
 
 class AssociationTableViewController: UITableViewController {
 
-    static func instantiate() -> AssociationTableViewController {
-        return UIStoryboard(name: "Association", bundle: nil).instantiateInitialViewController() as! AssociationTableViewController
+    static func instantiate(association: Association) -> AssociationTableViewController {
+        let vc = UIStoryboard(name: "Association", bundle: nil).instantiateInitialViewController() as! AssociationTableViewController
+        vc.association = association
+        return vc
     }
 
     var association: Association!
-    private var items: [TopScorer] = []
+    private lazy var items: [Scorer] = association!.competitions
+        .flatMap { $0.scorers.sorted(byKeyPath: "season", ascending: false) }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = association.name
-
-        items = TopScorer.all.filter { $0.competition.association == association }
     }
 }
 
@@ -42,7 +44,7 @@ extension AssociationTableViewController {
         let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "regionCell", for: indexPath)
         cell.textLabel?.text = item.title
-        cell.imageView?.image = createImage(code: item.competition.association.regionCode)
+        cell.imageView?.image = item.competition.association.image
         return cell
     }
 }

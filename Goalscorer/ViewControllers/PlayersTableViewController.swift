@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import RealmSwift
 
 class PlayersTableViewController: UITableViewController {
 
-    private var items: [Player] = Player.all
+    private lazy var items = RealmDAO<Player>().findAll().sorted(byKeyPath: "order")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,7 @@ extension PlayersTableViewController {
         let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath)
         cell.textLabel?.text = item.name
-        cell.imageView?.image = createImage(code: item.association.regionCode)
+        cell.imageView?.image = item.association.image
         return cell
     }
 }
@@ -60,14 +61,10 @@ extension PlayersTableViewController: UISearchResultsUpdating {
 
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { fatalError() }
-
-        // TODO: I wanna remove "if"
-        if searchText == "" {
-            items = Player.all
-        } else {
-            items = Player.all.filter { $0.name.lowercased().contains(searchText.lowercased()) }
-        }
-
+        // Resultsをクリアしたりマージしたりは出来ないようなので再取得してreloadDataする必要がありそう
+        items = searchText.isEmpty
+            ? RealmDAO<Player>().findAll().sorted(byKeyPath: "order")
+            : RealmDAO<Player>().findAll().filter("name CONTAINS[c] '\(searchText)'").sorted(byKeyPath: "order")
         tableView.reloadData()
     }
 }

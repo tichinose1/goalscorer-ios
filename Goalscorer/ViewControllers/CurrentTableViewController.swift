@@ -8,35 +8,60 @@
 
 import UIKit
 import TDBadgedCell
+import RealmSwift
 
 private enum Section: Int, CaseIterable {
     case favorites
-    case topScorers
+    case scorers
 
     var header: String {
         switch self {
         case .favorites: return "Favorites"
-        case .topScorers: return "Top scorers"
+        case .scorers: return "Scorers"
         }
     }
 }
 
 class CurrentTableViewController: UITableViewController {
 
-    private var favorites: [Favorite] = []
-    private lazy var topScorers: [TopScorer] = TopScorer.all.filter { ["2018–19", "2018"].contains($0.season) }
+    private lazy var favorites = RealmDAO<FavoriteScorer>().findAll()
+    private lazy var scorers = RealmDAO<Scorer>()
+        .findAll()
+        .filter("season IN {'2018', '2018–19', '2019'}")
+        .sorted(by: [SortDescriptor(keyPath: "season", ascending: false),
+                     SortDescriptor(keyPath: "competition.kind", ascending: true),
+                     SortDescriptor(keyPath: "competition.order", ascending: true)])
+    var notificationToken: NotificationToken?
+
+    deinit {
+        notificationToken?.invalidate()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // 通知をタップしてフォアグラウンドになった際にviewWillAppearが呼ばれないためアプリのフォアグラウンド復帰イベントに登録しておく
-        NotificationCenter.default.addObserver(self, selector: #selector(updateTableView), name: UIApplication.willEnterForegroundNotification, object: nil)
-    }
+        notificationToken = favorites.observe { [weak self] changes in
+            guard let self = self else { return }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+            switch changes {
+            case .initial:
+                print("initial")
+            case .update(_, let deletions, let insertions, let modifications):
+                print("update")
+                self.tableView.beginUpdates()
+                self.tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
+                                          with: .automatic)
+                self.tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
+                                          with: .automatic)
+                self.tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
+                                          with: .automatic)
+                self.tableView.endUpdates()
+            case .error(let error):
+                print(error.localizedDescription)
+            }
 
-        updateTableView()
+            UIApplication.shared.applicationIconBadgeNumber = self.favorites.filter { $0.updated }.count
+        }
     }
 }
 
@@ -55,7 +80,7 @@ extension CurrentTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch Section(rawValue: section)! {
         case .favorites: return favorites.count
-        case .topScorers: return topScorers.count
+        case .scorers: return scorers.count
         }
     }
 
@@ -70,18 +95,18 @@ extension CurrentTableViewController {
         cell.badgeString = {
             switch section {
             case .favorites: return favorites[indexPath.row].updated ? "1" : ""
-            case .topScorers: return ""
+            case .scorers: return ""
             }
         }()
 
-        let topScorer: TopScorer = {
+        let scorer: Scorer = {
             switch section {
-            case .favorites: return favorites[indexPath.row].topScorer
-            case .topScorers: return topScorers[indexPath.row]
+            case .favorites: return favorites[indexPath.row].scorer
+            case .scorers: return scorers[indexPath.row]
             }
         }()
-        cell.textLabel?.text = topScorer.title
-        cell.imageView?.image = createImage(code: topScorer.competition.association.regionCode)
+        cell.textLabel?.text = scorer.title
+        cell.imageView?.image = scorer.competition.association.image
 
         return cell
     }
@@ -93,47 +118,48 @@ extension CurrentTableViewController {
 
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let addAction = UIContextualAction(style: .normal, title: "Favorite") { _, _, completion in
-            let topScorer = self.topScorers[indexPath.row]
-            LocalStorage.shared.createFavorite(url: topScorer.url, createdAt: Date())
-            self.updateTableView()
+            let scorer = self.scorers[indexPath.row]
+            if case .none = scorer.favorite {
+                // scorerにfavoriteが1件も関連づいていない場合のみ追加する
+                let favorite = FavoriteScorer()
+                favorite.scorer = scorer
+                RealmDAO<FavoriteScorer>().add(favorite)
+            }
             completion(true)
         }
         let removeAction = UIContextualAction(style: .destructive, title: "Remove Favorite") { _, _, completion in
             let favorite = self.favorites[indexPath.row]
-            LocalStorage.shared.deleteFavorite(url: favorite.url)
-            self.updateTableView()
+            RealmDAO<FavoriteScorer>().delete(favorite)
             completion(true)
         }
         let actions: [UIContextualAction] = {
             switch Section(rawValue: indexPath.section)! {
             case .favorites: return [removeAction]
-            case .topScorers: return [addAction]
+            case .scorers: return [addAction]
             }
         }()
         return UISwipeActionsConfiguration(actions: actions)
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let section = Section(rawValue: indexPath.section)!
         // いずれのセクションからタップされたか関係なく、favoritesの最終参照時刻を更新する
-        let url: String = {
-            switch Section(rawValue: indexPath.section)! {
-            case .favorites: return favorites[indexPath.row].url
-            case .topScorers: return topScorers[indexPath.row].url
+        let favorite: FavoriteScorer? = {
+            switch section {
+            case .favorites: return favorites[indexPath.row]
+            case .scorers: return scorers[indexPath.row].favorite
             }
         }()
-        LocalStorage.shared.updateFavorite(url: url, lastReadAt: Date())
+        RealmDAO<FavoriteScorer>().update {
+            favorite?.lastReadAt = Date()
+        }
 
-        presentSafariViewController(url: url)
-    }
-}
-
-// MARK: - Private functions
-
-private extension CurrentTableViewController {
-
-    @objc func updateTableView() {
-        // topScorersは不変なのでfavoritesのみローカルから全取得する
-        favorites = LocalStorage.shared.readFavorites()
-        tableView.reloadData()
+        let scorer: Scorer = {
+            switch section {
+            case .favorites: return favorites[indexPath.row].scorer
+            case .scorers: return scorers[indexPath.row]
+            }
+        }()
+        presentSafariViewController(url: scorer.url)
     }
 }
