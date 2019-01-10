@@ -41,13 +41,23 @@ extension JSONEncoder {
 
 extension UserDefaults {
 
-    var topScorers: Data? {
-        get { return data(forKey: #function) }
-        set { set(newValue, forKey: #function) }
-    }
-
     var favoriteScorers: Data? {
         get { return data(forKey: #function) }
         set { set(newValue, forKey: #function) }
+    }
+}
+
+import UIKit
+import FlagKit
+
+extension Association {
+
+    var image: UIImage? {
+        switch regionCode {
+        case "CAF", "CAS", "CEU", "CNA", "COC", "CSA", "WW":
+            return UIImage(named: regionCode)
+        default:
+            return Flag(countryCode: regionCode)?.image(style: .roundedRect)
+        }
     }
 }

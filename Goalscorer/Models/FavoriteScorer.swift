@@ -36,9 +36,4 @@ class FavoriteScorer: Object {
         }
         return false
     }
-
-    func setProperties(scorer: Scorer) {
-        self.scorer = scorer
-        self.url = scorer.url
-    }
 }

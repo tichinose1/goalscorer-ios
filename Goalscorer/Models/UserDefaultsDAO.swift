@@ -10,29 +10,6 @@ import Foundation
 
 final class UserDefaultsDAO {
 
-    func loadOldFavorites() -> [FavoriteScorerPlain] {
-        guard let data = UserDefaults.standard.topScorers else {
-            return []
-        }
-
-        do {
-            return try JSONDecoder.shared.decode([FavoriteScorerPlain].self, from: data)
-        } catch {
-            print(error.localizedDescription)
-            return []
-        }
-    }
-
-    func saveOldFavorites(_ oldFavorites: [FavoriteScorerPlain]) {
-        do {
-            let data = try JSONEncoder.shared.encode(oldFavorites)
-
-            UserDefaults.standard.topScorers = data
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-
     func loadFavoriteScorers() -> [FavoriteScorerPlain] {
         guard let data = UserDefaults.standard.favoriteScorers else {
             return []

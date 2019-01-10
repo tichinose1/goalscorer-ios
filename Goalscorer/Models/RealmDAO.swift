@@ -22,7 +22,7 @@ final class RealmDAO<T: Object> {
         return realm.objects(T.self)
     }
 
-    func add(t: T) {
+    func add(_ t: T) {
         // 重複チェックは呼び出し元で実施する
 
         try! realm.write {
@@ -30,14 +30,14 @@ final class RealmDAO<T: Object> {
         }
     }
 
-    func update(block: () -> Void) {
+    func update(_ block: () -> Void) {
         // TODO: エラーハンドリング
         try! realm.write {
             block()
         }
     }
 
-    func delete(t: T) {
+    func delete(_ t: T) {
         try! realm.write {
             realm.delete(t)
         }

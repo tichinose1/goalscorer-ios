@@ -123,13 +123,13 @@ extension CurrentTableViewController {
                 // scorerにfavoriteが1件も関連づいていない場合のみ追加する
                 let favorite = FavoriteScorer()
                 favorite.scorer = scorer
-                RealmDAO<FavoriteScorer>().add(t: favorite)
+                RealmDAO<FavoriteScorer>().add(favorite)
             }
             completion(true)
         }
         let removeAction = UIContextualAction(style: .destructive, title: "Remove Favorite") { _, _, completion in
             let favorite = self.favorites[indexPath.row]
-            RealmDAO<FavoriteScorer>().delete(t: favorite)
+            RealmDAO<FavoriteScorer>().delete(favorite)
             completion(true)
         }
         let actions: [UIContextualAction] = {

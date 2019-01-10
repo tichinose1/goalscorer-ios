@@ -44,7 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
-
     // TODO: ログ出力
 }
 
