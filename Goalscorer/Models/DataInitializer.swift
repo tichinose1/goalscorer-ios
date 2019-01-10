@@ -13,6 +13,8 @@ final class DataInitializer {
 
     func initData() {
         initRealm()
+
+        importOldFromUserDefaults()
     }
 }
 
@@ -30,5 +32,22 @@ private extension DataInitializer {
         } catch {
             print(error.localizedDescription)
         }
+    }
+
+    func importOldFromUserDefaults() {
+        UserDefaultsDAO().loadOldFavorites()
+            .map { plainObject in
+                let realmObject = FavoriteScorer()
+                let scorers = RealmDAO<Scorer>().findAll().filter("url == '\(plainObject.url)'")
+                realmObject.scorer = scorers.first!
+                realmObject.createdAt = plainObject.createdAt
+                realmObject.lastReadAt = plainObject.lastReadAt
+                realmObject.lastUpdatedAt = plainObject.lastUpdatedAt
+                return realmObject
+            }
+            .forEach {
+                RealmDAO<FavoriteScorer>().add(t: $0)
+            }
+        UserDefaultsDAO().saveOldFavorites([])
     }
 }

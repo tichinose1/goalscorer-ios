@@ -41,6 +41,11 @@ extension JSONEncoder {
 
 extension UserDefaults {
 
+    var topScorers: Data? {
+        get { return data(forKey: #function) }
+        set { set(newValue, forKey: #function) }
+    }
+
     var favoriteScorers: Data? {
         get { return data(forKey: #function) }
         set { set(newValue, forKey: #function) }
