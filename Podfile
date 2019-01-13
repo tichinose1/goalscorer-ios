@@ -6,5 +6,7 @@ target 'Goalscorer' do
   pod 'SwiftLint'
   pod 'LicensePlist'
   pod 'TDBadgedCell'
+  pod 'Fabric'
+  pod 'Crashlytics'
 end
 

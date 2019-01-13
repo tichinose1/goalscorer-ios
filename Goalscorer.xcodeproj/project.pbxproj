@@ -224,6 +224,7 @@
 				772ABC8B217D024600A9D589 /* Resources */,
 				77F868B6217D16F4002B1132 /* ShellScript */,
 				A5A239570D3F4CA7B02AE367 /* [CP] Embed Pods Frameworks */,
+				7795BBF521EB2FC300B9B034 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -293,6 +294,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		7795BBF521EB2FC300B9B034 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/Goalscorer/Info.plist",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" fabric_api_key fabric_build_secret\n";
+		};
 		77F868B6217D16F4002B1132 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -567,7 +586,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.t000y.Goalscorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Goalscorer;
+				PROVISIONING_PROFILE_SPECIFIER = GoalscorerAdhoc;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
