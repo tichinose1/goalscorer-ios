@@ -6,6 +6,22 @@
 	<array>
 		<dict>
 			<key>File</key>
+			<string>com.mono0926.LicensePlist/Crashlytics</string>
+			<key>Title</key>
+			<string>Crashlytics</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/Fabric</string>
+			<key>Title</key>
+			<string>Fabric</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
 			<string>com.mono0926.LicensePlist/FlagKit</string>
 			<key>Title</key>
 			<string>FlagKit</string>
@@ -17,6 +33,22 @@
 			<string>com.mono0926.LicensePlist/LicensePlist</string>
 			<key>Title</key>
 			<string>LicensePlist</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/realm-cocoa</string>
+			<key>Title</key>
+			<string>realm-cocoa</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/RxSwift</string>
+			<key>Title</key>
+			<string>RxSwift</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>

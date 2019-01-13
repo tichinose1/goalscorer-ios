@@ -1,3 +1,11 @@
+name: Crashlytics, nameSpecified: 
+body: Fabric: Copyright 20…
+version: 3.12.0
+
+name: Fabric, nameSpecified: 
+body: Fabric: Copyright 20…
+version: 1.9.0
+
 name: LicensePlist, nameSpecified: 
 body: MIT License
 
@@ -6,13 +14,17 @@ version: 2.0.0
 
 name: SwiftLint, nameSpecified: 
 body: The MIT License (MIT…
-version: 0.29.2
+version: 0.29.3
 
 name: TDBadgedCell, nameSpecified: 
 body: Copyright (c) 2014 T…
 version: 5.5.1
 
 name: FlagKit, nameSpecified: , owner: madebybowtie, version: v2.0.1
+
+name: realm-cocoa, nameSpecified: , owner: realm, version: v3.13.1
+
+name: RxSwift, nameSpecified: , owner: ReactiveX, version: 4.4.0
 
 add-version-numbers: false
 
