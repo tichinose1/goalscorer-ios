@@ -1,0 +1,89 @@
+---
+format_version: '6'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: ios
+trigger_map:
+- pull_request_source_branch: "*"
+  workflow: beta
+workflows:
+  release:
+    steps:
+    - activate-ssh-key:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone: {}
+    - cache-pull: {}
+    - script:
+        title: Do anything with Script step
+    - certificate-and-profile-installer: {}
+    - cocoapods-install: {}
+    - carthage:
+        inputs:
+        - carthage_command: bootstrap
+    - set-xcode-build-number:
+        inputs:
+        - plist_path: "$BITRISE_SOURCE_DIR/Goalscorer/Info.plist"
+    - xcode-archive:
+        inputs:
+        - project_path: "$BITRISE_PROJECT_PATH"
+        - scheme: "$BITRISE_SCHEME"
+        - export_method: "$BITRISE_EXPORT_METHOD"
+    - deploy-to-bitrise-io: {}
+    - cache-push: {}
+    - deploy-to-itunesconnect-application-loader:
+        inputs:
+        - app_password: "$APP_SPECIFIC_PASSWORD"
+        - itunescon_user: "$APPLE_ID"
+    - slack:
+        inputs:
+        - text: Bitriseのビルド結果です
+        - emoji: ":ghost:"
+        - webhook_url: "$SLACK_URL"
+    envs:
+    - opts:
+        is_expand: false
+      BITRISE_EXPORT_METHOD: app-store
+  beta:
+    steps:
+    - activate-ssh-key:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone: {}
+    - cache-pull: {}
+    - script:
+        title: Do anything with Script step
+    - certificate-and-profile-installer: {}
+    - cocoapods-install: {}
+    - carthage:
+        inputs:
+        - carthage_command: bootstrap
+    - set-xcode-build-number:
+        inputs:
+        - plist_path: "$BITRISE_SOURCE_DIR/Goalscorer/Info.plist"
+    - xcode-archive:
+        inputs:
+        - project_path: "$BITRISE_PROJECT_PATH"
+        - scheme: "$BITRISE_SCHEME"
+        - export_method: "$BITRISE_EXPORT_METHOD"
+    - deploy-to-bitrise-io: {}
+    - cache-push: {}
+    - fabric-crashlytics-beta-deploy:
+        inputs:
+        - build_secret: "$FABRIC_BUILD_SECRET"
+        - api_key: "$FABRIC_API_KEY"
+    - slack:
+        inputs:
+        - text: Bitriseのビルド結果です
+        - emoji: ":ghost:"
+        - webhook_url: "$SLACK_URL"
+    envs:
+    - BITRISE_EXPORT_METHOD: ad-hoc
+app:
+  envs:
+  - opts:
+      is_expand: false
+    BITRISE_PROJECT_PATH: Goalscorer.xcworkspace
+  - opts:
+      is_expand: false
+    BITRISE_SCHEME: Goalscorer
+  - opts:
+      is_expand: false
+    BITRISE_EXPORT_METHOD: app-store
