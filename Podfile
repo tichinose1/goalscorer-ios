@@ -6,5 +6,6 @@ target 'Goalscorer' do
   pod 'SwiftLint'
   pod 'LicensePlist'
   pod 'TDBadgedCell'
+  pod 'Firebase/Core'
 end
 

@@ -41,6 +41,7 @@
 		77AB25EC21D8ED5F005FBCF5 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB25EB21D8ED5F005FBCF5 /* MapsViewController.swift */; };
 		77AB25EE21D912B0005FBCF5 /* Association.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AB25ED21D912B0005FBCF5 /* Association.storyboard */; };
 		77AB25F021D91334005FBCF5 /* AssociationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB25EF21D91334005FBCF5 /* AssociationTableViewController.swift */; };
+		77C3176121F1DA6E00E5DF4E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77C3176021F1DA6E00E5DF4E /* GoogleService-Info.plist */; };
 		77F158FB21984EAF001575FC /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F158FA21984EAF001575FC /* Competition.swift */; };
 		77F868B5217D16EF002B1132 /* FlagKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F868B4217D16EF002B1132 /* FlagKit.framework */; };
 /* End PBXBuildFile section */
@@ -84,6 +85,7 @@
 		77AB25EB21D8ED5F005FBCF5 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		77AB25ED21D912B0005FBCF5 /* Association.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Association.storyboard; sourceTree = "<group>"; };
 		77AB25EF21D91334005FBCF5 /* AssociationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociationTableViewController.swift; sourceTree = "<group>"; };
+		77C3176021F1DA6E00E5DF4E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		77F158FA21984EAF001575FC /* Competition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Competition.swift; sourceTree = "<group>"; };
 		77F868B4217D16EF002B1132 /* FlagKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlagKit.framework; path = Carthage/Build/iOS/FlagKit.framework; sourceTree = "<group>"; };
 		C99A7E1DA6C48C68446204B9 /* Pods_Goalscorer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Goalscorer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +138,7 @@
 				772ABC99217D024700A9D589 /* LaunchScreen.storyboard */,
 				772ABC9C217D024700A9D589 /* Info.plist */,
 				771EF7B221E29BFD006ACEFD /* default.realm */,
+				77C3176021F1DA6E00E5DF4E /* GoogleService-Info.plist */,
 				7778558921C89F9F006AF1AB /* Settings.bundle */,
 			);
 			path = Goalscorer;
@@ -285,6 +288,7 @@
 				77229AB72181E065002840A1 /* Players.storyboard in Resources */,
 				77AB25E421D8E6FF005FBCF5 /* Current.storyboard in Resources */,
 				77AB25EE21D912B0005FBCF5 /* Association.storyboard in Resources */,
+				77C3176121F1DA6E00E5DF4E /* GoogleService-Info.plist in Resources */,
 				772ABC98217D024700A9D589 /* Assets.xcassets in Resources */,
 				7778558A21C89FA0006AF1AB /* Settings.bundle in Resources */,
 			);
@@ -329,13 +333,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Goalscorer/Pods-Goalscorer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/TDBadgedCell/TDBadgedCell.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TDBadgedCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
