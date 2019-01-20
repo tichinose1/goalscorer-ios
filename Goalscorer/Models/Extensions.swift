@@ -8,11 +8,14 @@
 
 import UIKit
 import SafariServices
+import FirebaseAnalytics
 
 extension UIViewController {
 
     func presentSafariViewController(url: String) {
         print("url: \(url)")
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [AnalyticsParameterItemID: "url",
+                                                                     AnalyticsParameterItemName: url])
 
         guard let url = URL(string: url) else { fatalError() }
         let vc = SFSafariViewController(url: url)
