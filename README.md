@@ -4,9 +4,11 @@
 
 Simple viewer for football records and statistics
 
-![screenshot](images/screenshot@0.2x.png)
+![screenshot](images/screenshot@0.4x.png)
 
-<a href="https://itunes.apple.com/us/app/top-goalscorers/id1448027447?mt=8" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2019-01-04&kind=iossoftware&bubble=ios_apps) no-repeat;width:135px;height:40px;"></a>
+<div>
+  <a href="https://itunes.apple.com/us/app/id1448027447"><img src="https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?kind=iossoftware"></img></a>
+</div>
 
 ## Requirement
 
