@@ -4,6 +4,10 @@
 
 Simple viewer for football records and statistics
 
+![screenshot](images/screenshot@0.2x.png)
+
+<a href="https://itunes.apple.com/us/app/top-goalscorers/id1448027447?mt=8" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2019-01-04&kind=iossoftware&bubble=ios_apps) no-repeat;width:135px;height:40px;"></a>
+
 ## Requirement
 
 - Xcode 10.1
@@ -25,4 +29,3 @@ carthage bootstrap --platform iOS
 
 1. Create a Firebase project.
 2. Download `GoogleService-info.plist`.
-
