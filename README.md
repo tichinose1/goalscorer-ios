@@ -1,6 +1,6 @@
 # Goalscorers for iOS
 
-[![Build Status](https://app.bitrise.io/app/50eac7265dc69fe5.svg?token=ZJmrfWBwCjbz4kiP0Un_KQ)](https://app.bitrise.io/app/50eac7265dc69fe5)
+[![Build Status](https://app.bitrise.io/app/15e8208909829c68/status.svg?token=zFJF9CjxK4YmX18n6KwqkQ&branch=master)](https://app.bitrise.io/app/15e8208909829c68)
 
 Simple viewer for football records and statistics
 
