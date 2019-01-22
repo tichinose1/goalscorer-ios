@@ -7,5 +7,7 @@ target 'Goalscorer' do
   pod 'LicensePlist'
   pod 'TDBadgedCell'
   pod 'Firebase/Core'
+  pod 'Fabric'
+  pod 'Crashlytics'
 end
 

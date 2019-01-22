@@ -26,6 +26,12 @@ class PlayersTableViewController: UITableViewController {
 
         definesPresentationContext = true
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        setScreenName("Players")
+    }
 }
 
 // MARK: - Table view data source
