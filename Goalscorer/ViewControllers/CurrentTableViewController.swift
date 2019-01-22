@@ -63,6 +63,12 @@ class CurrentTableViewController: UITableViewController {
             UIApplication.shared.applicationIconBadgeNumber = self.favorites.filter { $0.updated }.count
         }
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        setScreenName("Current")
+    }
 }
 
 // MARK: - UITableViewDataSource

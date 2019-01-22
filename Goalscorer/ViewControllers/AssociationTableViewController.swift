@@ -26,6 +26,12 @@ class AssociationTableViewController: UITableViewController {
 
         title = association.name
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        setScreenName("Association")
+    }
 }
 
 // MARK: - UITableViewDataSource

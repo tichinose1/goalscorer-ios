@@ -24,6 +24,12 @@ class MapsViewController: UIViewController {
         mapView.addAnnotations(annotations)
         mapView.centerCoordinate = CLLocationCoordinate2D(latitude: 47.381389, longitude: 8.574444)
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        setScreenName("Maps")
+    }
 }
 
 extension MapsViewController: MKMapViewDelegate {

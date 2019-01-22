@@ -14,13 +14,18 @@ extension UIViewController {
 
     func presentSafariViewController(url: String) {
         print("url: \(url)")
-        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [AnalyticsParameterItemID: "url",
-                                                                     AnalyticsParameterItemName: url])
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [AnalyticsParameterItemID: "id-\(url)",
+                                                                     AnalyticsParameterItemName: url,
+                                                                     AnalyticsParameterContentType: "cont"])
 
         guard let url = URL(string: url) else { fatalError() }
         let vc = SFSafariViewController(url: url)
         present(vc, animated: true) {
         }
+    }
+
+    func setScreenName(_ screenName: String) {
+        Analytics.setScreenName(screenName, screenClass: classForCoder.description())
     }
 }
 

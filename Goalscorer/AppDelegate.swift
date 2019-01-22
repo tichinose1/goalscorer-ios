@@ -8,11 +8,9 @@
 
 import UIKit
 import UserNotifications
-import SafariServices
 import RealmSwift
 import RxSwift
 import Firebase
-import FirebaseAnalytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,13 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        Analytics.logEvent(AnalyticsEventAppOpen, parameters: nil)
-        Analytics.setScreenName("Current", screenClass: String(describing: CurrentTableViewController.self))
-        Analytics.setScreenName("Maps", screenClass: String(describing: MapsViewController.self))
-        Analytics.setScreenName("Association", screenClass: String(describing: AssociationTableViewController.self))
-        Analytics.setScreenName("Alltime", screenClass: String(describing: AllTimeTableViewController.self))
-        Analytics.setScreenName("Players", screenClass: String(describing: PlayersTableViewController.self))
-        Analytics.setScreenName("Detail", screenClass: String(describing: SFSafariViewController.self))
 
         NSSetUncaughtExceptionHandler {
             print($0)
