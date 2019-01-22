@@ -1,4 +1,7 @@
 PODS:
+  - Crashlytics (3.12.0):
+    - Fabric (~> 1.9.0)
+  - Fabric (1.9.0)
   - Firebase/Core (5.15.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.4.0)
@@ -49,10 +52,12 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
-  - SwiftLint (0.29.4)
+  - SwiftLint (0.30.0)
   - TDBadgedCell (5.5.1)
 
 DEPENDENCIES:
+  - Crashlytics
+  - Fabric
   - Firebase/Core
   - LicensePlist
   - SwiftLint
@@ -60,6 +65,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Crashlytics
+    - Fabric
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -72,6 +79,8 @@ SPEC REPOS:
     - TDBadgedCell
 
 SPEC CHECKSUMS:
+  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
+  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   Firebase: 8bb9268bff82374f2cbaaabb143e725743c316ae
   FirebaseAnalytics: c06f9d70577d79074214700a71fd5d39de5550fb
   FirebaseCore: 35747502d9e8c6ee217385ad04446c7c2aaf9c5c
@@ -80,9 +89,9 @@ SPEC CHECKSUMS:
   GoogleUtilities: 111a012f4c3a29c9e7c954c082fafd6ee3c999c0
   LicensePlist: 558c95c739171b96896d38fa5502f3721aada13c
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
-  SwiftLint: 73f2ecfd0f6d812c8cb9a73c00fe809bc2504585
+  SwiftLint: 4e37cb5cd33435170dfd09fba089f41fdbf64d53
   TDBadgedCell: 9c651089021510d197f4d2b4892e7ad1f84ff378
 
-PODFILE CHECKSUM: a27b3b3a3d6791caa117208303e6324daac515a2
+PODFILE CHECKSUM: c9cdd9748b296a5e3cd54157807734aa967bf561
 
 COCOAPODS: 1.5.3
