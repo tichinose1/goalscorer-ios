@@ -57,7 +57,7 @@ extension PlayersTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.row]
-        presentSafariViewController(url: item.url)
+        presentSafariViewController(url: item.url, contentType: "player", itemID: item.name)
     }
 }
 

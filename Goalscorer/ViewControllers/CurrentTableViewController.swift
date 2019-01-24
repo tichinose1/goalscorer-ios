@@ -166,6 +166,6 @@ extension CurrentTableViewController {
             case .scorers: return scorers[indexPath.row]
             }
         }()
-        presentSafariViewController(url: scorer.url)
+        presentSafariViewController(url: scorer.url, contentType: "scorer", itemID: scorer.title)
     }
 }
