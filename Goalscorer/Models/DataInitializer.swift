@@ -8,11 +8,14 @@
 
 import Foundation
 import RealmSwift
+import Firebase
 
 final class DataInitializer {
 
     func initData() {
         initRealm()
+
+        let db = Firestore.firestore()
     }
 }
 
