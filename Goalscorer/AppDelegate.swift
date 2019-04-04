@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
-        DataInitializer().initData()
+        Repository().initialize()
 
         return true
     }
