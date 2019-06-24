@@ -16,3 +16,21 @@ class Player: Object {
     dynamic var association: Association!
     dynamic var order: Int = 999
 }
+
+import Firebase
+
+struct PlayerPlain {
+    let id: String
+    let url: String
+    let name: String
+    let association: AssociationPlain
+    let order: Int
+
+    init(data: QueryDocumentSnapshot, association: AssociationPlain) {
+        id = data.documentID
+        url = data["url"] as! String
+        name = data["name"] as! String
+        self.association = association
+        order = data["order"] as! Int
+    }
+}

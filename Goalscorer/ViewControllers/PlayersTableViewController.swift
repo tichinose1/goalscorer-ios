@@ -7,11 +7,12 @@
 //
 
 import UIKit
-import RealmSwift
+import Firebase
 
 class PlayersTableViewController: UITableViewController {
-
-    private lazy var items = RealmDAO<Player>().findAll().sorted(byKeyPath: "order")
+    // ソート済み
+    private var originalItems: [PlayerPlain] = []
+    private var items: [PlayerPlain] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,24 @@ class PlayersTableViewController: UITableViewController {
         navigationItem.searchController = searchController
 
         definesPresentationContext = true
+
+        Firestore.firestore().collection("players").addSnapshotListener { snapshot, error in
+            guard let documents = snapshot?.documents else {
+                print("Error fetching documents: \(error!)")
+                return
+            }
+            self.originalItems = documents
+                .map { document in
+                    let associationRef = document["associationRef"] as! DocumentReference
+                    let association = GlobalData.shared.findAssociation(associationID: associationRef.documentID)
+                    return PlayerPlain(data: document, association: association)
+                }
+                .sorted {
+                    $0.order < $1.order
+                }
+            self.items = self.originalItems
+            self.tableView.reloadData()
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -67,10 +86,11 @@ extension PlayersTableViewController: UISearchResultsUpdating {
 
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { fatalError() }
-        // Resultsをクリアしたりマージしたりは出来ないようなので再取得してreloadDataする必要がありそう
+
+        // TODO: リファクタリング
         items = searchText.isEmpty
-            ? RealmDAO<Player>().findAll().sorted(byKeyPath: "order")
-            : RealmDAO<Player>().findAll().filter("name CONTAINS[c] '\(searchText)'").sorted(byKeyPath: "order")
+            ? self.originalItems
+            : self.originalItems.filter { $0.name.lowercased().contains(searchText.lowercased()) }
         tableView.reloadData()
     }
 }
