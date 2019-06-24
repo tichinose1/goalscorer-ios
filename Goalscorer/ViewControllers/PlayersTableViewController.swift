@@ -33,10 +33,14 @@ class PlayersTableViewController: UITableViewController {
                 return
             }
             self.originalItems = documents
-                .map { document in
+                .compactMap { document in
                     let associationRef = document["associationRef"] as! DocumentReference
-                    let association = GlobalData.shared.findAssociation(associationID: associationRef.documentID)
-                    return PlayerPlain(data: document, association: association)
+                    if let association = GlobalData.shared.findAssociation(associationID: associationRef.documentID) {
+                        return PlayerPlain(data: document, association: association)
+                    } else {
+                        print("\(document["name"] as! String)'s association is not found.")
+                        return nil
+                    }
                 }
                 .sorted {
                     $0.order < $1.order

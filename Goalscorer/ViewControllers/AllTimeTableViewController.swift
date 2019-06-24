@@ -22,10 +22,14 @@ class AllTimeTableViewController: UITableViewController {
                 return
             }
             self.items = documents
-                .map { document in
+                .compactMap { document in
                     let competitionRef = document["competitionRef"] as! DocumentReference
-                    let competition = GlobalData.shared.findCompetition(competitionID: competitionRef.documentID)
-                    return OverallScorerPlain(data: document, competition: competition)
+                    if let competition = GlobalData.shared.findCompetition(competitionID: competitionRef.documentID) {
+                        return OverallScorerPlain(data: document, competition: competition)
+                    } else {
+                        print("\(document["url"] as! String)'s competiton is not found.")
+                        return nil
+                    }
                 }
                 .sorted {
                     $0.competition.order < $1.competition.order

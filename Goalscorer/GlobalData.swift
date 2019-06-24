@@ -17,11 +17,11 @@ final class GlobalData {
     var associations: [AssociationPlain] = []
     var competitions: [CompetitionPlain] = []
 
-    func findAssociation(associationID: String) -> AssociationPlain {
-        return associations.first { $0.id == associationID }!
+    func findAssociation(associationID: String) -> AssociationPlain? {
+        return associations.first { $0.id == associationID }
     }
 
-    func findCompetition(competitionID: String) -> CompetitionPlain {
-        return competitions.first { $0.id == competitionID }!
+    func findCompetition(competitionID: String) -> CompetitionPlain? {
+        return competitions.first { $0.id == competitionID }
     }
 }

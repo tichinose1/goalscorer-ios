@@ -44,10 +44,14 @@ class CurrentTableViewController: UITableViewController {
                     return
                 }
 
-                GlobalData.shared.competitions = documents.map { document in
+                GlobalData.shared.competitions = documents.compactMap { document in
                     let associationRef = document["associationRef"] as! DocumentReference
-                    let association = GlobalData.shared.findAssociation(associationID: associationRef.documentID)
-                    return CompetitionPlain(data: document, association: association)
+                    if let association = GlobalData.shared.findAssociation(associationID: associationRef.documentID) {
+                        return CompetitionPlain(data: document, association: association)
+                    } else {
+                        print("\(document["name"] as! String)'s association is not found.")
+                        return nil
+                    }
                 }
 
                 Firestore.firestore().collection("scorers").addSnapshotListener { snapshot, error in
@@ -55,10 +59,14 @@ class CurrentTableViewController: UITableViewController {
                         print("Error fetching documents: \(error!)")
                         return
                     }
-                    self.scorers = documents.map { document in
+                    self.scorers = documents.compactMap { document in
                         let competitionRef = document["competitionRef"] as! DocumentReference
-                        let competition = GlobalData.shared.findCompetition(competitionID: competitionRef.documentID)
-                        return ScorerPlain(data: document, competition: competition)
+                        if let competition = GlobalData.shared.findCompetition(competitionID: competitionRef.documentID) {
+                            return ScorerPlain(data: document, competition: competition)
+                        } else {
+                            print("\(document["title"] as! String)'s competiton is not found.")
+                            return nil
+                        }
                     }
                     self.tableView.reloadData()
                 }
