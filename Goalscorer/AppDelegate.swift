@@ -36,8 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
-        Repository().initialize()
-
         return true
     }
 

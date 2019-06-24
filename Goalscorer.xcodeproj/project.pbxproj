@@ -22,7 +22,6 @@
 		7756B33721E3DE47004EED23 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7756B33621E3DE47004EED23 /* RxCocoa.framework */; };
 		775841BC21E1325700B64862 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775841BA21E1325700B64862 /* Realm.framework */; };
 		775841BD21E1325700B64862 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775841BB21E1325700B64862 /* RealmSwift.framework */; };
-		775841BF21E154AC00B64862 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775841BE21E154AC00B64862 /* Repository.swift */; };
 		77603842217D05BA005DABC3 /* Scorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77603841217D05BA005DABC3 /* Scorer.swift */; };
 		77603846217D07B6005DABC3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77603845217D07B6005DABC3 /* Extensions.swift */; };
 		776F1D4821DE301E00625C3E /* FavoriteScorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F1D4721DE301E00625C3E /* FavoriteScorer.swift */; };
@@ -66,7 +65,6 @@
 		7756B33621E3DE47004EED23 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		775841BA21E1325700B64862 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		775841BB21E1325700B64862 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
-		775841BE21E154AC00B64862 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		77603841217D05BA005DABC3 /* Scorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scorer.swift; sourceTree = "<group>"; };
 		77603845217D07B6005DABC3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		776F1D4721DE301E00625C3E /* FavoriteScorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteScorer.swift; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 				77944B2121E5A1CF00796382 /* UserDefaultsDAO.swift */,
 				776F1D4B21DE547400625C3E /* WikipediaClient.swift */,
 				77603845217D07B6005DABC3 /* Extensions.swift */,
-				775841BE21E154AC00B64862 /* Repository.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -419,7 +416,6 @@
 				77229AB52181E02B002840A1 /* PlayersTableViewController.swift in Sources */,
 				771539BB21DA0559005C0A4C /* Association.swift in Sources */,
 				772ABC91217D024600A9D589 /* AppDelegate.swift in Sources */,
-				775841BF21E154AC00B64862 /* Repository.swift in Sources */,
 				7794E46A2199F388006CB5BE /* OverallScorer.swift in Sources */,
 				77229AB32181DFDD002840A1 /* Player.swift in Sources */,
 				776F1D4821DE301E00625C3E /* FavoriteScorer.swift in Sources */,

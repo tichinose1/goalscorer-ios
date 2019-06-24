@@ -7,16 +7,6 @@
 //
 
 import Foundation
-import RealmSwift
-
-@objcMembers
-class Player: Object {
-    dynamic var url: String = ""
-    dynamic var name: String = ""
-    dynamic var association: Association!
-    dynamic var order: Int = 999
-}
-
 import Firebase
 
 struct PlayerPlain {
