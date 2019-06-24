@@ -8,6 +8,7 @@
 
 import CoreLocation
 import RealmSwift
+import Firebase
 
 @objcMembers
 class Association: Object {
@@ -20,5 +21,39 @@ class Association: Object {
 
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+}
+
+struct AssociationPlain {
+    let id: String
+    let regionCode: String
+    let name: String
+    private let coordinate: GeoPoint
+    var latitude: Double {
+        return coordinate.latitude
+    }
+    var longitude: Double {
+        return coordinate.longitude
+    }
+
+    init(data: QueryDocumentSnapshot) {
+        id = data.documentID
+        regionCode = data["region_code"] as! String
+        name = data["name"] as! String
+        coordinate = data["coordinate"] as! GeoPoint
+    }
+}
+
+import FlagKit
+
+extension AssociationPlain {
+
+    var image: UIImage? {
+        switch regionCode {
+        case "CAF", "CAS", "CEU", "CNA", "COC", "CSA", "WW":
+            return UIImage(named: regionCode)
+        default:
+            return Flag(countryCode: regionCode)?.image(style: .roundedRect)
+        }
     }
 }

@@ -29,6 +29,7 @@
 		776F1D4A21DE513400625C3E /* Wikipedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F1D4921DE513400625C3E /* Wikipedia.swift */; };
 		776F1D4C21DE547400625C3E /* WikipediaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F1D4B21DE547400625C3E /* WikipediaClient.swift */; };
 		7778558A21C89FA0006AF1AB /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7778558921C89F9F006AF1AB /* Settings.bundle */; };
+		77914DB022BFF9F100C36AEA /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77914DAF22BFF9F100C36AEA /* GlobalData.swift */; };
 		77944B2021E5A14A00796382 /* FavoriteScorerPlain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77944B1F21E5A14A00796382 /* FavoriteScorerPlain.swift */; };
 		77944B2221E5A1CF00796382 /* UserDefaultsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77944B2121E5A1CF00796382 /* UserDefaultsDAO.swift */; };
 		7794E4662199EFE8006CB5BE /* AllTime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7794E4652199EFE8006CB5BE /* AllTime.storyboard */; };
@@ -72,6 +73,7 @@
 		776F1D4921DE513400625C3E /* Wikipedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wikipedia.swift; sourceTree = "<group>"; };
 		776F1D4B21DE547400625C3E /* WikipediaClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaClient.swift; sourceTree = "<group>"; };
 		7778558921C89F9F006AF1AB /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		77914DAF22BFF9F100C36AEA /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		77944B1F21E5A14A00796382 /* FavoriteScorerPlain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteScorerPlain.swift; sourceTree = "<group>"; };
 		77944B2121E5A1CF00796382 /* UserDefaultsDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsDAO.swift; sourceTree = "<group>"; };
 		7794E4652199EFE8006CB5BE /* AllTime.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AllTime.storyboard; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				771EF7B221E29BFD006ACEFD /* default.realm */,
 				77C3176021F1DA6E00E5DF4E /* GoogleService-Info.plist */,
 				7778558921C89F9F006AF1AB /* Settings.bundle */,
+				77914DAF22BFF9F100C36AEA /* GlobalData.swift */,
 			);
 			path = Goalscorer;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				77944B2221E5A1CF00796382 /* UserDefaultsDAO.swift in Sources */,
 				77F158FB21984EAF001575FC /* Competition.swift in Sources */,
 				7796F66821DD90BB003C2252 /* RealmDAO.swift in Sources */,
+				77914DB022BFF9F100C36AEA /* GlobalData.swift in Sources */,
 				77603842217D05BA005DABC3 /* Scorer.swift in Sources */,
 				77AB25E621D8E7E8005FBCF5 /* CurrentTableViewController.swift in Sources */,
 			);

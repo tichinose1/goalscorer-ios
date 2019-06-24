@@ -13,9 +13,7 @@ import Firebase
 final class Repository {
 
     func initialize() {
-        initRealm()
-
-        migrateToFirestore()
+//        initRealm()
     }
 }
 

@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import Firebase
 
 @objcMembers
 class Competition: Object {
@@ -17,4 +18,20 @@ class Competition: Object {
     dynamic var order: Int = 0
 
     let scorers = LinkingObjects(fromType: Scorer.self, property: "competition")
+}
+
+struct CompetitionPlain {
+    let id: String
+    let name: String
+    let association: AssociationPlain
+    let kind: String
+    let order: Int
+
+    init(data: QueryDocumentSnapshot, association: AssociationPlain) {
+        id = data.documentID
+        name = data["name"] as! String
+        self.association = association
+        kind = data["kind"] as! String
+        order = data["order"] as! Int
+    }
 }
