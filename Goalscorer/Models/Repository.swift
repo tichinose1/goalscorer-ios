@@ -23,12 +23,9 @@ private extension Repository {
 
     func initRealm() {
         let storageURL = Realm.Configuration.defaultConfiguration.fileURL!
-        if FileManager.default.fileExists(atPath: storageURL.path) {
-            return
-        }
-
         let bundleURL = Bundle.main.url(forResource: "default", withExtension: "realm")!
         do {
+            try FileManager.default.removeItem(at: storageURL)
             try FileManager.default.copyItem(at: bundleURL, to: storageURL)
         } catch {
             print(error.localizedDescription)
