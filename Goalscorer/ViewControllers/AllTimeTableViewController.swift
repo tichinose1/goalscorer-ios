@@ -7,15 +7,31 @@
 //
 
 import UIKit
+import Firebase
 
 class AllTimeTableViewController: UITableViewController {
 
-    private lazy var items = RealmDAO<OverallScorer>()
-        .findAll()
-        .sorted(byKeyPath: "competition.order")
+    private var items: [OverallScorerPlain] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        Firestore.firestore().collection("overall_scorers").addSnapshotListener { snapshot, error in
+            guard let documents = snapshot?.documents else {
+                print("Error fetching documents: \(error!)")
+                return
+            }
+            self.items = documents
+                .map { document in
+                    let competitionRef = document["competitionRef"] as! DocumentReference
+                    let competition = GlobalData.shared.findCompetition(competitionID: competitionRef.documentID)
+                    return OverallScorerPlain(data: document, competition: competition)
+                }
+                .sorted {
+                    $0.competition.order < $1.competition.order
+                }
+            self.tableView.reloadData()
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {

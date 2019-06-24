@@ -7,10 +7,16 @@
 //
 
 import Foundation
-import RealmSwift
+import Firebase
 
-@objcMembers
-class OverallScorer: Object {
-    dynamic var url: String = ""
-    dynamic var competition: Competition!
+struct OverallScorerPlain {
+    let id: String
+    let url: String
+    let competition: CompetitionPlain
+
+    init(data: QueryDocumentSnapshot, competition: CompetitionPlain) {
+        id = data.documentID
+        url = data["url"] as! String
+        self.competition = competition
+    }
 }
