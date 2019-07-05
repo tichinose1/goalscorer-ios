@@ -7,15 +7,22 @@
 //
 
 import UIKit
+import Firebase
 
 class AllTimeTableViewController: UITableViewController {
 
-    private lazy var items = RealmDAO<OverallScorer>()
-        .findAll()
-        .sorted(byKeyPath: "competition.order")
+    private var items: [QueryDocumentSnapshot] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        Firestore.firestore().collection("overall_scorers").getDocuments { snapshot, error in
+            // TODO: エラー処理
+            guard let documents = snapshot?.documents else { return }
+
+            self.items = documents.sorted { ($0["order"] as! Int) < ($1["order"] as! Int) }
+            self.tableView.reloadData()
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -36,8 +43,25 @@ extension AllTimeTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "allTimeCell", for: indexPath)
-        cell.textLabel?.text = item.competition.name
-        cell.imageView?.image = item.competition.association.image
+
+        let competitionRef = item["competition_ref"] as! DocumentReference
+        competitionRef.getDocument { snapshot, error in
+            // TODO: エラー処理
+            guard let snapshot = snapshot else { return }
+
+            let associationRef = snapshot["association_ref"] as! DocumentReference
+            associationRef.getDocument { snapshot, error in
+                // TODO: エラー処理
+                guard let snapshot = snapshot else { return }
+
+                let regionCode = snapshot["region_code"] as! String
+                cell.imageView?.image = regionCode.image
+            }
+
+            let name = snapshot["name"] as! String
+            cell.textLabel?.text = name
+        }
+        
         return cell
     }
 }
@@ -48,6 +72,7 @@ extension AllTimeTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.row]
-        presentSafariViewController(url: item.url, contentType: "overall_scorer", itemID: item.competition.name)
+        let url = item["url"] as! String
+        presentSafariViewController(url: url, contentType: "overall_scorer", itemID: nil)
     }
 }
