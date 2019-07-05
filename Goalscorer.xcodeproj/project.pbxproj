@@ -41,6 +41,8 @@
 		77AB25EC21D8ED5F005FBCF5 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB25EB21D8ED5F005FBCF5 /* MapsViewController.swift */; };
 		77AB25EE21D912B0005FBCF5 /* Association.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AB25ED21D912B0005FBCF5 /* Association.storyboard */; };
 		77AB25F021D91334005FBCF5 /* AssociationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB25EF21D91334005FBCF5 /* AssociationTableViewController.swift */; };
+		77B07C7622CCE92F004DBCBD /* OtherSchema.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B07C7522CCE92F004DBCBD /* OtherSchema.storyboard */; };
+		77B07C7822CCE96E004DBCBD /* OtherSchemaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B07C7722CCE96E004DBCBD /* OtherSchemaViewController.swift */; };
 		77C3176121F1DA6E00E5DF4E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77C3176021F1DA6E00E5DF4E /* GoogleService-Info.plist */; };
 		77F158FB21984EAF001575FC /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F158FA21984EAF001575FC /* Competition.swift */; };
 		77F868B5217D16EF002B1132 /* FlagKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F868B4217D16EF002B1132 /* FlagKit.framework */; };
@@ -85,6 +87,8 @@
 		77AB25EB21D8ED5F005FBCF5 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		77AB25ED21D912B0005FBCF5 /* Association.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Association.storyboard; sourceTree = "<group>"; };
 		77AB25EF21D91334005FBCF5 /* AssociationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociationTableViewController.swift; sourceTree = "<group>"; };
+		77B07C7522CCE92F004DBCBD /* OtherSchema.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OtherSchema.storyboard; sourceTree = "<group>"; };
+		77B07C7722CCE96E004DBCBD /* OtherSchemaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSchemaViewController.swift; sourceTree = "<group>"; };
 		77C3176021F1DA6E00E5DF4E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		77F158FA21984EAF001575FC /* Competition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Competition.swift; sourceTree = "<group>"; };
 		77F868B4217D16EF002B1132 /* FlagKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlagKit.framework; path = Carthage/Build/iOS/FlagKit.framework; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				77AB25ED21D912B0005FBCF5 /* Association.storyboard */,
 				7794E4652199EFE8006CB5BE /* AllTime.storyboard */,
 				77229AB62181E065002840A1 /* Players.storyboard */,
+				77B07C7522CCE92F004DBCBD /* OtherSchema.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 				77AB25EF21D91334005FBCF5 /* AssociationTableViewController.swift */,
 				7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */,
 				77229AB42181E02B002840A1 /* PlayersTableViewController.swift */,
+				77B07C7722CCE96E004DBCBD /* OtherSchemaViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -281,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77B07C7622CCE92F004DBCBD /* OtherSchema.storyboard in Resources */,
 				771EF7B321E29D4B006ACEFD /* default.realm in Resources */,
 				77AB25E821D8EB85005FBCF5 /* Maps.storyboard in Resources */,
 				772ABCA5217D030300A9D589 /* Top.storyboard in Resources */,
@@ -421,6 +428,7 @@
 				776F1D4821DE301E00625C3E /* FavoriteScorer.swift in Sources */,
 				77944B2021E5A14A00796382 /* FavoriteScorerPlain.swift in Sources */,
 				776F1D4A21DE513400625C3E /* Wikipedia.swift in Sources */,
+				77B07C7822CCE96E004DBCBD /* OtherSchemaViewController.swift in Sources */,
 				77944B2221E5A1CF00796382 /* UserDefaultsDAO.swift in Sources */,
 				77F158FB21984EAF001575FC /* Competition.swift in Sources */,
 				7796F66821DD90BB003C2252 /* RealmDAO.swift in Sources */,
