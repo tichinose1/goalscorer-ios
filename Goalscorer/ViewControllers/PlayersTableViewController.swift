@@ -7,11 +7,12 @@
 //
 
 import UIKit
-import RealmSwift
+import Firebase
 
 class PlayersTableViewController: UITableViewController {
 
-    private lazy var items = RealmDAO<Player>().findAll().sorted(byKeyPath: "order")
+    private var originalItems: [QueryDocumentSnapshot] = []
+    private var items: [QueryDocumentSnapshot] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,15 @@ class PlayersTableViewController: UITableViewController {
         navigationItem.searchController = searchController
 
         definesPresentationContext = true
+
+        Firestore.firestore().collection("players").getDocuments { snapshot, error in
+            // TODO: エラー処理
+            guard let documents = snapshot?.documents else { return }
+
+            self.originalItems = documents.sorted { ($0["order"] as! Int) < ($1["order"] as! Int) }
+            self.items = self.originalItems
+            self.tableView.reloadData()
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -45,8 +55,18 @@ extension PlayersTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath)
-        cell.textLabel?.text = item.name
-        cell.imageView?.image = item.association.image
+
+        let associationRef = item["association_ref"] as! DocumentReference
+        associationRef.getDocument { snapshot, error in
+            // TODO: エラー処理
+            guard let snapshot = snapshot else { return }
+
+            let regionCode = snapshot["region_code"] as! String
+            cell.imageView?.image = regionCode.image
+        }
+
+        let name = item["name"] as! String
+        cell.textLabel?.text = name
         return cell
     }
 }
@@ -57,7 +77,8 @@ extension PlayersTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.row]
-        presentSafariViewController(url: item.url, contentType: "player", itemID: item.name)
+        let url = item["url"] as! String
+        presentSafariViewController(url: url, contentType: "player", itemID: nil)
     }
 }
 
@@ -69,8 +90,8 @@ extension PlayersTableViewController: UISearchResultsUpdating {
         guard let searchText = searchController.searchBar.text else { fatalError() }
         // Resultsをクリアしたりマージしたりは出来ないようなので再取得してreloadDataする必要がありそう
         items = searchText.isEmpty
-            ? RealmDAO<Player>().findAll().sorted(byKeyPath: "order")
-            : RealmDAO<Player>().findAll().filter("name CONTAINS[c] '\(searchText)'").sorted(byKeyPath: "order")
+            ? originalItems
+            : originalItems.filter { ($0["name"] as! String).lowercased().contains(searchText.lowercased()) }
         tableView.reloadData()
     }
 }
