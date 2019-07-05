@@ -43,7 +43,8 @@ private extension Repository {
         RealmDAO<Association>().findAll().forEach { a in
             associationsBatch.setData(["region_code": a.regionCode,
                                        "name": a.name,
-                                       "coordinate": GeoPoint(latitude: a.latitude, longitude: a.longitude)],
+                                       "coordinate": GeoPoint(latitude: a.latitude, longitude: a.longitude),
+                                       "order": 9999],
                                       forDocument: db.collection("associations").document())
         }
         associationsBatch.commit { err in
@@ -57,7 +58,7 @@ private extension Repository {
                     guard let associationName = a.data()["name"] as? String else { fatalError("name not found") }
                     RealmDAO<Competition>().findAll().filter { $0.association.name == associationName }.forEach { c in
                         competitionsBatch.setData(["name": c.name,
-                                                   "associationRef": a.reference,
+                                                   "association_ref": a.reference,
                                                    "kind": c.kind,
                                                    "order": c.order],
                                                   forDocument: db.collection("competitions").document())
@@ -72,7 +73,7 @@ private extension Repository {
                         RealmDAO<Player>().findAll().filter { $0.association.name == associationName }.forEach { p in
                             playersBatch.setData(["url": p.url,
                                                   "name": p.name,
-                                                  "associationRef": a.reference,
+                                                  "association_ref": a.reference,
                                                   "order": p.order],
                                                  forDocument: db.collection("players").document())
                         }
@@ -88,7 +89,8 @@ private extension Repository {
                                 guard let competitionName = c.data()["name"] as? String else { fatalError("name not found") }
                                 RealmDAO<OverallScorer>().findAll().filter { $0.competition.name == competitionName }.forEach { o in
                                     overallScorersBatch.setData(["url": o.url,
-                                                                 "competitionRef": c.reference],
+                                                                 "competition_ref": c.reference,
+                                                                 "order": 9999],
                                                                 forDocument: db.collection("overall_scorers").document())
                                 }
                             }
@@ -101,8 +103,9 @@ private extension Repository {
                                     RealmDAO<Scorer>().findAll().filter { $0.competition.name == competitionName }.forEach { s in
                                         scorersBatch.setData(["url": s.url,
                                                               "title": s.title,
-                                                              "competitionRef": c.reference,
-                                                              "season": s.season],
+                                                              "competition_ref": c.reference,
+                                                              "season": s.season,
+                                                              "order": 9999],
                                                              forDocument: db.collection("scorers").document())
                                     }
                                 }
