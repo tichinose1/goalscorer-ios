@@ -8,7 +8,7 @@
 
 import UIKit
 import MapKit
-import RealmSwift
+import Firebase
 
 class MapsViewController: UIViewController {
 
@@ -19,10 +19,17 @@ class MapsViewController: UIViewController {
 
         mapView.delegate = self
 
-        let associations = RealmDAO<Association>().findAll().filter("competitions.@count > 0")
-        let annotations = Array(associations).map(AssociationAnnotation.init)
-        mapView.addAnnotations(annotations)
+        // TODO: マップの中心をどこにするかは議論の余地あり
         mapView.centerCoordinate = CLLocationCoordinate2D(latitude: 47.381389, longitude: 8.574444)
+
+        Firestore.firestore().collection("associations").getDocuments { snapshot, error in
+            // TODO: エラー処理
+            guard let documents = snapshot?.documents else { return }
+
+            // TODO: competitionsが0のassociationもピンとして表示している
+            let annotations = documents.map(AssociationAnnotation.init)
+            self.mapView.addAnnotations(annotations)
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -39,17 +46,32 @@ extension MapsViewController: MKMapViewDelegate {
         guard let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) else { fatalError() }
 
         annotationView.canShowCallout = true
-        let image = annotation.association.image!
-        annotationView.leftCalloutAccessoryView = UIImageView(image: image)
+
+        let regionCode = annotation.association["region_code"] as! String
+        annotationView.leftCalloutAccessoryView = UIImageView(image: regionCode.image!)
+
         let button = UIButton(type: .detailDisclosure)
         annotationView.rightCalloutAccessoryView = button
+
         return annotationView
+    }
+
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let annotation = view.annotation as? AssociationAnnotation else { fatalError() }
+
+        Firestore.firestore().collection("competitions").whereField("association_ref", isEqualTo: annotation.association.reference).getDocuments { snapshot, error in
+            // TODO: エラー処理
+            guard let documents = snapshot?.documents else { return }
+
+            // TODO: MKAnnotationは更新されるが、MKAnnotationViewは更新されない？
+            annotation.setCompetitions(snapshots: documents)
+        }
     }
 
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard let annotation = view.annotation as? AssociationAnnotation else { fatalError() }
 
-        let vc = AssociationTableViewController.instantiate(association: annotation.association)
+        let vc = AssociationTableViewController.instantiate()
         navigationController?.pushViewController(vc, animated: true)
     }
 }

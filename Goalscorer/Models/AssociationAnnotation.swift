@@ -7,17 +7,24 @@
 //
 
 import MapKit
+import Firebase
 
 final class AssociationAnnotation: MKPointAnnotation {
-    let association: Association
+    let association: DocumentSnapshot
+    var competitions: [QueryDocumentSnapshot] = []
 
-    init(association: Association) {
-        self.association = association
+    init(snapshot: DocumentSnapshot) {
+        self.association = snapshot
 
         super.init()
 
-        self.coordinate = association.coordinate
-        self.title = association.name
-        self.subtitle = association.competitions.map { $0.name }.joined(separator: ", ")
+        let geoPoint = snapshot["coordinate"] as! GeoPoint
+        self.coordinate = CLLocationCoordinate2D(latitude: geoPoint.latitude, longitude: geoPoint.longitude)
+        self.title = snapshot["name"] as! String
+    }
+
+    func setCompetitions(snapshots: [QueryDocumentSnapshot]) {
+        competitions = snapshots
+        subtitle = snapshots.map { $0["name"] as! String }.joined(separator: ", ")
     }
 }

@@ -7,9 +7,13 @@
 //
 
 import UIKit
-import RealmSwift
 
 class AssociationTableViewController: UITableViewController {
+
+    static func instantiate() -> AssociationTableViewController {
+        let vc = UIStoryboard(name: "Association", bundle: nil).instantiateInitialViewController() as! AssociationTableViewController
+        return vc
+    }
 
     static func instantiate(association: Association) -> AssociationTableViewController {
         let vc = UIStoryboard(name: "Association", bundle: nil).instantiateInitialViewController() as! AssociationTableViewController
