@@ -63,15 +63,15 @@ extension MapsViewController: MKMapViewDelegate {
             // TODO: エラー処理
             guard let documents = snapshot?.documents else { return }
 
-            // TODO: MKAnnotationは更新されるが、MKAnnotationViewは更新されない？
-            annotation.setCompetitions(snapshots: documents)
+            let sortedCompetitions = documents.sorted { ($0["order"] as! Int) < ($1["order"] as! Int) }
+            annotation.setCompetitions(snapshots: sortedCompetitions)
         }
     }
 
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard let annotation = view.annotation as? AssociationAnnotation else { fatalError() }
 
-        let vc = AssociationTableViewController.instantiate()
+        let vc = AssociationTableViewController.instantiate(association: annotation.association, competitions: annotation.competitions)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
