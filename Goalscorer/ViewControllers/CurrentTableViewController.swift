@@ -8,7 +8,7 @@
 
 import UIKit
 import TDBadgedCell
-import RealmSwift
+import Firebase
 
 private enum Section: Int, CaseIterable {
     case favorites
@@ -24,43 +24,56 @@ private enum Section: Int, CaseIterable {
 
 class CurrentTableViewController: UITableViewController {
 
-    private lazy var favorites = RealmDAO<FavoriteScorer>().findAll()
-    private lazy var scorers = RealmDAO<Scorer>()
-        .findAll()
-        .filter("season IN {'2018', '2018–19', '2019'}")
-        .sorted(by: [SortDescriptor(keyPath: "season", ascending: false),
-                     SortDescriptor(keyPath: "competition.kind", ascending: true),
-                     SortDescriptor(keyPath: "competition.order", ascending: true)])
-    var notificationToken: NotificationToken?
+    private var favorites: [QueryDocumentSnapshot] = []
+    private var scorers: [QueryDocumentSnapshot] = []
 
-    deinit {
-        notificationToken?.invalidate()
-    }
+//    private lazy var favorites = RealmDAO<FavoriteScorer>().findAll()
+//    private lazy var scorers = RealmDAO<Scorer>()
+//        .findAll()
+//        .filter("season IN {'2018', '2018–19', '2019'}")
+//        .sorted(by: [SortDescriptor(keyPath: "season", ascending: false),
+//                     SortDescriptor(keyPath: "competition.kind", ascending: true),
+//                     SortDescriptor(keyPath: "competition.order", ascending: true)])
+//    var notificationToken: NotificationToken?
+
+//    deinit {
+//        notificationToken?.invalidate()
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        notificationToken = favorites.observe { [weak self] changes in
-            guard let self = self else { return }
+//        notificationToken = favorites.observe { [weak self] changes in
+//            guard let self = self else { return }
+//
+//            switch changes {
+//            case .initial:
+//                print("initial")
+//            case .update(_, let deletions, let insertions, let modifications):
+//                print("update")
+//                self.tableView.beginUpdates()
+//                self.tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
+//                                          with: .automatic)
+//                self.tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
+//                                          with: .automatic)
+//                self.tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
+//                                          with: .automatic)
+//                self.tableView.endUpdates()
+//            case .error(let error):
+//                print(error.localizedDescription)
+//            }
+//
+//            UIApplication.shared.applicationIconBadgeNumber = self.favorites.filter { $0.updated }.count
+//        }
 
-            switch changes {
-            case .initial:
-                print("initial")
-            case .update(_, let deletions, let insertions, let modifications):
-                print("update")
-                self.tableView.beginUpdates()
-                self.tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
-                                          with: .automatic)
-                self.tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
-                                          with: .automatic)
-                self.tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
-                                          with: .automatic)
-                self.tableView.endUpdates()
-            case .error(let error):
-                print(error.localizedDescription)
-            }
+        Firestore.firestore().collection("scorers")
+            .whereField("season", isGreaterThan: "2018")
+            .getDocuments { snapshot, error in
+            // TODO: エラー処理
+            guard let documents = snapshot?.documents else { return }
 
-            UIApplication.shared.applicationIconBadgeNumber = self.favorites.filter { $0.updated }.count
+            self.scorers = documents.sorted { ($0["order"] as! Int) > ($1["order"] as! Int) }
+            self.tableView.reloadData()
         }
     }
 
@@ -98,21 +111,45 @@ extension CurrentTableViewController {
         }
         cell.badgeColor = .red
         // セルに更新通知を表示する
-        cell.badgeString = {
-            switch section {
-            case .favorites: return favorites[indexPath.row].updated ? "1" : ""
-            case .scorers: return ""
-            }
-        }()
+//        cell.badgeString = {
+//            switch section {
+//            case .favorites: return favorites[indexPath.row].updated ? "1" : ""
+//            case .scorers: return ""
+//            }
+//        }()
 
-        let scorer: Scorer = {
-            switch section {
-            case .favorites: return favorites[indexPath.row].scorer
-            case .scorers: return scorers[indexPath.row]
+//        let scorer: Scorer = {
+//            switch section {
+//            case .favorites: return favorites[indexPath.row].scorer
+//            case .scorers: return scorers[indexPath.row]
+//            }
+//        }()
+//        cell.textLabel?.text = scorer.title
+//        cell.imageView?.image = scorer.competition.association.image
+
+        switch section {
+        case .favorites:
+            break
+        case .scorers:
+            let item = scorers[indexPath.row]
+            let competitionRef = item["competition_ref"] as! DocumentReference
+            competitionRef.getDocument { snapshot, error in
+                // TODO: エラー処理
+                guard let snapshot = snapshot else { return }
+
+                let associationRef = snapshot["association_ref"] as! DocumentReference
+                associationRef.getDocument { snapshot, error in
+                    // TODO: エラー処理
+                    guard let snapshot = snapshot else { return }
+
+                    let regionCode = snapshot["region_code"] as! String
+                    cell.imageView?.image = regionCode.image
+                }
             }
-        }()
-        cell.textLabel?.text = scorer.title
-        cell.imageView?.image = scorer.competition.association.image
+
+            let title = item["title"] as! String
+            cell.textLabel?.text = title
+        }
 
         return cell
     }
@@ -124,18 +161,18 @@ extension CurrentTableViewController {
 
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let addAction = UIContextualAction(style: .normal, title: "Favorite") { _, _, completion in
-            let scorer = self.scorers[indexPath.row]
-            if case .none = scorer.favorite {
-                // scorerにfavoriteが1件も関連づいていない場合のみ追加する
-                let favorite = FavoriteScorer()
-                favorite.scorer = scorer
-                RealmDAO<FavoriteScorer>().add(favorite)
-            }
+//            let scorer = self.scorers[indexPath.row]
+//            if case .none = scorer.favorite {
+//                // scorerにfavoriteが1件も関連づいていない場合のみ追加する
+//                let favorite = FavoriteScorer()
+//                favorite.scorer = scorer
+//                RealmDAO<FavoriteScorer>().add(favorite)
+//            }
             completion(true)
         }
         let removeAction = UIContextualAction(style: .destructive, title: "Remove Favorite") { _, _, completion in
-            let favorite = self.favorites[indexPath.row]
-            RealmDAO<FavoriteScorer>().delete(favorite)
+//            let favorite = self.favorites[indexPath.row]
+//            RealmDAO<FavoriteScorer>().delete(favorite)
             completion(true)
         }
         let actions: [UIContextualAction] = {
@@ -150,22 +187,31 @@ extension CurrentTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let section = Section(rawValue: indexPath.section)!
         // いずれのセクションからタップされたか関係なく、favoritesの最終参照時刻を更新する
-        let favorite: FavoriteScorer? = {
-            switch section {
-            case .favorites: return favorites[indexPath.row]
-            case .scorers: return scorers[indexPath.row].favorite
-            }
-        }()
-        RealmDAO<FavoriteScorer>().update {
-            favorite?.lastReadAt = Date()
-        }
+//        let favorite: FavoriteScorer? = {
+//            switch section {
+//            case .favorites: return favorites[indexPath.row]
+//            case .scorers: return scorers[indexPath.row].favorite
+//            }
+//        }()
+//        RealmDAO<FavoriteScorer>().update {
+//            favorite?.lastReadAt = Date()
+//        }
+//
+//        let scorer: Scorer = {
+//            switch section {
+//            case .favorites: return favorites[indexPath.row].scorer
+//            case .scorers: return scorers[indexPath.row]
+//            }
+//        }()
+//        presentSafariViewController(url: scorer.url, contentType: "scorer", itemID: scorer.title)
 
-        let scorer: Scorer = {
-            switch section {
-            case .favorites: return favorites[indexPath.row].scorer
-            case .scorers: return scorers[indexPath.row]
-            }
-        }()
-        presentSafariViewController(url: scorer.url, contentType: "scorer", itemID: scorer.title)
+        switch section {
+        case .favorites:
+            break
+        case .scorers:
+            let item = scorers[indexPath.row]
+            let url = item["url"] as! String
+            presentSafariViewController(url: url, contentType: "scorers", itemID: nil)
+        }
     }
 }
