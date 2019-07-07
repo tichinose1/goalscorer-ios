@@ -22,7 +22,8 @@ class MapsViewController: UIViewController {
         // TODO: マップの中心をどこにするかは議論の余地あり
         mapView.centerCoordinate = CLLocationCoordinate2D(latitude: 47.381389, longitude: 8.574444)
 
-        Firestore.firestore().collection("associations").getDocuments { snapshot, error in
+        Firestore.firestore().collection("associations").addSnapshotListener { snapshot, error in
+            print("snapshot?.metadata.isFromCache: \(snapshot?.metadata.isFromCache)")
             // TODO: エラー処理
             guard let documents = snapshot?.documents else { return }
 
@@ -59,7 +60,8 @@ extension MapsViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let annotation = view.annotation as? AssociationAnnotation else { fatalError() }
 
-        Firestore.firestore().collection("competitions").whereField("association_ref", isEqualTo: annotation.association.reference).getDocuments { snapshot, error in
+        Firestore.firestore().collection("competitions").whereField("association_ref", isEqualTo: annotation.association.reference).addSnapshotListener { snapshot, error in
+            print("snapshot?.metadata.isFromCache: \(snapshot?.metadata.isFromCache)")
             // TODO: エラー処理
             guard let documents = snapshot?.documents else { return }
 

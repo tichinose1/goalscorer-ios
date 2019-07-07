@@ -8,6 +8,9 @@ PODS:
   - Crashlytics (3.12.0):
     - Fabric (~> 1.9.0)
   - Fabric (1.9.0)
+  - Firebase/Auth (5.20.1):
+    - Firebase/CoreOnly
+    - FirebaseAuth (= 5.4.2)
   - Firebase/Core (5.20.1):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.8.0)
@@ -25,6 +28,11 @@ PODS:
     - GoogleUtilities/Network (~> 5.2)
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
+  - FirebaseAuth (5.4.2):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.2)
+    - GoogleUtilities/Environment (~> 5.2)
+    - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseAuthInterop (1.0.0)
   - FirebaseCore (5.4.1):
     - GoogleUtilities/Environment (~> 5.2)
@@ -88,6 +96,7 @@ PODS:
     - gRPC-Core/Interface (= 1.17.0)
     - nanopb (~> 0.3)
   - gRPC-Core/Interface (1.17.0)
+  - GTMSessionFetcher/Core (1.2.2)
   - leveldb-library (1.20)
   - LicensePlist (2.4.0)
   - nanopb (0.3.901):
@@ -102,6 +111,7 @@ PODS:
 DEPENDENCIES:
   - Crashlytics
   - Fabric
+  - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
   - LicensePlist
@@ -115,6 +125,7 @@ SPEC REPOS:
     - Fabric
     - Firebase
     - FirebaseAnalytics
+    - FirebaseAuth
     - FirebaseAuthInterop
     - FirebaseCore
     - FirebaseFirestore
@@ -123,6 +134,7 @@ SPEC REPOS:
     - GoogleUtilities
     - "gRPC-C++"
     - gRPC-Core
+    - GTMSessionFetcher
     - leveldb-library
     - LicensePlist
     - nanopb
@@ -136,6 +148,7 @@ SPEC CHECKSUMS:
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   Firebase: 2f5235e62f141cb86181c3af0dfe4509706351ac
   FirebaseAnalytics: fd72a26bf8dac84cefba2f0864366f718555a5b0
+  FirebaseAuth: dd7bbf03a5aee0eafb3a1aee4d2812bd74bac890
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
   FirebaseCore: f1a9a8be1aee4bf71a2fc0f4096df6788bdfda61
   FirebaseFirestore: faca891c0f0d1d6c10c793473e2f6a29d75014b5
@@ -144,6 +157,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: 6481e6318c5fcabaaa8513ef8120f329055d7c10
   "gRPC-C++": e76441995900ac90e9bd98644ab4733f12521edf
   gRPC-Core: 4028031ed2c5267cca0d846c876d8046b1ecb9b6
+  GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   LicensePlist: 1c75db690766a9002199c8d56bb32acad7e4fc17
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
@@ -151,6 +165,6 @@ SPEC CHECKSUMS:
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   TDBadgedCell: 9c651089021510d197f4d2b4892e7ad1f84ff378
 
-PODFILE CHECKSUM: 9e50a40b94f0c60a523e1ccde2337b929d787a61
+PODFILE CHECKSUM: cce6e627ea80d45224d1922e034f616e40207355
 
 COCOAPODS: 1.5.3

@@ -20,8 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
-
         NSSetUncaughtExceptionHandler {
             print($0)
         }
@@ -36,7 +34,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
-        Repository().initialize()
+        FirebaseApp.configure()
+        Auth.auth().signInAnonymously { user, error in
+            print(user)
+            print(error)
+        }
+
 
         return true
     }

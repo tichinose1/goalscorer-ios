@@ -31,7 +31,8 @@ class AssociationTableViewController: UITableViewController {
         itemsArray = competitions.map { _ in [QueryDocumentSnapshot]() }
 
         competitions.enumerated().forEach { index, snapshot in
-            Firestore.firestore().collection("scorers").whereField("competition_ref", isEqualTo: snapshot.reference).getDocuments { snapshot, error in
+            Firestore.firestore().collection("scorers").whereField("competition_ref", isEqualTo: snapshot.reference).addSnapshotListener { snapshot, error in
+                print("snapshot?.metadata.isFromCache: \(snapshot?.metadata.isFromCache)")
                 // TODO: エラー処理
                 guard let documents = snapshot?.documents else { return }
 

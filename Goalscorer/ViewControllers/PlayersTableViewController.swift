@@ -27,7 +27,8 @@ class PlayersTableViewController: UITableViewController {
 
         definesPresentationContext = true
 
-        Firestore.firestore().collection("players").getDocuments { snapshot, error in
+        Firestore.firestore().collection("players").addSnapshotListener { snapshot, error in
+            print("snapshot?.metadata.isFromCache: \(snapshot?.metadata.isFromCache)")
             // TODO: エラー処理
             guard let documents = snapshot?.documents else { return }
 
@@ -58,6 +59,7 @@ extension PlayersTableViewController {
 
         let associationRef = item["association_ref"] as! DocumentReference
         associationRef.getDocument { snapshot, error in
+            print("snapshot?.metadata.isFromCache: \(snapshot?.metadata.isFromCache)")
             // TODO: エラー処理
             guard let snapshot = snapshot else { return }
 

@@ -66,9 +66,8 @@ class CurrentTableViewController: UITableViewController {
 //            UIApplication.shared.applicationIconBadgeNumber = self.favorites.filter { $0.updated }.count
 //        }
 
-        Firestore.firestore().collection("scorers")
-            .whereField("season", isGreaterThan: "2018")
-            .getDocuments { snapshot, error in
+        Firestore.firestore().collection("scorers").whereField("season", isGreaterThan: "2018").addSnapshotListener { snapshot, error in
+            print("snapshot?.metadata.isFromCache: \(snapshot?.metadata.isFromCache)")
             // TODO: エラー処理
             guard let documents = snapshot?.documents else { return }
 
@@ -134,11 +133,13 @@ extension CurrentTableViewController {
             let item = scorers[indexPath.row]
             let competitionRef = item["competition_ref"] as! DocumentReference
             competitionRef.getDocument { snapshot, error in
+                print("snapshot?.metadata.isFromCache: \(snapshot?.metadata.isFromCache)")
                 // TODO: エラー処理
                 guard let snapshot = snapshot else { return }
 
                 let associationRef = snapshot["association_ref"] as! DocumentReference
                 associationRef.getDocument { snapshot, error in
+                    print("snapshot?.metadata.isFromCache: \(snapshot?.metadata.isFromCache)")
                     // TODO: エラー処理
                     guard let snapshot = snapshot else { return }
 

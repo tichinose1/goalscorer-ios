@@ -16,7 +16,8 @@ class AllTimeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        Firestore.firestore().collection("overall_scorers").getDocuments { snapshot, error in
+        Firestore.firestore().collection("overall_scorers").addSnapshotListener { snapshot, error in
+            print("snapshot?.metadata.isFromCache: \(snapshot?.metadata.isFromCache)")
             // TODO: エラー処理
             guard let documents = snapshot?.documents else { return }
 
@@ -46,11 +47,13 @@ extension AllTimeTableViewController {
 
         let competitionRef = item["competition_ref"] as! DocumentReference
         competitionRef.getDocument { snapshot, error in
+            print("snapshot?.metadata.isFromCache: \(snapshot?.metadata.isFromCache)")
             // TODO: エラー処理
             guard let snapshot = snapshot else { return }
 
             let associationRef = snapshot["association_ref"] as! DocumentReference
             associationRef.getDocument { snapshot, error in
+                print("snapshot?.metadata.isFromCache: \(snapshot?.metadata.isFromCache)")
                 // TODO: エラー処理
                 guard let snapshot = snapshot else { return }
 
