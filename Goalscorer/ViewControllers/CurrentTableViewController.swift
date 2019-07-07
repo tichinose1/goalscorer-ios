@@ -80,7 +80,7 @@ class CurrentTableViewController: UITableViewController {
             // TODO: エラー処理
             guard let documents = snapshot?.documents else { return }
 
-            self.favorites = documents
+            self.favorites = documents.sorted { ($0["updated_at"] as? Timestamp)?.dateValue() ?? Date() < ($1["updated_at"] as? Timestamp)?.dateValue() ?? Date() }
             self.tableView.reloadData()
         }
     }
@@ -143,7 +143,9 @@ extension CurrentTableViewController {
             let scorer = self.scorers[indexPath.row]
             // TODO: 多重追加チェックはサーバ側でやらないといけない
             Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid).collection("favorite_scorers").document().setData([
-                "scorer_ref": scorer.reference
+                "scorer_ref": scorer.reference,
+                "created_at": FieldValue.serverTimestamp(),
+                "updated_at": FieldValue.serverTimestamp()
             ]) { error in
                 // TODO: エラー処理
             }
