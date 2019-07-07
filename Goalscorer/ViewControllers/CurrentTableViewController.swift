@@ -74,6 +74,15 @@ class CurrentTableViewController: UITableViewController {
             self.scorers = documents.sorted { ($0["order"] as! Int) > ($1["order"] as! Int) }
             self.tableView.reloadData()
         }
+
+        Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid).collection("favorite_scorers").addSnapshotListener { snapshot, error in
+            print("snapshot?.metadata.isFromCache: \(snapshot?.metadata.isFromCache)")
+            // TODO: エラー処理
+            guard let documents = snapshot?.documents else { return }
+
+            self.favorites = documents
+            self.tableView.reloadData()
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -103,55 +112,24 @@ extension CurrentTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let section = Section(rawValue: indexPath.section)!
-
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "currentCell") as? TDBadgedCell else {
-            fatalError()
-        }
-        cell.badgeColor = .red
-        // セルに更新通知を表示する
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "currentCell") as? TDBadgedCell else { fatalError() }
+        // TODO: セルに更新通知を表示する→サーバ側でやるべき？
+//        cell.badgeColor = .red
 //        cell.badgeString = {
 //            switch section {
 //            case .favorites: return favorites[indexPath.row].updated ? "1" : ""
 //            case .scorers: return ""
 //            }
 //        }()
-
-//        let scorer: Scorer = {
-//            switch section {
-//            case .favorites: return favorites[indexPath.row].scorer
-//            case .scorers: return scorers[indexPath.row]
-//            }
-//        }()
-//        cell.textLabel?.text = scorer.title
-//        cell.imageView?.image = scorer.competition.association.image
-
+        let section = Section(rawValue: indexPath.section)!
         switch section {
         case .favorites:
-            break
+            let item = favorites[indexPath.row]
+            updateCell(cell: cell, favorite: item)
         case .scorers:
             let item = scorers[indexPath.row]
-            let competitionRef = item["competition_ref"] as! DocumentReference
-            competitionRef.getDocument { snapshot, error in
-                print("snapshot?.metadata.isFromCache: \(snapshot?.metadata.isFromCache)")
-                // TODO: エラー処理
-                guard let snapshot = snapshot else { return }
-
-                let associationRef = snapshot["association_ref"] as! DocumentReference
-                associationRef.getDocument { snapshot, error in
-                    print("snapshot?.metadata.isFromCache: \(snapshot?.metadata.isFromCache)")
-                    // TODO: エラー処理
-                    guard let snapshot = snapshot else { return }
-
-                    let regionCode = snapshot["region_code"] as! String
-                    cell.imageView?.image = regionCode.image
-                }
-            }
-
-            let title = item["title"] as! String
-            cell.textLabel?.text = title
+            updateCell(cell: cell, scorer: item)
         }
-
         return cell
     }
 }
@@ -162,22 +140,25 @@ extension CurrentTableViewController {
 
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let addAction = UIContextualAction(style: .normal, title: "Favorite") { _, _, completion in
-//            let scorer = self.scorers[indexPath.row]
-//            if case .none = scorer.favorite {
-//                // scorerにfavoriteが1件も関連づいていない場合のみ追加する
-//                let favorite = FavoriteScorer()
-//                favorite.scorer = scorer
-//                RealmDAO<FavoriteScorer>().add(favorite)
-//            }
+            let scorer = self.scorers[indexPath.row]
+            // TODO: 多重追加チェックはサーバ側でやらないといけない
+            Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid).collection("favorite_scorers").document().setData([
+                "scorer_ref": scorer.reference
+            ]) { error in
+                // TODO: エラー処理
+            }
             completion(true)
         }
         let removeAction = UIContextualAction(style: .destructive, title: "Remove Favorite") { _, _, completion in
-//            let favorite = self.favorites[indexPath.row]
-//            RealmDAO<FavoriteScorer>().delete(favorite)
+            let favorite = self.favorites[indexPath.row]
+            favorite.reference.delete { error in
+                // TODO: エラー処理
+            }
             completion(true)
         }
+        let section = Section(rawValue: indexPath.section)!
         let actions: [UIContextualAction] = {
-            switch Section(rawValue: indexPath.section)! {
+            switch section {
             case .favorites: return [removeAction]
             case .scorers: return [addAction]
             }
@@ -188,31 +169,75 @@ extension CurrentTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let section = Section(rawValue: indexPath.section)!
         // いずれのセクションからタップされたか関係なく、favoritesの最終参照時刻を更新する
-//        let favorite: FavoriteScorer? = {
+        // TODO: この機能が必要か再考
+//        let favorite: DocumentSnapshot? = {
 //            switch section {
-//            case .favorites: return favorites[indexPath.row]
-//            case .scorers: return scorers[indexPath.row].favorite
+//            case .favorites:
+//                return favorites[indexPath.row]
+//            case .scorers:
+//                let item = scorers[indexPath.row]
+//                // TODO: クライアントでの存在チェック
+//                return favorites.first { ($0["scorer_ref"] as! DocumentReference).documentID == item.documentID }
 //            }
-//        }()
-//        RealmDAO<FavoriteScorer>().update {
-//            favorite?.lastReadAt = Date()
+//        } ()
+//        favorite?.reference.setData([
+//            "last_read_at": FieldValue.serverTimestamp()
+//        ]) { error in
+//            // TODO: エラー処理
 //        }
-//
-//        let scorer: Scorer = {
-//            switch section {
-//            case .favorites: return favorites[indexPath.row].scorer
-//            case .scorers: return scorers[indexPath.row]
-//            }
-//        }()
-//        presentSafariViewController(url: scorer.url, contentType: "scorer", itemID: scorer.title)
 
         switch section {
         case .favorites:
-            break
+            let item = favorites[indexPath.row]
+            let scorerRef = item["scorer_ref"] as! DocumentReference
+            scorerRef.getDocument { snapshot, error in
+                print("snapshot?.metadata.isFromCache: \(snapshot?.metadata.isFromCache)")
+                // TODO: エラー処理
+                guard let snapshot = snapshot else { return }
+
+                let url = snapshot["url"] as! String
+                self.presentSafariViewController(url: url, contentType: "scorers", itemID: nil)
+            }
         case .scorers:
             let item = scorers[indexPath.row]
             let url = item["url"] as! String
             presentSafariViewController(url: url, contentType: "scorers", itemID: nil)
+        }
+    }
+}
+
+private extension CurrentTableViewController {
+
+    func updateCell(cell: UITableViewCell, favorite: DocumentSnapshot) {
+        let scorerRef = favorite["scorer_ref"] as! DocumentReference
+        scorerRef.getDocument { snapshot, error in
+            print("snapshot?.metadata.isFromCache: \(snapshot?.metadata.isFromCache)")
+            // TODO: エラー処理
+            guard let snapshot = snapshot else { return }
+
+            self.updateCell(cell: cell, scorer: snapshot)
+        }
+    }
+
+    func updateCell(cell: UITableViewCell, scorer: DocumentSnapshot) {
+        let title = scorer["title"] as! String
+        cell.textLabel?.text = title
+
+        let competitionRef = scorer["competition_ref"] as! DocumentReference
+        competitionRef.getDocument { snapshot, error in
+            print("snapshot?.metadata.isFromCache: \(snapshot?.metadata.isFromCache)")
+            // TODO: エラー処理
+            guard let snapshot = snapshot else { return }
+
+            let associationRef = snapshot["association_ref"] as! DocumentReference
+            associationRef.getDocument { snapshot, error in
+                print("snapshot?.metadata.isFromCache: \(snapshot?.metadata.isFromCache)")
+                // TODO: エラー処理
+                guard let snapshot = snapshot else { return }
+
+                let regionCode = snapshot["region_code"] as! String
+                cell.imageView?.image = regionCode.image
+            }
         }
     }
 }
