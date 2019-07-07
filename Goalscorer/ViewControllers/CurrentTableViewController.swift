@@ -79,7 +79,7 @@ class CurrentTableViewController: UITableViewController {
             print("snapshot?.metadata.isFromCache: \(snapshot?.metadata.isFromCache)")
             // TODO: エラー処理
             guard let documents = snapshot?.documents else { return }
-
+            // TODO: updated_atが無い場合は未来の日付にしておくべき？
             self.favorites = documents.sorted { ($0["updated_at"] as? Timestamp)?.dateValue() ?? Date() < ($1["updated_at"] as? Timestamp)?.dateValue() ?? Date() }
             self.tableView.reloadData()
         }
