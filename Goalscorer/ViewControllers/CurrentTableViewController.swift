@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import TDBadgedCell
 import Firebase
 
 private enum Section: Int, CaseIterable {
@@ -112,7 +111,8 @@ extension CurrentTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "currentCell") as? TDBadgedCell else { fatalError() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "currentCell") as? UITableViewCell else { fatalError() }
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "currentCell") as? TDBadgedCell else { fatalError() }
         // TODO: セルに更新通知を表示する→サーバ側でやるべき？
 //        cell.badgeColor = .red
 //        cell.badgeString = {

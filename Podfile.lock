@@ -106,7 +106,6 @@ PODS:
   - nanopb/encode (0.3.901)
   - Protobuf (3.7.0)
   - SwiftLint (0.31.0)
-  - TDBadgedCell (5.5.1)
 
 DEPENDENCIES:
   - Crashlytics
@@ -116,7 +115,6 @@ DEPENDENCIES:
   - Firebase/Firestore
   - LicensePlist
   - SwiftLint
-  - TDBadgedCell
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -140,7 +138,6 @@ SPEC REPOS:
     - nanopb
     - Protobuf
     - SwiftLint
-    - TDBadgedCell
 
 SPEC CHECKSUMS:
   BoringSSL-GRPC: 2a230d9cd93e7ce39916044f645cebb31f37dde6
@@ -163,8 +160,7 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
-  TDBadgedCell: 9c651089021510d197f4d2b4892e7ad1f84ff378
 
-PODFILE CHECKSUM: cce6e627ea80d45224d1922e034f616e40207355
+PODFILE CHECKSUM: 5af7821c86a8dc0255a62c7c85f93e0a011a4472
 
 COCOAPODS: 1.5.3

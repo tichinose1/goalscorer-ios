@@ -8,33 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		071A5B2A813C9F160218D677 /* Pods_Goalscorer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99A7E1DA6C48C68446204B9 /* Pods_Goalscorer.framework */; };
-		771539BB21DA0559005C0A4C /* Association.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771539BA21DA0559005C0A4C /* Association.swift */; };
 		771539BD21DA073D005C0A4C /* AssociationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771539BC21DA073D005C0A4C /* AssociationAnnotation.swift */; };
 		771EF7B321E29D4B006ACEFD /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 771EF7B221E29BFD006ACEFD /* default.realm */; };
-		77229AB32181DFDD002840A1 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77229AB22181DFDD002840A1 /* Player.swift */; };
 		77229AB52181E02B002840A1 /* PlayersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77229AB42181E02B002840A1 /* PlayersTableViewController.swift */; };
 		77229AB72181E065002840A1 /* Players.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77229AB62181E065002840A1 /* Players.storyboard */; };
 		772ABC91217D024600A9D589 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772ABC90217D024600A9D589 /* AppDelegate.swift */; };
 		772ABC98217D024700A9D589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 772ABC97217D024700A9D589 /* Assets.xcassets */; };
 		772ABC9B217D024700A9D589 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 772ABC99217D024700A9D589 /* LaunchScreen.storyboard */; };
 		772ABCA5217D030300A9D589 /* Top.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 772ABCA4217D030300A9D589 /* Top.storyboard */; };
-		7756B33321E3D580004EED23 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7756B33221E3D580004EED23 /* RxSwift.framework */; };
-		7756B33721E3DE47004EED23 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7756B33621E3DE47004EED23 /* RxCocoa.framework */; };
-		775841BC21E1325700B64862 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775841BA21E1325700B64862 /* Realm.framework */; };
-		775841BD21E1325700B64862 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775841BB21E1325700B64862 /* RealmSwift.framework */; };
-		775841BF21E154AC00B64862 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775841BE21E154AC00B64862 /* Repository.swift */; };
-		77603842217D05BA005DABC3 /* Scorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77603841217D05BA005DABC3 /* Scorer.swift */; };
 		77603846217D07B6005DABC3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77603845217D07B6005DABC3 /* Extensions.swift */; };
-		776F1D4821DE301E00625C3E /* FavoriteScorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F1D4721DE301E00625C3E /* FavoriteScorer.swift */; };
-		776F1D4A21DE513400625C3E /* Wikipedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F1D4921DE513400625C3E /* Wikipedia.swift */; };
-		776F1D4C21DE547400625C3E /* WikipediaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F1D4B21DE547400625C3E /* WikipediaClient.swift */; };
 		7778558A21C89FA0006AF1AB /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7778558921C89F9F006AF1AB /* Settings.bundle */; };
-		77944B2021E5A14A00796382 /* FavoriteScorerPlain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77944B1F21E5A14A00796382 /* FavoriteScorerPlain.swift */; };
-		77944B2221E5A1CF00796382 /* UserDefaultsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77944B2121E5A1CF00796382 /* UserDefaultsDAO.swift */; };
 		7794E4662199EFE8006CB5BE /* AllTime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7794E4652199EFE8006CB5BE /* AllTime.storyboard */; };
 		7794E4682199F138006CB5BE /* AllTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */; };
-		7794E46A2199F388006CB5BE /* OverallScorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794E4692199F388006CB5BE /* OverallScorer.swift */; };
-		7796F66821DD90BB003C2252 /* RealmDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7796F66721DD90BB003C2252 /* RealmDAO.swift */; };
 		77AB25E421D8E6FF005FBCF5 /* Current.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AB25E321D8E6FF005FBCF5 /* Current.storyboard */; };
 		77AB25E621D8E7E8005FBCF5 /* CurrentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB25E521D8E7E8005FBCF5 /* CurrentTableViewController.swift */; };
 		77AB25E821D8EB85005FBCF5 /* Maps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AB25E721D8EB85005FBCF5 /* Maps.storyboard */; };
@@ -42,16 +27,13 @@
 		77AB25EE21D912B0005FBCF5 /* Association.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AB25ED21D912B0005FBCF5 /* Association.storyboard */; };
 		77AB25F021D91334005FBCF5 /* AssociationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB25EF21D91334005FBCF5 /* AssociationTableViewController.swift */; };
 		77C3176121F1DA6E00E5DF4E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77C3176021F1DA6E00E5DF4E /* GoogleService-Info.plist */; };
-		77F158FB21984EAF001575FC /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F158FA21984EAF001575FC /* Competition.swift */; };
 		77F868B5217D16EF002B1132 /* FlagKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F868B4217D16EF002B1132 /* FlagKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0FC9773539757ACA07EDF8CB /* Pods-Goalscorer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Goalscorer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Goalscorer/Pods-Goalscorer.release.xcconfig"; sourceTree = "<group>"; };
-		771539BA21DA0559005C0A4C /* Association.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Association.swift; sourceTree = "<group>"; };
 		771539BC21DA073D005C0A4C /* AssociationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociationAnnotation.swift; sourceTree = "<group>"; };
 		771EF7B221E29BFD006ACEFD /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.realm; sourceTree = "<group>"; };
-		77229AB22181DFDD002840A1 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		77229AB42181E02B002840A1 /* PlayersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTableViewController.swift; sourceTree = "<group>"; };
 		77229AB62181E065002840A1 /* Players.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Players.storyboard; sourceTree = "<group>"; };
 		772ABC8D217D024600A9D589 /* Goalscorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goalscorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,20 +47,11 @@
 		7756B33621E3DE47004EED23 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		775841BA21E1325700B64862 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		775841BB21E1325700B64862 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
-		775841BE21E154AC00B64862 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		77603841217D05BA005DABC3 /* Scorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scorer.swift; sourceTree = "<group>"; };
 		77603845217D07B6005DABC3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		776F1D4721DE301E00625C3E /* FavoriteScorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteScorer.swift; sourceTree = "<group>"; };
-		776F1D4921DE513400625C3E /* Wikipedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wikipedia.swift; sourceTree = "<group>"; };
-		776F1D4B21DE547400625C3E /* WikipediaClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaClient.swift; sourceTree = "<group>"; };
 		7778558921C89F9F006AF1AB /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		77944B1F21E5A14A00796382 /* FavoriteScorerPlain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteScorerPlain.swift; sourceTree = "<group>"; };
-		77944B2121E5A1CF00796382 /* UserDefaultsDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsDAO.swift; sourceTree = "<group>"; };
 		7794E4652199EFE8006CB5BE /* AllTime.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AllTime.storyboard; sourceTree = "<group>"; };
 		7794E4672199F138006CB5BE /* AllTimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTimeTableViewController.swift; sourceTree = "<group>"; };
-		7794E4692199F388006CB5BE /* OverallScorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallScorer.swift; sourceTree = "<group>"; };
 		7796F66521DD8BCA003C2252 /* SwipeCellKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeCellKit.framework; path = Carthage/Build/iOS/SwipeCellKit.framework; sourceTree = "<group>"; };
-		7796F66721DD90BB003C2252 /* RealmDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDAO.swift; sourceTree = "<group>"; };
 		77AB25E321D8E6FF005FBCF5 /* Current.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Current.storyboard; sourceTree = "<group>"; };
 		77AB25E521D8E7E8005FBCF5 /* CurrentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTableViewController.swift; sourceTree = "<group>"; };
 		77AB25E721D8EB85005FBCF5 /* Maps.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Maps.storyboard; sourceTree = "<group>"; };
@@ -86,7 +59,6 @@
 		77AB25ED21D912B0005FBCF5 /* Association.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Association.storyboard; sourceTree = "<group>"; };
 		77AB25EF21D91334005FBCF5 /* AssociationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociationTableViewController.swift; sourceTree = "<group>"; };
 		77C3176021F1DA6E00E5DF4E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		77F158FA21984EAF001575FC /* Competition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Competition.swift; sourceTree = "<group>"; };
 		77F868B4217D16EF002B1132 /* FlagKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlagKit.framework; path = Carthage/Build/iOS/FlagKit.framework; sourceTree = "<group>"; };
 		C99A7E1DA6C48C68446204B9 /* Pods_Goalscorer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Goalscorer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4536764CDE13A4DEF9D35A7 /* Pods-Goalscorer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Goalscorer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Goalscorer/Pods-Goalscorer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,10 +69,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7756B33721E3DE47004EED23 /* RxCocoa.framework in Frameworks */,
-				7756B33321E3D580004EED23 /* RxSwift.framework in Frameworks */,
-				775841BC21E1325700B64862 /* Realm.framework in Frameworks */,
-				775841BD21E1325700B64862 /* RealmSwift.framework in Frameworks */,
 				77F868B5217D16EF002B1132 /* FlagKit.framework in Frameworks */,
 				071A5B2A813C9F160218D677 /* Pods_Goalscorer.framework in Frameworks */,
 			);
@@ -172,20 +140,8 @@
 		77603840217D0583005DABC3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				771539BA21DA0559005C0A4C /* Association.swift */,
-				77F158FA21984EAF001575FC /* Competition.swift */,
-				77603841217D05BA005DABC3 /* Scorer.swift */,
-				7794E4692199F388006CB5BE /* OverallScorer.swift */,
-				77229AB22181DFDD002840A1 /* Player.swift */,
-				776F1D4721DE301E00625C3E /* FavoriteScorer.swift */,
-				77944B1F21E5A14A00796382 /* FavoriteScorerPlain.swift */,
-				776F1D4921DE513400625C3E /* Wikipedia.swift */,
 				771539BC21DA073D005C0A4C /* AssociationAnnotation.swift */,
-				7796F66721DD90BB003C2252 /* RealmDAO.swift */,
-				77944B2121E5A1CF00796382 /* UserDefaultsDAO.swift */,
-				776F1D4B21DE547400625C3E /* WikipediaClient.swift */,
 				77603845217D07B6005DABC3 /* Extensions.swift */,
-				775841BE21E154AC00B64862 /* Repository.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -252,7 +208,7 @@
 						CreatedOnToolsVersion = 10.0;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -324,19 +280,11 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/FlagKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 			);
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/FlagKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Realm.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RealmSwift.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -355,7 +303,6 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/TDBadgedCell/TDBadgedCell.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -369,7 +316,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TDBadgedCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -411,23 +357,11 @@
 			files = (
 				771539BD21DA073D005C0A4C /* AssociationAnnotation.swift in Sources */,
 				77603846217D07B6005DABC3 /* Extensions.swift in Sources */,
-				776F1D4C21DE547400625C3E /* WikipediaClient.swift in Sources */,
 				77AB25F021D91334005FBCF5 /* AssociationTableViewController.swift in Sources */,
 				7794E4682199F138006CB5BE /* AllTimeTableViewController.swift in Sources */,
 				77AB25EC21D8ED5F005FBCF5 /* MapsViewController.swift in Sources */,
 				77229AB52181E02B002840A1 /* PlayersTableViewController.swift in Sources */,
-				771539BB21DA0559005C0A4C /* Association.swift in Sources */,
 				772ABC91217D024600A9D589 /* AppDelegate.swift in Sources */,
-				775841BF21E154AC00B64862 /* Repository.swift in Sources */,
-				7794E46A2199F388006CB5BE /* OverallScorer.swift in Sources */,
-				77229AB32181DFDD002840A1 /* Player.swift in Sources */,
-				776F1D4821DE301E00625C3E /* FavoriteScorer.swift in Sources */,
-				77944B2021E5A14A00796382 /* FavoriteScorerPlain.swift in Sources */,
-				776F1D4A21DE513400625C3E /* Wikipedia.swift in Sources */,
-				77944B2221E5A1CF00796382 /* UserDefaultsDAO.swift in Sources */,
-				77F158FB21984EAF001575FC /* Competition.swift in Sources */,
-				7796F66821DD90BB003C2252 /* RealmDAO.swift in Sources */,
-				77603842217D05BA005DABC3 /* Scorer.swift in Sources */,
 				77AB25E621D8E7E8005FBCF5 /* CurrentTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
