@@ -1,4 +1,4 @@
-# Goalscorers for iOS
+# goalscorer-ios
 
 [![Build Status](https://app.bitrise.io/app/15e8208909829c68/status.svg?token=zFJF9CjxK4YmX18n6KwqkQ&branch=master)](https://app.bitrise.io/app/15e8208909829c68)
 
