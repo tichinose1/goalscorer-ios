@@ -31,3 +31,4 @@ carthage bootstrap --platform iOS
 
 1. Create a Firebase project.
 2. Download `GoogleService-info.plist`.
+
